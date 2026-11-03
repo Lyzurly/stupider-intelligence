@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://cnkljw4h5b5au"]
+
+[ext_resource type="Script" uid="uid://cvurslyph7hv1" path="res://Scripts/manage_game_node.gd" id="1_gxb8a"]
+[ext_resource type="Script" uid="uid://bpo53ps4m1knm" path="res://Scripts/manage_menus_node.gd" id="2_88c7l"]
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="3_loiqe"]
+[ext_resource type="StyleBox" uid="uid://dlm44dld6jpn6" path="res://UI/Themes/menu_panelcontainer.tres" id="4_j70b7"]
+[ext_resource type="PackedScene" uid="uid://dm50xlyho7nsb" path="res://Scenes/ui_menus_box_margincontainer.tscn" id="5_jk8en"]
+[ext_resource type="Script" uid="uid://c7hd3gjks5tse" path="res://Scripts/manage_cinematics_node.gd" id="6_oaooj"]
+[ext_resource type="Script" uid="uid://6bbu7icdb7wi" path="res://Scripts/manage_levels_node.gd" id="7_gngmm"]
+
+[node name="Managers" type="Node" unique_id=1105486308]
+
+[node name="Manage_Game" type="Node" parent="." unique_id=1739263060]
+script = ExtResource("1_gxb8a")
+
+[node name="Manage_Menus" type="Node" parent="." unique_id=1624568645]
+script = ExtResource("2_88c7l")
+
+[node name="Menus_CanvasLayer" type="CanvasLayer" parent="Manage_Menus" unique_id=1006114102]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Manage_Menus/Menus_CanvasLayer" unique_id=1826768586]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_loiqe")
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer" unique_id=118652196]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_j70b7")
+
+[node name="Menu_VSplitContainer" type="VSplitContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer" unique_id=456697740]
+layout_mode = 2
+theme_override_constants/separation = 36
+split_offsets = PackedInt32Array(118, 536, 896)
+split_offset = 118
+
+[node name="Title_MarginContainer" type="MarginContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1872534520]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer" unique_id=304925667]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_j70b7")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer" unique_id=831843500]
+layout_mode = 2
+theme_override_constants/separation = 37
+split_offsets = PackedInt32Array(562)
+split_offset = 562
+
+[node name="MenuBox_Title" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/HSplitContainer" unique_id=724700207 instance=ExtResource("5_jk8en")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MenuBox_Info" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/HSplitContainer" unique_id=690519721 instance=ExtResource("5_jk8en")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Title_MarginContainer2" type="MarginContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=392641227]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2" unique_id=1906905367]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_j70b7")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer" unique_id=640429202]
+layout_mode = 2
+theme_override_constants/separation = 37
+split_offsets = PackedInt32Array(562)
+split_offset = 562
+
+[node name="MenuBox_Title" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer/HSplitContainer" unique_id=20186164 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="MenuBox_Info" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer/HSplitContainer" unique_id=1792150743 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="Title_MarginContainer3" type="MarginContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1286037624]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3" unique_id=790037240]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_j70b7")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer" unique_id=1415995794]
+layout_mode = 2
+theme_override_constants/separation = 37
+split_offsets = PackedInt32Array(562)
+split_offset = 562
+
+[node name="MenuBox_Title" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/HSplitContainer" unique_id=1955559653 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="MenuBox_Info" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/HSplitContainer" unique_id=1315118821 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="Buttons_MarginContainer" type="MarginContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=4010425]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer" unique_id=1503789352]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_j70b7")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer" unique_id=1032634470]
+layout_mode = 2
+theme_override_constants/separation = 37
+split_offsets = PackedInt32Array(562)
+split_offset = 562
+
+[node name="MenuBox_Title" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer" unique_id=433728471 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="MenuBox_Buttons_MarginContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer" unique_id=85890244 instance=ExtResource("5_jk8en")]
+layout_mode = 2
+
+[node name="Label" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer/MenuBox_Buttons_MarginContainer/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(85890244, 110614071) index="0" unique_id=433706068]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer/MenuBox_Buttons_MarginContainer/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(85890244, 110614071) index="1" unique_id=1598933048]
+layout_mode = 2
+alignment = 2
+
+[node name="StartGame_Button" type="Button" parent="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer/MenuBox_Buttons_MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=17085175]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Button_Menus1"
+text = "Start Game"
+
+[node name="Manage_Cinematics" type="Node" parent="." unique_id=2121628224]
+script = ExtResource("6_oaooj")
+
+[node name="Cinematic_CanvasLayer" type="CanvasLayer" parent="Manage_Cinematics" unique_id=736907178]
+unique_name_in_owner = true
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Manage_Cinematics/Cinematic_CanvasLayer" unique_id=2089199461]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Texts" type="Label" parent="Manage_Cinematics/Cinematic_CanvasLayer/MarginContainer" unique_id=1691279495]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 116
+text = "CINEMATIC ENDS IN 4"
+horizontal_alignment = 1
+
+[node name="Timer_OverallLength" type="Timer" parent="Manage_Cinematics" unique_id=2087434970]
+unique_name_in_owner = true
+
+[node name="Manage_Levels" type="Node" parent="." unique_id=2085250047]
+script = ExtResource("7_gngmm")
+
+[editable path="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer/MenuBox_Buttons_MarginContainer"]

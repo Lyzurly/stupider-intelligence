@@ -1,0 +1,24 @@
+[gd_resource type="Theme" format=3 uid="uid://l13dd6ib2ywk"]
+
+[ext_resource type="FontFile" uid="uid://jul0bknmmsm1" path="res://UI/Fonts/Lexend-VariableFont_wght.ttf" id="1_k8iwq"]
+
+[sub_resource type="FontVariation" id="FontVariation_kqjpo"]
+base_font = ExtResource("1_k8iwq")
+variation_embolden = 0.65
+
+[sub_resource type="FontVariation" id="FontVariation_ev726"]
+base_font = ExtResource("1_k8iwq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7u3j"]
+bg_color = Color(0.2827637, 0.10253724, 0.16310716, 1)
+
+[resource]
+Button_Menus1/base_type = &"Button"
+Button_Menus1/font_sizes/font_size = 56
+Button_Menus1/fonts/font = SubResource("FontVariation_kqjpo")
+HSplit_Menus1/base_type = &"HSplitContainer"
+Label_MenuText1/base_type = &"Label"
+Label_MenuText1/font_sizes/font_size = 70
+Label_MenuText1/fonts/font = SubResource("FontVariation_ev726")
+PanelContainer_Menus1/base_type = &"PanelContainer"
+PanelContainer_Menus1/styles/panel = SubResource("StyleBoxFlat_g7u3j")

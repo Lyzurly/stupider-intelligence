@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dk1r26ya0ycb2"]
+
+[ext_resource type="PackedScene" uid="uid://cnkljw4h5b5au" path="res://Scenes/managers_node.tscn" id="1_8624p"]
+[ext_resource type="Script" uid="uid://dfid243cu68nv" path="res://Scripts/level_container_node3d.gd" id="2_injwd"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kqjpo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqjpo"]
+size = Vector3(80, 0.001, 50)
+
+[sub_resource type="Gradient" id="Gradient_2yxlv"]
+offsets = PackedFloat32Array(0.6497175, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oivh3"]
+frequency = 0.116
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7g1cm"]
+noise = SubResource("FastNoiseLite_oivh3")
+color_ramp = SubResource("Gradient_2yxlv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7hum"]
+albedo_texture = SubResource("NoiseTexture2D_7g1cm")
+
+[node name="Main" type="Node3D" unique_id=1967444050]
+
+[node name="Managers" parent="." unique_id=1105486308 instance=ExtResource("1_8624p")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=113235853]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 6, 7)
+
+[node name="Level_Container" type="Node3D" parent="." unique_id=572984278]
+visible = false
+script = ExtResource("2_injwd")
+
+[node name="Ground_StaticBody3D" type="StaticBody3D" parent="Level_Container" unique_id=1625464979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_Container/Ground_StaticBody3D" unique_id=525799234]
+shape = SubResource("WorldBoundaryShape3D_kqjpo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level_Container/Ground_StaticBody3D" unique_id=1312285972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_y7hum")
