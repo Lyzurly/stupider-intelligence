@@ -7,7 +7,7 @@ func _init() -> void:
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var _movement_locked: bool = true
+var _movement_locked: bool = false
 
 func lock_movement(indeed:bool) -> void:
 	_movement_locked = indeed
@@ -26,8 +26,10 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("Forward", "Backward", "Left", "Right")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
+	
+	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
