@@ -1,36 +1,30 @@
-class_name Manage_Cinematics extends Node
+class_name Manage_Cinematics extends Manage_Levels
 static var ref: Manage_Cinematics
 func _init() -> void:
 	ref = self
 
-const _DEFAULT_LENGTH: float = 4.
-var _overall_length: float = _DEFAULT_LENGTH
+enum CINEMATICS {NONE,CINEMATIC_1,CINEMATIC_2}
+var _current: CINEMATICS = CINEMATICS.NONE
 
-@onready var _canvas_layer: CanvasLayer = %Cinematic_CanvasLayer
-@onready var _timer_overall_length: Timer = %Timer_OverallLength
-@onready var _label_texts: Label = %Label_Texts
+var _data: Dictionary[CINEMATICS,Dictionary] = {
+	CINEMATICS.NONE:{},
+	CINEMATICS.CINEMATIC_1:{
+		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+	},
+	CINEMATICS.CINEMATIC_2:{
+		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+	},
+}
 
-func _ready() -> void:
-	_ready_connections()
+func _my_type() -> _LEVEL_TYPES:
+	return _LEVEL_TYPES.CINEMATIC
 
-func _ready_connections() -> void:
-	_timer_overall_length.timeout.connect(_on_length_timeout)
+func switch(to:CINEMATICS) -> void:
+	_load_level(
+		_data[to][LEVEL_CONTENT.SCENE])
+		
+func get_current() -> CINEMATICS:
+	return _current
 
-func start() -> void:
-	_canvas_layer.visible = true
-	_timer_overall_length.start(1)
-
-func _stop() -> void:
-	print("stop happened")
-	_canvas_layer.visible = false
-	_overall_length = _DEFAULT_LENGTH
-	Manage_Game.ref.change_game_state(
-		Manage_Game.GAME_STATES.WALKING)
-
-func _on_length_timeout() -> void:
-	if _overall_length > 0:
-		_overall_length -= 1.
-		_timer_overall_length.start(1)
-		_label_texts.text = "CINEMATIC ENDS IN " + str(_overall_length)
-	else:
-		_stop()
+func set_current(to:CINEMATICS) -> void:
+	_current = to

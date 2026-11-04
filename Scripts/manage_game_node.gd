@@ -2,58 +2,59 @@ class_name Manage_Game extends Node
 static var ref: Manage_Game
 func _init() -> void:
 	ref = self
-	
-var _game_state: GAME_STATES = GAME_STATES.NONE
-enum GAME_STATES{
+
+var _state: STATES = STATES.NONE
+enum STATES{
 	NONE,
 	MENUS, ## Create Character, Shops, Pause,
 	CINEMATIC,
-	WALKING, ## Overworld, Location, Custscene
+	WALKING, ## Overworld, Location, Cutscene
 	BATTLE, ## Intro, Gameplay, Win, Lost
 	}
 	
 func _ready() -> void:
 	pass
 	
-func is_state(which:GAME_STATES) -> bool:
-	return which == _game_state
+func is_state(which:STATES) -> bool:
+	return which == _state
 
-func change_game_state(to:GAME_STATES) -> void:
-	if _game_state == to:
-		return
-		
+func change_state(to:STATES) -> bool:
 	var change_approved: bool = false
 	
+	if _state == to:
+		return change_approved
+			
 	match to:
-		GAME_STATES.NONE:
+		STATES.NONE:
 			change_approved = _check_none()
-		GAME_STATES.MENUS:
+		STATES.MENUS:
 			change_approved = _check_menus()
-		GAME_STATES.CINEMATIC:
+		STATES.CINEMATIC:
 			change_approved = _check_cinematic()
-		GAME_STATES.WALKING:
+		STATES.WALKING:
 			change_approved = _check_walking()
-		GAME_STATES.BATTLE:
+		STATES.BATTLE:
 			change_approved = _check_battle()
 
 	
 	if change_approved:
 		match to:
-			GAME_STATES.NONE:
+			STATES.NONE:
 				_on_none()
-			GAME_STATES.MENUS:
+			STATES.MENUS:
 				_on_menus()
-			GAME_STATES.CINEMATIC:
+			STATES.CINEMATIC:
 				_on_cinematic()
-			GAME_STATES.WALKING:
+			STATES.WALKING:
 				_on_walking()
-			GAME_STATES.BATTLE:
+			STATES.BATTLE:
 				_on_battle()
-		_game_state = to
-		print("GAME STATE: ",GAME_STATES.find_key(_game_state))
+		_state = to
+		print("GAME STATE: ",STATES.find_key(_state))
 	else:
-		print("REJECTED: GAME STATE: ",GAME_STATES.find_key(_game_state))
-		return
+		print("REJECTED: GAME STATE: ",STATES.find_key(_state))
+		
+	return change_approved
 		
 func _check_none() -> bool:
 	return true
@@ -61,7 +62,7 @@ func _on_none() -> void:
 	pass
 
 func _check_menus() -> bool:
-	if is_state(GAME_STATES.WALKING):
+	if is_state(STATES.WALKING):
 		Manage_Menus.ref.show_if_needed()
 		Player.ref.lock_movement(true)
 		return true
@@ -74,26 +75,11 @@ func _check_cinematic() -> bool:
 	return true
 func _on_cinematic() -> void:
 	Manage_Menus.ref.hide_if_needed()
-	Manage_Cinematics.ref.start()
 	
 func _check_walking() -> bool:
 	return true
 func _on_walking() -> void:
-	#TODO: CREATE MENU SUBSTATES TO CHECK IF NEWGAME OR PAUSED
-	#TODO: CREATE MENU SUBSTATES TO CHECK IF NEWGAME OR PAUSED
-	#TODO: CREATE MENU SUBSTATES TO CHECK IF NEWGAME OR PAUSED
-	#TODO: CREATE MENU SUBSTATES TO CHECK IF NEWGAME OR PAUSED
-	#TODO: CREATE MENU SUBSTATES TO CHECK IF NEWGAME OR PAUSED
-	#ALERT DO NOT KEEP "CINEMATIC" HERE LOL?
-	if is_state(GAME_STATES.CINEMATIC):
-		Manage_Levels.ref.load_level(
-			Manage_Levels.LEVELS.OVER_1)
-		await get_tree().process_frame
-		Player.ref.lock_movement(false)
-		Level_Container.ref.show_if_needed()
-	elif is_state(GAME_STATES.MENUS):
-		Manage_Menus.ref.hide_if_needed()
-		Player.ref.lock_movement(false)
+	pass
 		
 func _check_battle() -> bool:
 	return true

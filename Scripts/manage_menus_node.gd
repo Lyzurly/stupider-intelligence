@@ -12,10 +12,10 @@ func _ready() -> void:
 func _ready_connections() -> void:
 	_button_start.pressed.connect(_on_start_pressed)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		Manage_Game.ref.change_game_state(
-			Manage_Game.GAME_STATES.MENUS)
+			Manage_Game.STATES.MENUS)
 
 func show_if_needed() -> void:
 	if not _canvas_layer.visible:
@@ -25,5 +25,5 @@ func hide_if_needed() -> void:
 		_canvas_layer.visible = false
 
 func _on_start_pressed() -> void:
-	Manage_Game.ref.change_game_state(
-		Manage_Game.GAME_STATES.CINEMATIC)
+	Manage_Cinematics.ref.switch(
+		Manage_Cinematics.CINEMATICS.CINEMATIC_1)
