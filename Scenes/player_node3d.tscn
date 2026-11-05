@@ -3,10 +3,29 @@
 [ext_resource type="Script" uid="uid://vrj0bdkpyvjd" path="res://Scripts/player_characterbody3d.gd" id="1_v0iea"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqjpo"]
+radius = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kqn6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqjpo"]
 
 [node name="Player" type="Node3D" unique_id=294953092]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=80832510]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 2, 0)
+light_color = Color(0.103499986, 0.1816999, 0.69, 1)
+light_energy = 12.541
+light_cull_mask = 4294967293
+spot_range = 237.508
+spot_attenuation = 0.0
+spot_angle = 86.35
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=963866506]
+transform = Transform3D(0.955793, 0.29404032, 0, -0.21364224, 0.69445497, 0.6870875, 0.20203142, -0.6567134, 0.72657466, 0, 0, 0)
+layers = 2
+light_color = Color(0.86, 0.4386, 0.6773933, 1)
+light_energy = 0.784
+light_cull_mask = 4294966274
 
 [node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1104665286]
 collision_layer = 0
@@ -14,7 +33,9 @@ script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player_CharacterBody3D" unique_id=1993758693]
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0, 0.99999994, 0, 0, 0)
+layers = 2
 mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_4kqn6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_CharacterBody3D" unique_id=1236690966]
 shape = SubResource("BoxShape3D_kqjpo")

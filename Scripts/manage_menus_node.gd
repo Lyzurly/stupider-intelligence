@@ -14,7 +14,7 @@ func _ready_connections() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause"):
-		Manage_Game.ref.change_game_state(
+		Manage_Game.ref.game_state(
 			Manage_Game.STATES.MENUS)
 
 func show_if_needed() -> void:

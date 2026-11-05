@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk1r26ya0ycb2"]
 
 [ext_resource type="PackedScene" uid="uid://cnkljw4h5b5au" path="res://Scenes/managers_node.tscn" id="1_8624p"]
+[ext_resource type="Script" uid="uid://d38bfydxwrlmc" path="res://Scripts/camera_3d.gd" id="2_8624p"]
 [ext_resource type="Script" uid="uid://dfid243cu68nv" path="res://Scripts/level_container_node3d.gd" id="2_injwd"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0s4yl"]
@@ -21,12 +22,23 @@ color_ramp = SubResource("Gradient_2yxlv")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7hum"]
 albedo_texture = SubResource("NoiseTexture2D_0s4yl")
 
+[sub_resource type="Gradient" id="Gradient_8624p"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y7hum"]
+gradient = SubResource("Gradient_8624p")
+
 [node name="Main" type="Node3D" unique_id=1967444050]
 
 [node name="Managers" parent="." unique_id=1105486308 instance=ExtResource("1_8624p")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=113235853]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 6, 7)
+transform = Transform3D(0.70710677, -0.35355338, 0.6123724, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.6123724, 15.612198, 13.303087, 15.675684)
+projection = 1
+current = true
+fov = 41.6
+size = 32.899
+near = 0.001
+script = ExtResource("2_8624p")
 
 [node name="Level_Container" type="Node3D" parent="." unique_id=572984278]
 visible = false
@@ -42,3 +54,20 @@ shape = SubResource("WorldBoundaryShape3D_0s4yl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
 mesh = SubResource("BoxMesh_kqjpo")
 surface_material_override/0 = SubResource("StandardMaterial3D_y7hum")
+
+[node name="_Center-Debug_CanvasLayer" type="CanvasLayer" parent="." unique_id=1375184163]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="_Center-Debug_CanvasLayer" unique_id=580725261]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_y7hum")

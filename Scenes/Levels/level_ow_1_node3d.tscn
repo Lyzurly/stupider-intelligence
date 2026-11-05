@@ -3,15 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://cts3bcemls064" path="res://Scenes/player_node3d.tscn" id="1_fxpit"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.57, 0.57, 0.57, 1)
+ground_bottom_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
+ground_horizon_color = Color(0.66, 0.66, 0.66, 1)
 
 [sub_resource type="Sky" id="Sky_jtdjp"]
 sky_material = SubResource("ProceduralSkyMaterial_4kqn6")
 
 [sub_resource type="Environment" id="Environment_k1c8l"]
 background_mode = 2
+background_energy_multiplier = 0.22
 sky = SubResource("Sky_jtdjp")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kqjpo"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 12.509
+
+[sub_resource type="BoxMesh" id="BoxMesh_8624p"]
+size = Vector3(10, 10, 10)
 
 [node name="Level_OW_1" type="Node3D" unique_id=1955742991]
 
@@ -20,6 +31,29 @@ environment = SubResource("Environment_k1c8l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1576123733]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.28
+light_cull_mask = 4294966273
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=294953092 instance=ExtResource("1_fxpit")]
+
+[node name="Town_UW_1" type="Node3D" parent="." unique_id=1152417249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+
+[node name="Area3D" type="Area3D" parent="Town_UW_1" unique_id=1716185829]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Town_UW_1/Area3D" unique_id=1434524031]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Town_UW_1" unique_id=309482282]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_kqjpo")
+
+[node name="Town_UW_2" type="Node3D" parent="." unique_id=183893227]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.071068, 0, 15.071068)
+
+[node name="Area3D" type="Area3D" parent="Town_UW_2" unique_id=63293823]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Town_UW_2/Area3D" unique_id=1286105570]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Town_UW_2" unique_id=1003352744]
+mesh = SubResource("BoxMesh_8624p")

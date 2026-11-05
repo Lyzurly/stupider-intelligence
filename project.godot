@@ -24,7 +24,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-neovim/plugin.cfg", "res://addons/script_splitter/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-neovim/plugin.cfg")
 
 [input]
 
@@ -60,6 +60,7 @@ Pause={
 
 [layer_names]
 
+3d_render/layer_2="Player"
 3d_physics/layer_1="Ground"
 
 [physics]
