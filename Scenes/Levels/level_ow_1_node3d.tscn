@@ -49,7 +49,7 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 mesh = SubResource("CylinderMesh_kqjpo")
 
 [node name="Town_UW_2" type="Node3D" parent="." unique_id=183893227]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -7.071068, 0, 15.071068)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 7.9289, 0, 11.0811)
 
 [node name="Area3D" type="Area3D" parent="Town_UW_2" unique_id=63293823]
 

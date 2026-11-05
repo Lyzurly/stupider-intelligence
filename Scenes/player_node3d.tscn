@@ -7,18 +7,11 @@ radius = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kqn6"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_s5i74"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqjpo"]
 
 [node name="Player" type="Node3D" unique_id=294953092]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=80832510]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 2, 0)
-light_color = Color(0.103499986, 0.1816999, 0.69, 1)
-light_energy = 12.541
-light_cull_mask = 4294967293
-spot_range = 237.508
-spot_attenuation = 0.0
-spot_angle = 86.35
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=963866506]
 transform = Transform3D(0.955793, 0.29404032, 0, -0.21364224, 0.69445497, 0.6870875, 0.20203142, -0.6567134, 0.72657466, 0, 0, 0)
@@ -31,11 +24,30 @@ light_cull_mask = 4294966274
 collision_layer = 0
 script = ExtResource("1_v0iea")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player_CharacterBody3D" unique_id=1993758693]
-transform = Transform3D(-4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0, 0.99999994, 0, 0, 0)
+[node name="Player_MeshContainer" type="Node3D" parent="Player_CharacterBody3D" unique_id=965741332]
+unique_name_in_owner = true
+
+[node name="Player_MeshInstance3D" type="MeshInstance3D" parent="Player_CharacterBody3D/Player_MeshContainer" unique_id=1993758693]
+unique_name_in_owner = true
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 0.9999999, 0, 0, 0)
 layers = 2
 mesh = SubResource("CapsuleMesh_kqjpo")
 surface_material_override/0 = SubResource("StandardMaterial3D_4kqn6")
 
+[node name="Player_MeshInstance3D2" type="MeshInstance3D" parent="Player_CharacterBody3D/Player_MeshContainer/Player_MeshInstance3D" unique_id=1896496335]
+transform = Transform3D(0.13668245, 0.99061465, -3.675678e-08, -0.70047057, 0.09664905, -0.7071067, -0.7004705, 0.096649095, 0.70710677, 1.0829065, 0.83732724, 3.6600746e-08)
+layers = 2
+mesh = SubResource("BoxMesh_s5i74")
+surface_material_override/0 = SubResource("StandardMaterial3D_4kqn6")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_CharacterBody3D" unique_id=1236690966]
 shape = SubResource("BoxShape3D_kqjpo")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player_CharacterBody3D" unique_id=80832510]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 2, 0)
+light_color = Color(0.103499986, 0.1816999, 0.69, 1)
+light_energy = 12.541
+light_cull_mask = 4294967293
+spot_range = 237.508
+spot_attenuation = 0.0
+spot_angle = 86.35
