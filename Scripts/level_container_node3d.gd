@@ -3,6 +3,8 @@ static var ref: Level_Container
 func _init() -> void:
 	ref = self
 	
+const _PLAYER_SCENE: PackedScene = preload("uid://ddj6t6pm1wpst")
+	
 var _current_level: Level = null
 var _current_level_type: Manage_Level.LEVEL_TYPES = \
 	Manage_Level.LEVEL_TYPES.NONE
@@ -44,18 +46,24 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 		which.instantiate()
 	var level: Level = \
 		scene as Level
-		
+	
 	destroy_level()
+	
+	var player: Node3D = \
+		_PLAYER_SCENE.instantiate()
+	level.add_child(player)
+		
 	_current_level = level
-	add_child(scene)
+	add_child(level)
+	
 	
 	match type:
 		Manage_Level.LEVEL_TYPES.CINEMATIC: 
-			if not scene is Cinematic:
-				push_error("Uh oh tried to instantiate a cinematic that ain't a cinematic: ",scene)
+			if not level is Cinematic:
+				push_error("Uh oh tried to instantiate a cinematic that ain't a cinematic: ",level)
 				return
 				
-			var cinematic: Cinematic = scene as Cinematic
+			var cinematic: Cinematic = level as Cinematic
 			cinematic.start()
 			
 		Manage_Level.LEVEL_TYPES.OVERWORLD: \

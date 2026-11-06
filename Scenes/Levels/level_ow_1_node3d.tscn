@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cw74gl6esrrrw"]
 
-[ext_resource type="PackedScene" uid="uid://ddj6t6pm1wpst" path="res://Scenes/player_node3d.tscn" id="1_jtdjp"]
+[ext_resource type="Script" uid="uid://y6ma2sugbii7" path="res://Scripts/ow_1_level.gd" id="1_jtdjp"]
 [ext_resource type="Script" uid="uid://ctyulikix1k0c" path="res://Scenes/Levels/ow_underworld_area3d.gd" id="2_jtdjp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
@@ -29,6 +29,7 @@ height = 12.509
 size = Vector3(10, 10, 10)
 
 [node name="Level_OW_1" type="Node3D" unique_id=1955742991]
+script = ExtResource("1_jtdjp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1806314111]
 environment = SubResource("Environment_k1c8l")
@@ -38,8 +39,6 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_energy = 0.28
 light_cull_mask = 4294966273
 shadow_enabled = true
-
-[node name="Player" parent="." unique_id=294953092 instance=ExtResource("1_jtdjp")]
 
 [node name="Town_UW_1" type="Node3D" parent="." unique_id=1152417249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)

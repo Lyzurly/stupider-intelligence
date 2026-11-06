@@ -1,3 +1,3 @@
-@abstract class_name Cinematic extends Node3D
+@abstract class_name Cinematic extends Level
 
 @abstract func start()

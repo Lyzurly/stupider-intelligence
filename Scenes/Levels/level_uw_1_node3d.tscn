@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ch0rq1ufgwb81" path="res://Scripts/uw_1_level.gd" id="1_mjpjn"]
 [ext_resource type="PackedScene" uid="uid://c03v6k1bgorvx" path="res://Scenes/Doors/door-uw1_building1_node3d.tscn" id="2_6srb7"]
-[ext_resource type="PackedScene" uid="uid://ddj6t6pm1wpst" path="res://Scenes/player_node3d.tscn" id="2_mjpjn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -26,8 +25,6 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="UW_Positioner" unique_id=1806314111]
 environment = SubResource("Environment_k1c8l")
-
-[node name="Player" parent="UW_Positioner" unique_id=294953092 instance=ExtResource("2_mjpjn")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="UW_Positioner" unique_id=1576123733]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)

@@ -21,8 +21,9 @@ func is_state(which:STATES) -> bool:
 func change_state(to:STATES) -> bool:
 	var change_approved: bool = false
 	
-	if _state == to:
-		return change_approved
+	#NOTE If you comment this in, changing the walking state will get rejected!
+	#if _state == to:
+		#return change_approved
 			
 	match to:
 		STATES.NONE:
