@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cw74gl6esrrrw"]
 
-[ext_resource type="PackedScene" uid="uid://cts3bcemls064" path="res://Scenes/player_node3d.tscn" id="1_fxpit"]
+[ext_resource type="PackedScene" uid="uid://ddj6t6pm1wpst" path="res://Scenes/player_node3d.tscn" id="1_jtdjp"]
+[ext_resource type="Script" uid="uid://ctyulikix1k0c" path="res://Scenes/Levels/ow_underworld_area3d.gd" id="2_jtdjp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -15,6 +16,9 @@ sky_material = SubResource("ProceduralSkyMaterial_4kqn6")
 background_mode = 2
 background_energy_multiplier = 0.22
 sky = SubResource("Sky_jtdjp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krwqu"]
+size = Vector3(12.023682, 3.480713, 3.5332031)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kqjpo"]
 top_radius = 2.0
@@ -35,14 +39,18 @@ light_energy = 0.28
 light_cull_mask = 4294966273
 shadow_enabled = true
 
-[node name="Player" parent="." unique_id=294953092 instance=ExtResource("1_fxpit")]
+[node name="Player" parent="." unique_id=294953092 instance=ExtResource("1_jtdjp")]
 
 [node name="Town_UW_1" type="Node3D" parent="." unique_id=1152417249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 
 [node name="Area3D" type="Area3D" parent="Town_UW_1" unique_id=1716185829]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_jtdjp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Town_UW_1/Area3D" unique_id=1434524031]
+shape = SubResource("BoxShape3D_krwqu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Town_UW_1" unique_id=309482282]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -50,8 +58,11 @@ mesh = SubResource("CylinderMesh_kqjpo")
 
 [node name="Town_UW_2" type="Node3D" parent="." unique_id=183893227]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 7.9289, 0, 11.0811)
+visible = false
 
 [node name="Area3D" type="Area3D" parent="Town_UW_2" unique_id=63293823]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Town_UW_2/Area3D" unique_id=1286105570]
 

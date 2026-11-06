@@ -7,10 +7,19 @@ func _init() -> void:
 
 @onready var _mesh: MeshInstance3D = %Player_MeshInstance3D
 
+@onready var _detect_area: Area3D = %Detect_Area3D
+
 const SPEED = 12
 const JUMP_VELOCITY = 4.5
 
 var _movement_locked: bool = false
+
+func _ready() -> void:
+	_ready_connections()
+	
+func _ready_connections() -> void:
+	_detect_area.area_entered.connect(
+		_on_area_entered)
 
 func lock_movement(indeed:bool) -> void:
 	_movement_locked = indeed
@@ -105,3 +114,9 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+func _on_area_entered(area:Area3D) -> void:
+	if area is OW_Underworld:
+		print("WE HAVE ENTERED A TOWN")
+		Manage_Underworld.ref.switch(
+			Manage_Underworld.UNDERWORLDS.UNDERWORLD_1)

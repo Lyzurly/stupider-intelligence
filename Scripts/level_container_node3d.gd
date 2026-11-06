@@ -2,6 +2,11 @@ class_name Level_Container extends Node3D
 static var ref: Level_Container
 func _init() -> void:
 	ref = self
+	
+var _current_level: Level = null
+var _current_level_type: Manage_Level.LEVEL_TYPES = \
+	Manage_Level.LEVEL_TYPES.NONE
+
 
 #region "Camera" rotation ======================
 const ROT_MIN: float = -45.
@@ -15,6 +20,55 @@ func _input(event: InputEvent) -> void:
 func show_if_needed() -> void:
 	if not visible:
 		visible = true
+		
+func load_level(
+type:Manage_Level.LEVEL_TYPES,which:PackedScene
+) -> void:
+	var approved: bool = false
+	
+	match type:
+		Manage_Level.LEVEL_TYPES.CINEMATIC: \
+			approved = Manage_Game.ref.change_state(
+				Manage_Game.STATES.CINEMATIC)
+		Manage_Level.LEVEL_TYPES.OVERWORLD: \
+			approved = Manage_Walking.ref.change_state(
+				Manage_Walking.STATES.OVERWORLD)
+		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
+			approved = Manage_Walking.ref.change_state(
+				Manage_Walking.STATES.UNDERWORLD)
+	
+	if not approved:
+		return
+		
+	var scene: Node3D = \
+		which.instantiate()
+	var level: Level = \
+		scene as Level
+		
+	destroy_level()
+	_current_level = level
+	add_child(scene)
+	
+	match type:
+		Manage_Level.LEVEL_TYPES.CINEMATIC: 
+			if not scene is Cinematic:
+				push_error("Uh oh tried to instantiate a cinematic that ain't a cinematic: ",scene)
+				return
+				
+			var cinematic: Cinematic = scene as Cinematic
+			cinematic.start()
+			
+		Manage_Level.LEVEL_TYPES.OVERWORLD: \
+			pass
+		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
+			pass
+
+func destroy_level() -> void:
+	if not _current_level:
+		return
+	_current_level.queue_free()
+	_current_level = null
+
 
 func _input_rotation(event:InputEvent) -> void:
 	if Input.is_action_just_pressed("Clockwise"):

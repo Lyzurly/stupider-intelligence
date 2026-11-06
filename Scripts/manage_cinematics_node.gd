@@ -1,4 +1,4 @@
-class_name Manage_Cinematics extends Manage_Levels
+class_name Manage_Cinematics extends Manage_Level
 static var ref: Manage_Cinematics
 func _init() -> void:
 	ref = self
@@ -9,15 +9,15 @@ var _current: CINEMATICS = CINEMATICS.NONE
 var _data: Dictionary[CINEMATICS,Dictionary] = {
 	CINEMATICS.NONE:{},
 	CINEMATICS.CINEMATIC_1:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
 	},
 	CINEMATICS.CINEMATIC_2:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
 	},
 }
 
-func _my_type() -> _LEVEL_TYPES:
-	return _LEVEL_TYPES.CINEMATIC
+func _my_type() -> LEVEL_TYPES:
+	return LEVEL_TYPES.CINEMATIC
 
 func switch(to:CINEMATICS) -> void:
 	_load_level(

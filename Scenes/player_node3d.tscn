@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://cts3bcemls064"]
+[gd_scene format=3 uid="uid://ddj6t6pm1wpst"]
 
-[ext_resource type="Script" uid="uid://vrj0bdkpyvjd" path="res://Scripts/player_characterbody3d.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://vrj0bdkpyvjd" path="res://Scripts/player_characterbody3d.gd" id="1_4awja"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqjpo"]
+radius = 0.35
+height = 3.12
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqjpo"]
 radius = 0.7
@@ -22,7 +26,16 @@ light_cull_mask = 4294966274
 
 [node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1104665286]
 collision_layer = 0
-script = ExtResource("1_v0iea")
+script = ExtResource("1_4awja")
+
+[node name="Detect_Area3D" type="Area3D" parent="Player_CharacterBody3D" unique_id=1846698510]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_CharacterBody3D/Detect_Area3D" unique_id=1761688860]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5580946, 0, 0)
+shape = SubResource("CapsuleShape3D_kqjpo")
 
 [node name="Player_MeshContainer" type="Node3D" parent="Player_CharacterBody3D" unique_id=965741332]
 unique_name_in_owner = true

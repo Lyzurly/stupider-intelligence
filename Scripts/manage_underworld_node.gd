@@ -1,4 +1,4 @@
-class_name Manage_Underworld extends Manage_Levels
+class_name Manage_Underworld extends Manage_Level
 static var ref: Manage_Underworld
 func _init() -> void:
 	ref = self
@@ -9,15 +9,15 @@ var _current: UNDERWORLDS = UNDERWORLDS.NONE
 var _data: Dictionary[UNDERWORLDS,Dictionary] = {
 	UNDERWORLDS.NONE:{},
 	UNDERWORLDS.UNDERWORLD_1:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://wwln17hfavdv")
 	},
 	UNDERWORLDS.UNDERWORLD_2:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
 	},
 }
 
-func _my_type() -> _LEVEL_TYPES:
-	return _LEVEL_TYPES.UNDERWORLD
+func _my_type() -> LEVEL_TYPES:
+	return LEVEL_TYPES.UNDERWORLD
 	
 func switch(to:UNDERWORLDS) -> void:
 	_load_level(

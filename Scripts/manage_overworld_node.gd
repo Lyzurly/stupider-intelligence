@@ -1,4 +1,4 @@
-class_name Manage_Overworld extends Manage_Levels
+class_name Manage_Overworld extends Manage_Level
 static var ref: Manage_Overworld
 func _init() -> void:
 	ref = self
@@ -9,15 +9,15 @@ var _current: OVERWORLDS = OVERWORLDS.NONE
 var _data: Dictionary[OVERWORLDS,Dictionary] = {
 	OVERWORLDS.NONE:{},
 	OVERWORLDS.OVERWORLD_1:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
 	},
 	OVERWORLDS.OVERWORLD_2:{
-		Manage_Levels.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://cw74gl6esrrrw")
 	},
 }
 
-func _my_type() -> _LEVEL_TYPES:
-	return _LEVEL_TYPES.OVERWORLD
+func _my_type() -> LEVEL_TYPES:
+	return LEVEL_TYPES.OVERWORLD
 
 func switch(to:OVERWORLDS) -> void:
 	_load_level(

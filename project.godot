@@ -75,6 +75,7 @@ CounterClockwise={
 
 3d_render/layer_2="Player"
 3d_physics/layer_1="Ground"
+3d_physics/layer_2="OW_Underworld"
 
 [physics]
 

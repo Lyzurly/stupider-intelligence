@@ -66,9 +66,14 @@ func _on_overworld() -> void:
 	Level_Container.ref.show_if_needed()
 		
 func _check_underworld() -> bool:
-	return true
+	var approved = \
+		Manage_Game.ref.change_state(
+			Manage_Game.STATES.WALKING)
+	return approved
 func _on_underworld() -> void:
-	pass
+	await get_tree().process_frame
+	Player.ref.lock_movement(false)
+	Level_Container.ref.show_if_needed()
 		
 func _check_cutscene() -> bool:
 	return true
