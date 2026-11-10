@@ -28,6 +28,7 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 ) -> void:
 	var approved: bool = false
 	
+	#region State approval check =======================
 	match type:
 		Manage_Level.LEVEL_TYPES.CINEMATIC: \
 			approved = Manage_Game.ref.change_state(
@@ -41,6 +42,7 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 	
 	if not approved:
 		return
+	#endregion --------------------------------------
 		
 	var scene: Node3D = \
 		which.instantiate()
@@ -49,9 +51,14 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 	
 	destroy_level()
 	
-	var player: Node3D = \
-		_PLAYER_SCENE.instantiate()
-	level.add_child(player)
+	match type:
+		Manage_Level.LEVEL_TYPES.OVERWORLD, \
+		Manage_Level.LEVEL_TYPES.UNDERWORLD:
+			var player: Node3D = \
+				_PLAYER_SCENE.instantiate()
+			level.add_child(player)
+		#Manage_Level.LEVEL_TYPES.BATTLE_SCENE:
+			#var battle_characters: Node3D = \
 		
 	_current_level = level
 	add_child(level)

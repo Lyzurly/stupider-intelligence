@@ -3,9 +3,9 @@ static var ref: Player
 func _init() -> void:
 	ref = self
 	
-@onready var _mesh_container: Node3D = %Player_MeshContainer
+@onready var _mesh_container: Player_MeshContainer = %Player_MeshContainer
 
-@onready var _mesh: MeshInstance3D = %Player_MeshInstance3D
+@onready var _mesh: MeshInstance3D
 
 @onready var _detect_area: Area3D = %Detect_Area3D
 
@@ -15,8 +15,12 @@ const JUMP_VELOCITY = 4.5
 var _movement_locked: bool = false
 
 func _ready() -> void:
+	_ready_mesh()
 	_ready_connections()
-	
+
+func _ready_mesh() -> void:
+	_mesh = _mesh_container.get_player_mesh()
+
 func _ready_connections() -> void:
 	_detect_area.area_entered.connect(
 		_on_area_entered)

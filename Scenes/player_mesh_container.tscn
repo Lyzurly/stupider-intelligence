@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dqk76mpfrchuu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqjpo"]
+radius = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kqn6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s5i74"]
+
+[node name="Player_MeshContainer" type="Node3D" unique_id=1898255909]
+
+[node name="Player_MeshInstance3D" type="MeshInstance3D" parent="." unique_id=233737287]
+unique_name_in_owner = true
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 0.9999999, 0, 0, 0)
+layers = 2
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_4kqn6")
+
+[node name="Player_MeshInstance3D2" type="MeshInstance3D" parent="Player_MeshInstance3D" unique_id=1124908946]
+transform = Transform3D(0.13668245, 0.99061465, -3.675678e-08, -0.70047057, 0.09664905, -0.7071067, -0.7004705, 0.096649095, 0.70710677, 1.0829065, 0.83732724, 3.6600746e-08)
+layers = 2
+mesh = SubResource("BoxMesh_s5i74")
+surface_material_override/0 = SubResource("StandardMaterial3D_4kqn6")
