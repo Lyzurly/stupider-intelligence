@@ -39,6 +39,9 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
 			approved = Manage_Walking.ref.change_state(
 				Manage_Walking.STATES.UNDERWORLD)
+		Manage_Level.LEVEL_TYPES.BATTLE_SCENE: \
+			approved = Manage_Battle.ref.change_state(
+				Manage_Battle.STATES.INTRO)
 	
 	if not approved:
 		return
@@ -51,19 +54,20 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 	
 	destroy_level()
 	
+	#region Player spawn check =======================
 	match type:
 		Manage_Level.LEVEL_TYPES.OVERWORLD, \
 		Manage_Level.LEVEL_TYPES.UNDERWORLD:
 			var player: Node3D = \
 				_PLAYER_SCENE.instantiate()
 			level.add_child(player)
-		#Manage_Level.LEVEL_TYPES.BATTLE_SCENE:
-			#var battle_characters: Node3D = \
-		
+	#endregion --------------------------------------
+	
 	_current_level = level
 	add_child(level)
 	
 	
+	#region Level-loaded actions =======================
 	match type:
 		Manage_Level.LEVEL_TYPES.CINEMATIC: 
 			if not level is Cinematic:
@@ -77,6 +81,9 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 			pass
 		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
 			pass
+		Manage_Level.LEVEL_TYPES.BATTLE_SCENE: \
+			pass
+		#endregion --------------------------------------
 
 func destroy_level() -> void:
 	if not _current_level:

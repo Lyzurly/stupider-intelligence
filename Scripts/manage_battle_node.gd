@@ -66,8 +66,6 @@ func _check_intro() -> bool:
 			Manage_Game.STATES.BATTLE)
 	return approved
 func _on_intro() -> void:
-	await get_tree().process_frame
-	Player.ref.lock_movement(false)
 	Level_Container.ref.show_if_needed()
 		
 func _check_gameplay() -> bool:

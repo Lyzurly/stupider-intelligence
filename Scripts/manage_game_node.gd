@@ -80,9 +80,9 @@ func _on_cinematic() -> void:
 func _check_walking() -> bool:
 	return true
 func _on_walking() -> void:
-	pass
+	Manage_Menus.ref.hide_if_needed()
 		
 func _check_battle() -> bool:
 	return true
 func _on_battle() -> void:
-	pass
+	Manage_Menus.ref.hide_if_needed()

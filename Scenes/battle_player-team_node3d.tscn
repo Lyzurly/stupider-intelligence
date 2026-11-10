@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://7yrnqwmwyunv"]
+
+[ext_resource type="PackedScene" uid="uid://dqk76mpfrchuu" path="res://Scenes/player_mesh_container.tscn" id="1_fur47"]
+
+[node name="Battle_PlayerTeam" type="Node3D" unique_id=1274172338]
+
+[node name="Player_MeshContainer" parent="." unique_id=1898255909 instance=ExtResource("1_fur47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Player_MeshContainer2" parent="." unique_id=101149777 instance=ExtResource("1_fur47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Player_MeshContainer3" parent="." unique_id=1902562747 instance=ExtResource("1_fur47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Player_MeshContainer4" parent="." unique_id=1420918903 instance=ExtResource("1_fur47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
