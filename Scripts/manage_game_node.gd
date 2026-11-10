@@ -81,8 +81,12 @@ func _check_walking() -> bool:
 	return true
 func _on_walking() -> void:
 	Manage_Menus.ref.hide_if_needed()
+	Manage_Camera.ref.switch(
+		Manage_Camera.CAMERAS.WALKING)
 		
 func _check_battle() -> bool:
 	return true
 func _on_battle() -> void:
 	Manage_Menus.ref.hide_if_needed()
+	Manage_Camera.ref.switch(
+		Manage_Camera.CAMERAS.BATTLE)

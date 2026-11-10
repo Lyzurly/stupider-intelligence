@@ -1,5 +1,5 @@
-class_name Camera extends Node3D
-static var ref: Camera
+class_name Camera_Walking extends Camera3D
+static var ref: Camera_Walking
 func _init() -> void:
 	ref = self
 

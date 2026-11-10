@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dgxuafn31w1lb"]
+
+[ext_resource type="PackedScene" uid="uid://bls3nb4idxv42" path="res://Scenes/battle_maze_wall_node2d.tscn" id="1_i62u4"]
+
+[node name="BattleMaze_Wall_B" type="Node2D" unique_id=430573458]
+
+[node name="BattleMaze_Wall" parent="." unique_id=1817510438 instance=ExtResource("1_i62u4")]
+rotation = -1.5707964

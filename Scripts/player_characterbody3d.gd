@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 		if diagonal:
 			speed_scalar = 1.0 + abs(direction.z)/4
 		
-		Camera.ref.lower_lerp_speed()
+		Camera_Walking.ref.lower_lerp_speed()
 		velocity.x = direction.x * SPEED * speed_scalar
 		velocity.z = direction.z * SPEED * speed_scalar
 		
@@ -99,12 +99,12 @@ func _physics_process(delta: float) -> void:
 			#lerp(
 				#_mesh.global_rotation.y,
 				#deg_to_rad(dir_to_face),
-				#Camera.ref.get_low_lerp_speed())
+				#Camera_Walking.ref.get_low_lerp_speed())
 		_mesh.global_rotation.y = \
 			lerp(
 				_mesh.global_rotation.y,
 				deg_to_rad(dir_to_face),
-				Camera.ref.get_default_lerp_speed())
+				Camera_Walking.ref.get_default_lerp_speed())
 		#print("\nVEL: ",velocity,"\nDIR: ",direction,"\nVEL-L: ",velocity.length(),"\n")
 		#print("\n",direction,"\n",dir_to_face,"\n")
 			
@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	if velocity == Vector3.ZERO:
-		Camera.ref.reset_lerp_speed()
+		Camera_Walking.ref.reset_lerp_speed()
 	
 	
 

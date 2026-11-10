@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dhswb6bqy7pko"]
+
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="1_s5ul2"]
+[ext_resource type="StyleBox" uid="uid://dlm44dld6jpn6" path="res://UI/Themes/menu_panelcontainer.tres" id="2_dky7s"]
+[ext_resource type="PackedScene" uid="uid://g61yy80letg6" path="res://Scenes/ui_menu_hsplitcontainer.tscn" id="3_7qtqs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_076je"]
+bg_color = Color(0.12, 0.026400004, 0.057600014, 0)
+
+[node name="BattleMenu_CanvasLayer" type="CanvasLayer" unique_id=1460470583]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1163592437]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s5ul2")
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1292350357]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_076je")
+
+[node name="Menu_VSplitContainer" type="VSplitContainer" parent="MarginContainer/PanelContainer" unique_id=1781391591]
+layout_mode = 2
+theme_override_constants/separation = 36
+split_offsets = PackedInt32Array(118, 272)
+split_offset = 118
+
+[node name="Title_MarginContainer3" type="MarginContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1153600968]
+layout_mode = 2
+theme_override_constants/margin_bottom = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3" unique_id=387335026]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_dky7s")
+
+[node name="Menu_HSplitContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer" unique_id=254556396 instance=ExtResource("3_7qtqs")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/Menu_HSplitContainer/MenuBox_Title/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(254556396, 724700207, 110614071) index="0" unique_id=433706068]
+theme_override_font_sizes/font_size = 48
+
+[node name="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/Menu_HSplitContainer/MenuBox_Info/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(254556396, 330971687, 110614071) index="0" unique_id=433706068]
+theme_override_font_sizes/font_size = 48
+
+[node name="Title_MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=292851211]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2" unique_id=1168724545]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_076je")
+
+[node name="Menu_HSplitContainer" type="HSplitContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer" unique_id=1321000378]
+layout_mode = 2
+theme_override_constants/separation = 37
+split_offsets = PackedInt32Array(562)
+split_offset = 562
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer/Menu_HSplitContainer" unique_id=1577865784]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 80
+text = "BATTLE AREA LEFT"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer2/PanelContainer/Menu_HSplitContainer" unique_id=1411081058]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 80
+text = "BATTLE AREA RIGHT"
+horizontal_alignment = 1
+
+[node name="Title_MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1816050587]
+layout_mode = 2
+theme_override_constants/margin_top = 526
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer" unique_id=488892285]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_dky7s")
+
+[node name="Menu_HSplitContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer" unique_id=698893090 instance=ExtResource("3_7qtqs")]
+layout_mode = 2
+split_offsets = PackedInt32Array(562, 0)
+
+[node name="StartGame_Button" type="Button" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/Menu_HSplitContainer" unique_id=1066702713]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Button_Menus1"
+text = "Start Game"
+
+[editable path="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/Menu_HSplitContainer"]
+[editable path="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/Menu_HSplitContainer/MenuBox_Title"]
+[editable path="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer3/PanelContainer/Menu_HSplitContainer/MenuBox_Info"]

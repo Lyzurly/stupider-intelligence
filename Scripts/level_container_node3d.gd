@@ -112,7 +112,7 @@ func _input_rotation(event:InputEvent) -> void:
 	global_rotation.y = lerp(
 		global_rotation.y,clamprot,.6)	
 		
-	Camera.ref.set_lerp_speed(1.)
+	Camera_Walking.ref.set_lerp_speed(1.)
 		
 
 	

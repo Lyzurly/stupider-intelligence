@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxcd1tdn6dknp"]
+
+[ext_resource type="PackedScene" uid="uid://bls3nb4idxv42" path="res://Scenes/battle_maze_wall_node2d.tscn" id="1_al3vo"]
+
+[node name="BattleMaze_Wall_R" type="Node2D" unique_id=1946553743]
+
+[node name="BattleMaze_Wall" parent="." unique_id=1817510438 instance=ExtResource("1_al3vo")]
