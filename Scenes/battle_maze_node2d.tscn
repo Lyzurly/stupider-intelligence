@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxuafn31w1lb" path="res://Scenes/battle_maze_wall_b_node2d.tscn" id="3_bqxaf"]
 [ext_resource type="PackedScene" uid="uid://bg36h1moibve8" path="res://Scenes/battle_maze_wall_l_node2d.tscn" id="4_4h271"]
 [ext_resource type="PackedScene" uid="uid://celasoy5w5pbv" path="res://Scenes/battle_maze_wall_t_node2d.tscn" id="5_lk6wq"]
+[ext_resource type="Script" uid="uid://br0c014vgtokm" path="res://Scripts/action-pawn_characterbody2d.gd" id="6_4h271"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xn5wa"]
 resource_name = "Wall_Tiles"
@@ -17,6 +18,16 @@ scenes/4/scene = ExtResource("5_lk6wq")
 tile_size = Vector2i(48, 48)
 sources/0 = SubResource("TileSetScenesCollectionSource_xn5wa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjpo"]
+
+[sub_resource type="Gradient" id="Gradient_bqxaf"]
+colors = PackedColorArray(0, 0, 0, 0, 0.98866665, 1, 0.32, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
+gradient = SubResource("Gradient_bqxaf")
+fill_from = Vector2(0.7777778, 0.2008547)
+fill_to = Vector2(0.99572647, 0.33333334)
+
 [node name="BattleMaze_Node2D" type="Node2D" unique_id=599702001]
 script = ExtResource("1_u5ht1")
 
@@ -27,3 +38,24 @@ position = Vector2(0, 2)
 position = Vector2(-192, -1536)
 tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAQD9/wEAAAAAAAAAAQD9/wIAAAAAAAAAAQD9/wMAAAAAAAAAAQD+////AAAAAAAABAD/////AAAAAAAABAAAAP//AAAAAAAABAABAP//AAAAAAAABAACAP//AAAAAAAABAADAP//AAAAAAAABAAEAP//AAAAAAAABAAFAP//AAAAAAAABAAHAP//AAAAAAAABAAGAP//AAAAAAAABAAIAP//AAAAAAAABAAJAP//AAAAAAAABAD9/wQAAAAAAAAAAQD9/wUAAAAAAAAAAQD9/wYAAAAAAAAAAQD9/wcAAAAAAAAAAQD9/wgAAAAAAAAAAQD9/wkAAAAAAAAAAQD9/woAAAAAAAAAAQD9/wsAAAAAAAAAAQD9/wwAAAAAAAAAAQD9/w0AAAAAAAAAAQD9/w4AAAAAAAAAAQD9/w8AAAAAAAAAAQD9/xAAAAAAAAAAAQD9/xEAAAAAAAAAAQD9/xIAAAAAAAAAAQD9/xMAAAAAAAAAAQD9/xQAAAAAAAAAAQD9/xUAAAAAAAAAAQD9/xYAAAAAAAAAAQD9/xcAAAAAAAAAAQD9/xgAAAAAAAAAAQD9/xkAAAAAAAAAAQD9/xoAAAAAAAAAAQD9/xsAAAAAAAAAAQD9/xwAAAAAAAAAAQD9/x0AAAAAAAAAAQD9/x4AAAAAAAAAAQD9/x8AAAAAAAAAAQD9/yAAAAAAAAAAAQD9/yEAAAAAAAAAAQAKAAAAAAAAAAAAAwAKAAEAAAAAAAAAAwAKAAIAAAAAAAAAAwAKAAMAAAAAAAAAAwAKAAQAAAAAAAAAAwAKAAUAAAAAAAAAAwAKAAYAAAAAAAAAAwAKAAcAAAAAAAAAAwAKAAgAAAAAAAAAAwAKAAkAAAAAAAAAAwAKAAoAAAAAAAAAAwAKAAsAAAAAAAAAAwAKAAwAAAAAAAAAAwAKAA0AAAAAAAAAAwAKAA4AAAAAAAAAAwAKAA8AAAAAAAAAAwAKABAAAAAAAAAAAwAKABEAAAAAAAAAAwAKABIAAAAAAAAAAwAKABMAAAAAAAAAAwAKABQAAAAAAAAAAwAKABUAAAAAAAAAAwAKABYAAAAAAAAAAwAKABcAAAAAAAAAAwAKABgAAAAAAAAAAwAKABkAAAAAAAAAAwAKABoAAAAAAAAAAwAKABsAAAAAAAAAAwAKABwAAAAAAAAAAwAKAB0AAAAAAAAAAwAKAB4AAAAAAAAAAwAKAB8AAAAAAAAAAwAKACAAAAAAAAAAAwAKACEAAAAAAAAAAwD9/yIAAAAAAAAAAQD9/yMAAAAAAAAAAQD9/yQAAAAAAAAAAQD+/yUAAAAAAAAAAgD//yUAAAAAAAAAAgAAACUAAAAAAAAAAgABACUAAAAAAAAAAgACACUAAAAAAAAAAgADACUAAAAAAAAAAgAEACUAAAAAAAAAAgAFACUAAAAAAAAAAgAGACUAAAAAAAAAAgAHACUAAAAAAAAAAgAIACUAAAAAAAAAAgAJACUAAAAAAAAAAgAKACIAAAAAAAAAAwAKACMAAAAAAAAAAwAKACQAAAAAAAAAAwA=")
 tile_set = SubResource("TileSet_076je")
+
+[node name="ActionPawn" type="Node2D" parent="." unique_id=368807117]
+
+[node name="ActionPawn_CharacterBody2D" type="CharacterBody2D" parent="ActionPawn" unique_id=335087508]
+script = ExtResource("6_4h271")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionPawn/ActionPawn_CharacterBody2D" unique_id=1601145001]
+shape = SubResource("RectangleShape2D_kqjpo")
+
+[node name="STRETCHED_Sprite_Node2D" type="Node2D" parent="ActionPawn/ActionPawn_CharacterBody2D" unique_id=267273842]
+position = Vector2(0, 0.72)
+scale = Vector2(0.55, 0.726)
+
+[node name="Triangle_L_Sprite2D" type="Sprite2D" parent="ActionPawn/ActionPawn_CharacterBody2D/STRETCHED_Sprite_Node2D" unique_id=1270621747]
+position = Vector2(-32, 0)
+texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="Triangle_R_Sprite2D2" type="Sprite2D" parent="ActionPawn/ActionPawn_CharacterBody2D/STRETCHED_Sprite_Node2D" unique_id=624362447]
+position = Vector2(32, 0)
+scale = Vector2(-1, 1)
+texture = SubResource("GradientTexture2D_kqjpo")
