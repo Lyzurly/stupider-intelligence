@@ -1,12 +1,11 @@
 [gd_scene format=4 uid="uid://clj03hj7bgd38"]
 
-[ext_resource type="Script" uid="uid://e0h1pfe30f0g" path="res://Scripts/battle_maze_node2d.gd" id="1_u5ht1"]
-[ext_resource type="Script" uid="uid://pbef2gt2pmpp" path="res://Scripts/camera_battle-subviewport_camera2d.gd" id="2_lk6wq"]
 [ext_resource type="PackedScene" uid="uid://cxcd1tdn6dknp" path="res://Scenes/battle_maze_wall_r_node2d.tscn" id="2_peqtc"]
 [ext_resource type="PackedScene" uid="uid://dgxuafn31w1lb" path="res://Scenes/battle_maze_wall_b_node2d.tscn" id="3_bqxaf"]
 [ext_resource type="PackedScene" uid="uid://bg36h1moibve8" path="res://Scenes/battle_maze_wall_l_node2d.tscn" id="4_4h271"]
 [ext_resource type="PackedScene" uid="uid://celasoy5w5pbv" path="res://Scenes/battle_maze_wall_t_node2d.tscn" id="5_lk6wq"]
 [ext_resource type="Script" uid="uid://br0c014vgtokm" path="res://Scripts/action_pawn_characterbody2d.gd" id="6_4h271"]
+[ext_resource type="Script" uid="uid://bjrjc5rl30k5o" path="res://Scripts/camera_battle_subviewport_camera2d.gd" id="6_lk6wq"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xn5wa"]
 resource_name = "Wall_Tiles"
@@ -29,12 +28,7 @@ gradient = SubResource("Gradient_bqxaf")
 fill_from = Vector2(0.7777778, 0.2008547)
 fill_to = Vector2(0.99572647, 0.33333334)
 
-[node name="BattleMaze_Node2D" type="Node2D" unique_id=599702001]
-script = ExtResource("1_u5ht1")
-
-[node name="Camera_BattleSubviewport" type="Camera2D" parent="." unique_id=1386809367]
-position = Vector2(0, 2)
-script = ExtResource("2_lk6wq")
+[node name="BattleMaze_Container_Node2D" type="Node2D" unique_id=599702001]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1990545386]
 position = Vector2(-192, -1536)
@@ -42,6 +36,10 @@ tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAQD9/wEAAAAAAAAAAQD9/wIAAAAAAAA
 tile_set = SubResource("TileSet_076je")
 
 [node name="ActionPawn" type="Node2D" parent="." unique_id=368807117]
+
+[node name="Camera_BattleSubviewport" type="Camera2D" parent="ActionPawn" unique_id=1386809367]
+position = Vector2(0, 2)
+script = ExtResource("6_lk6wq")
 
 [node name="ActionPawn_CharacterBody2D" type="CharacterBody2D" parent="ActionPawn" unique_id=335087508]
 unique_name_in_owner = true
