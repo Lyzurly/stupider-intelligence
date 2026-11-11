@@ -4,7 +4,10 @@ func _init() -> void:
 	ref = self
 	
 var _current_maze: TileMapLayer
-	
-func get_new_maze() -> TileMapLayer:
+
+func generate_maze() -> void:
 	#create the maze and assign to _current_maze
+	pass
+	
+func get_current_maze() -> TileMapLayer:
 	return _current_maze

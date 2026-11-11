@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://cp42l26td7fs6"]
+
+[ext_resource type="PackedScene" uid="uid://cxcd1tdn6dknp" path="res://Scenes/battle_maze_wall_r_node2d.tscn" id="1_6iacl"]
+[ext_resource type="PackedScene" uid="uid://dgxuafn31w1lb" path="res://Scenes/battle_maze_wall_b_node2d.tscn" id="2_i82hl"]
+[ext_resource type="PackedScene" uid="uid://bg36h1moibve8" path="res://Scenes/battle_maze_wall_l_node2d.tscn" id="3_emsu7"]
+[ext_resource type="PackedScene" uid="uid://celasoy5w5pbv" path="res://Scenes/battle_maze_wall_t_node2d.tscn" id="4_dak2e"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xn5wa"]
+resource_name = "Wall_Tiles"
+scenes/1/scene = ExtResource("1_6iacl")
+scenes/2/scene = ExtResource("2_i82hl")
+scenes/3/scene = ExtResource("3_emsu7")
+scenes/4/scene = ExtResource("4_dak2e")
+
+[resource]
+tile_size = Vector2i(48, 48)
+sources/0 = SubResource("TileSetScenesCollectionSource_xn5wa")

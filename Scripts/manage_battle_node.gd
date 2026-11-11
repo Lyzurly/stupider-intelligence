@@ -66,6 +66,7 @@ func _check_intro() -> bool:
 			Manage_Game.STATES.BATTLE)
 	return approved
 func _on_intro() -> void:
+	Manage_BattleMaze.ref.generate_maze()
 	Level_Container.ref.show_if_needed()
 		
 func _check_gameplay() -> bool:
