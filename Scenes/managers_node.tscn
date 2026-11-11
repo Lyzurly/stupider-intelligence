@@ -12,8 +12,10 @@
 [ext_resource type="Script" uid="uid://bim8yyked55ph" path="res://Scripts/manage_underworld_node.gd" id="9_j70b7"]
 [ext_resource type="Script" uid="uid://mgtp8diwsfl8" path="res://Scripts/manage_overworld_node.gd" id="9_loiqe"]
 [ext_resource type="Script" uid="uid://dt6veqphptksu" path="res://Scripts/manage_battle_node.gd" id="11_jk8en"]
-[ext_resource type="Script" uid="uid://dxe2db3a8pr0a" path="res://Scripts/manage_battle_scene_node.gd" id="12_oaooj"]
+[ext_resource type="Script" uid="uid://coj5wd857sqan" path="res://Scripts/manage_battle_scene_node.gd" id="12_2ishb"]
+[ext_resource type="Script" uid="uid://dfru8i8hvrc5o" path="res://Scripts/manage_battle_maze_node.gd" id="14_2ishb"]
 [ext_resource type="Script" uid="uid://dhhsj84ndayw1" path="res://Scripts/manage_camera_node.gd" id="14_rsxx7"]
+[ext_resource type="Script" uid="uid://bot50hqxesuk7" path="res://Scripts/manage_environment_node.gd" id="16_xr8cv"]
 
 [node name="Managers" type="Node" unique_id=1105486308]
 
@@ -122,16 +124,22 @@ script = ExtResource("8_88c7l")
 [node name="Manage_Overworld" type="Node" parent="." unique_id=1418944577]
 script = ExtResource("9_loiqe")
 
-[node name="Manage_Underworld" type="Node" parent="." unique_id=1506386727]
+[node name="Manage_Underworld" type="Node" parent="Manage_Overworld" unique_id=1506386727]
 script = ExtResource("9_j70b7")
+
+[node name="Manage_BattleScene" type="Node" parent="Manage_Overworld" unique_id=634567623]
+script = ExtResource("12_2ishb")
 
 [node name="Manage_Battle" type="Node" parent="." unique_id=894329970]
 script = ExtResource("11_jk8en")
 
-[node name="Manage_BattleScene" type="Node" parent="." unique_id=1020169800]
-script = ExtResource("12_oaooj")
+[node name="Manage_BattleMaze" type="Node" parent="." unique_id=1988581630]
+script = ExtResource("14_2ishb")
 
 [node name="Manage_Camera" type="Node" parent="." unique_id=1395107810]
 script = ExtResource("14_rsxx7")
+
+[node name="Manage_Environment" type="Node" parent="." unique_id=2077755892]
+script = ExtResource("16_xr8cv")
 
 [editable path="Manage_Menus/Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Buttons_MarginContainer/PanelContainer/HSplitContainer/MenuBox_Buttons_MarginContainer"]

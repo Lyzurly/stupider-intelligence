@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://clj03hj7bgd38"]
 
 [ext_resource type="Script" uid="uid://e0h1pfe30f0g" path="res://Scripts/battle_maze_node2d.gd" id="1_u5ht1"]
+[ext_resource type="Script" uid="uid://pbef2gt2pmpp" path="res://Scripts/camera_battle-subviewport_camera2d.gd" id="2_lk6wq"]
 [ext_resource type="PackedScene" uid="uid://cxcd1tdn6dknp" path="res://Scenes/battle_maze_wall_r_node2d.tscn" id="2_peqtc"]
 [ext_resource type="PackedScene" uid="uid://dgxuafn31w1lb" path="res://Scenes/battle_maze_wall_b_node2d.tscn" id="3_bqxaf"]
 [ext_resource type="PackedScene" uid="uid://bg36h1moibve8" path="res://Scenes/battle_maze_wall_l_node2d.tscn" id="4_4h271"]
 [ext_resource type="PackedScene" uid="uid://celasoy5w5pbv" path="res://Scenes/battle_maze_wall_t_node2d.tscn" id="5_lk6wq"]
-[ext_resource type="Script" uid="uid://br0c014vgtokm" path="res://Scripts/action-pawn_characterbody2d.gd" id="6_4h271"]
+[ext_resource type="Script" uid="uid://br0c014vgtokm" path="res://Scripts/action_pawn_characterbody2d.gd" id="6_4h271"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xn5wa"]
 resource_name = "Wall_Tiles"
@@ -31,8 +32,9 @@ fill_to = Vector2(0.99572647, 0.33333334)
 [node name="BattleMaze_Node2D" type="Node2D" unique_id=599702001]
 script = ExtResource("1_u5ht1")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1386809367]
+[node name="Camera_BattleSubviewport" type="Camera2D" parent="." unique_id=1386809367]
 position = Vector2(0, 2)
+script = ExtResource("2_lk6wq")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1990545386]
 position = Vector2(-192, -1536)
@@ -42,6 +44,7 @@ tile_set = SubResource("TileSet_076je")
 [node name="ActionPawn" type="Node2D" parent="." unique_id=368807117]
 
 [node name="ActionPawn_CharacterBody2D" type="CharacterBody2D" parent="ActionPawn" unique_id=335087508]
+unique_name_in_owner = true
 script = ExtResource("6_4h271")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionPawn/ActionPawn_CharacterBody2D" unique_id=1601145001]

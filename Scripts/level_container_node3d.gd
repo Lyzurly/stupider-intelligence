@@ -24,7 +24,9 @@ func show_if_needed() -> void:
 		visible = true
 		
 func load_level(
-type:Manage_Level.LEVEL_TYPES,which:PackedScene
+type:Manage_Level.LEVEL_TYPES,
+level_scene:PackedScene,
+enviro_scene:PackedScene
 ) -> void:
 	var approved: bool = false
 	
@@ -47,10 +49,17 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 		return
 	#endregion --------------------------------------
 		
-	var scene: Node3D = \
-		which.instantiate()
-	var level: Level = \
-		scene as Level
+	var level_node: Node3D = \
+		level_scene.instantiate()
+	var new_level: Level = \
+		level_node as Level
+	
+	Manage_Environment.ref.set_current_scene(
+		enviro_scene)
+	var enviro_node: Node3D = \
+		enviro_scene.instantiate()
+	var new_enviro: Level_Environment = \
+		enviro_node as Level_Environment
 	
 	destroy_level()
 	
@@ -60,21 +69,22 @@ type:Manage_Level.LEVEL_TYPES,which:PackedScene
 		Manage_Level.LEVEL_TYPES.UNDERWORLD:
 			var player: Node3D = \
 				_PLAYER_SCENE.instantiate()
-			level.add_child(player)
+			new_level.add_child(player)
 	#endregion --------------------------------------
 	
-	_current_level = level
-	add_child(level)
+	_current_level = new_level
+	add_child(new_level)
+	new_level.add_environment(new_enviro)
 	
 	
 	#region Level-loaded actions =======================
 	match type:
 		Manage_Level.LEVEL_TYPES.CINEMATIC: 
-			if not level is Cinematic:
-				push_error("Uh oh tried to instantiate a cinematic that ain't a cinematic: ",level)
+			if not new_level is Cinematic:
+				push_error("Uh oh tried to instantiate a cinematic that ain't a cinematic: ",new_level)
 				return
 				
-			var cinematic: Cinematic = level as Cinematic
+			var cinematic: Cinematic = new_level as Cinematic
 			cinematic.start()
 			
 		Manage_Level.LEVEL_TYPES.OVERWORLD: \

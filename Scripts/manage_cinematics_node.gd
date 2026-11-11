@@ -9,10 +9,12 @@ var _current: CINEMATICS = CINEMATICS.NONE
 var _data: Dictionary[CINEMATICS,Dictionary] = {
 	CINEMATICS.NONE:{},
 	CINEMATICS.CINEMATIC_1:{
-		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse"),
+		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://c2ifkl0ktxr37")
 	},
 	CINEMATICS.CINEMATIC_2:{
-		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse"),
+		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://c2ifkl0ktxr37")
 	},
 }
 
@@ -21,7 +23,9 @@ func _my_type() -> LEVEL_TYPES:
 
 func switch(to:CINEMATICS) -> void:
 	_load_level(
-		_data[to][LEVEL_CONTENT.SCENE])
+		_data[to][LEVEL_CONTENT.SCENE],
+		_data[to][LEVEL_CONTENT.ENVIRONMENT],
+	)
 		
 func get_current() -> CINEMATICS:
 	return _current

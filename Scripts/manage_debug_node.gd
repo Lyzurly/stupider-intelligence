@@ -8,6 +8,5 @@ func _init() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_B:
-			Manage_BattleScene.ref.switch(
-				Manage_BattleScene.BATTLE_SCENES.BATTLE_1)
+			Manage_BattleScene.ref.switch()
 			print("BATTLE SYSTEM ENGAGE!")

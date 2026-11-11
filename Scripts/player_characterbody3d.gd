@@ -123,5 +123,5 @@ func _on_area_entered(area:Area3D) -> void:
 	if area is OW_Underworld:
 		print("WE HAVE ENTERED A TOWN")
 		Manage_Underworld.ref.switch(
-			Manage_Underworld.UNDERWORLDS.UNDERWORLD_1)
+			Manage_Underworld.UNDERWORLDS.OW1_UW1)
 		

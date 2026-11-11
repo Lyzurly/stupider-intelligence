@@ -23,7 +23,7 @@ func _stop() -> void:
 	_canvas_layer.visible = false
 	_overall_length = _DEFAULT_LENGTH
 	Manage_Overworld.ref.switch(
-		Manage_Overworld.OVERWORLDS.OVERWORLD_1)
+		Manage_Overworld.OVERWORLDS.OW1)
 
 func _on_length_timeout() -> void:
 	if _overall_length > 0:
