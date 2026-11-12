@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cawtysgbmnisc"]
+
+[sub_resource type="Gradient" id="Gradient_2hgey"]
+offsets = PackedFloat32Array(0.5222222, 1)
+colors = PackedColorArray(0.21930002, 0.45971772, 0.6091667, 1, 0.30960003, 0.6490133, 0.86, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
+gradient = SubResource("Gradient_2hgey")
+width = 48
+height = 48
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjpo"]
+size = Vector2(48, 48)
+
+[node name="BattleMaze_Wall" type="Node2D" unique_id=1817510438]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=133553678]
+texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564805507]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039110548]
+shape = SubResource("RectangleShape2D_kqjpo")

@@ -33,7 +33,7 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="BattleMaze_Player_Node2D" parent="Mazes_CanvasLayer/Mazes_MarginContainer/SubViewportContainer/SubViewport" unique_id=599702001 instance=ExtResource("2_yudxq")]
+[node name="BattleMaze_Container_Player_Node2D" parent="Mazes_CanvasLayer/Mazes_MarginContainer/SubViewportContainer/SubViewport" unique_id=599702001 instance=ExtResource("2_yudxq")]
 script = ExtResource("3_yudxq")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Mazes_CanvasLayer/Mazes_MarginContainer" unique_id=319045821]
@@ -47,7 +47,7 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="BattleMaze_Opponent_Node2D" parent="Mazes_CanvasLayer/Mazes_MarginContainer/SubViewportContainer2/SubViewport" unique_id=1316110974 instance=ExtResource("2_yudxq")]
+[node name="BattleMaze_Container_Opponent_Node2D" parent="Mazes_CanvasLayer/Mazes_MarginContainer/SubViewportContainer2/SubViewport" unique_id=1316110974 instance=ExtResource("2_yudxq")]
 script = ExtResource("4_foybk")
 
 [node name="BattleMenu_CanvasLayer" parent="." unique_id=1460470583 instance=ExtResource("3_foybk")]

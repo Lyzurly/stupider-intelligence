@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxuafn31w1lb" path="res://Scenes/battle_maze_wall_b_node2d.tscn" id="2_i82hl"]
 [ext_resource type="PackedScene" uid="uid://bg36h1moibve8" path="res://Scenes/battle_maze_wall_l_node2d.tscn" id="3_emsu7"]
 [ext_resource type="PackedScene" uid="uid://celasoy5w5pbv" path="res://Scenes/battle_maze_wall_t_node2d.tscn" id="4_dak2e"]
+[ext_resource type="PackedScene" uid="uid://cawtysgbmnisc" path="res://Scenes/battle_maze_wall_i_node2d.tscn" id="5_i82hl"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xn5wa"]
 resource_name = "Wall_Tiles"
@@ -11,6 +12,7 @@ scenes/1/scene = ExtResource("1_6iacl")
 scenes/2/scene = ExtResource("2_i82hl")
 scenes/3/scene = ExtResource("3_emsu7")
 scenes/4/scene = ExtResource("4_dak2e")
+scenes/5/scene = ExtResource("5_i82hl")
 
 [resource]
 tile_size = Vector2i(48, 48)
