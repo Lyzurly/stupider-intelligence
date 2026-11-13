@@ -5,7 +5,7 @@
 const _POS_BASE: Vector2 = Vector2(-192.,-1536.)
 const _POS_T2_INWARD: Vector2 = Vector2(-192.,-2400)
 const _POS_T2_OUTWARD: Vector2 = Vector2(-192.,-576)
-const _POS_T2_UNIQUE: Vector2 = Vector2(-192.,-1440)
+const _POS_T2_UNIQUE: Vector2 = Vector2(-192.,-1536)
 
 var _current_seg_inward: TileMapLayer
 var _current_seg_outward: TileMapLayer
