@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://e0h1pfe30f0g" path="res://Scripts/battle_maze_container_opponent.gd" id="4_foybk"]
 [ext_resource type="PackedScene" uid="uid://7yrnqwmwyunv" path="res://Scenes/battle_player_team_node3d.tscn" id="4_y70r5"]
 [ext_resource type="PackedScene" uid="uid://bdiwgpy5rlufb" path="res://Scenes/battle_opponent_team_node3d.tscn" id="5_qk3qd"]
-[ext_resource type="PackedScene" uid="uid://c2ifkl0ktxr37" path="res://Scenes/Environmnts/level_environment_ow1.tscn" id="6_fauvv"]
 
 [node name="Battle_Container_Level" type="Node3D" unique_id=340363471]
 script = ExtResource("1_itla7")
@@ -53,15 +52,13 @@ script = ExtResource("4_foybk")
 [node name="BattleMenu_CanvasLayer" parent="." unique_id=1460470583 instance=ExtResource("3_foybk")]
 
 [node name="Battle_Positioner" type="Node3D" parent="." unique_id=869763594]
-transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.6946584, 0, 0, 0)
+transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.6946584, -0.754, 0.816, -0.306)
 
 [node name="Battle_PlayerTeam" parent="Battle_Positioner" unique_id=1274172338 instance=ExtResource("4_y70r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.052002, 0, 3.1399999)
 
 [node name="Battle_OpponentTeam" parent="Battle_Positioner" unique_id=1571922752 instance=ExtResource("5_qk3qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.461998, 0, 3.156001)
-
-[node name="Environment_Level1" parent="Battle_Positioner" unique_id=68497433 instance=ExtResource("6_fauvv")]
 
 [node name="Player_DirectionalLight3D" type="DirectionalLight3D" parent="Battle_Positioner" unique_id=2121988167]
 transform = Transform3D(0.955793, 0.29404032, -5.4793405e-09, -0.21364224, 0.69445497, 0.68708754, 0.20203142, -0.6567134, 0.7265747, 0, 0, 0)

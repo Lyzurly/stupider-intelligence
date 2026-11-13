@@ -1,6 +1,6 @@
 class_name ActionPawn extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
 var _who_controls_me: Battle_Maze_Container.WHO_CONTROLS = \

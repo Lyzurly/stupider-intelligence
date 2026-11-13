@@ -36,6 +36,9 @@ func change_state(to:STATES) -> bool:
 		STATES.LOST:
 			change_approved = _check_lost()
 	
+	change_approved = Manage_Game.ref.change_state(
+						Manage_Game.STATES.BATTLE)
+
 	if change_approved:
 		match to:
 			STATES.NONE:
@@ -61,19 +64,13 @@ func _on_none() -> void:
 	pass
 
 func _check_intro() -> bool:
-	var approved = \
-		Manage_Game.ref.change_state(
-			Manage_Game.STATES.BATTLE)
-	return approved
+	return true
 func _on_intro() -> void:
 	Manage_BattleMaze.ref.generate_mazes()
 	Level_Container.ref.show_if_needed()
 		
 func _check_gameplay() -> bool:
-	var approved = \
-		Manage_Game.ref.change_state(
-			Manage_Game.STATES.WALKING)
-	return approved
+	return true
 func _on_gameplay() -> void:
 	await get_tree().process_frame
 	Level_Container.ref.show_if_needed()

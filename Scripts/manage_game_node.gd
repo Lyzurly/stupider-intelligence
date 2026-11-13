@@ -3,6 +3,7 @@ static var ref: Manage_Game
 func _init() -> void:
 	ref = self
 
+var _previous_state: STATES = STATES.NONE
 var _state: STATES = STATES.NONE
 enum STATES{
 	NONE,
@@ -13,10 +14,13 @@ enum STATES{
 	}
 	
 func _ready() -> void:
-	pass
-	
+	Manage_Menus.ref.change_state(
+		Manage_Menus.STATES.MAIN)
+
 func is_state(which:STATES) -> bool:
 	return which == _state
+func is_previous_state(which:STATES) -> bool:
+	return which == _previous_state
 
 func change_state(to:STATES) -> bool:
 	var change_approved: bool = false
@@ -50,6 +54,7 @@ func change_state(to:STATES) -> bool:
 				_on_walking()
 			STATES.BATTLE:
 				_on_battle()
+		_previous_state = _state
 		_state = to
 		print("GAME STATE: ",STATES.find_key(_state))
 	else:
@@ -63,11 +68,7 @@ func _on_none() -> void:
 	pass
 
 func _check_menus() -> bool:
-	if is_state(STATES.WALKING):
-		Manage_Menus.ref.show_if_needed()
-		Player.ref.lock_movement(true)
-		return true
-	return false
+	return true
 func _on_menus() -> void:
 	pass
 	
@@ -75,18 +76,18 @@ func _check_cinematic() -> bool:
 	#TODO BLOCK IF COMING FROM PAUSE
 	return true
 func _on_cinematic() -> void:
-	Manage_Menus.ref.hide_if_needed()
+	Manage_MenuBehavior.ref.hide_if_needed()
 	
 func _check_walking() -> bool:
 	return true
 func _on_walking() -> void:
-	Manage_Menus.ref.hide_if_needed()
+	Manage_MenuBehavior.ref.hide_if_needed()
 	Manage_Camera.ref.switch(
 		Manage_Camera.CAMERAS.WALKING)
 		
 func _check_battle() -> bool:
 	return true
 func _on_battle() -> void:
-	Manage_Menus.ref.hide_if_needed()
+	Manage_MenuBehavior.ref.hide_if_needed()
 	Manage_Camera.ref.switch(
 		Manage_Camera.CAMERAS.BATTLE)

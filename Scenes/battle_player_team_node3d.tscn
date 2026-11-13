@@ -8,13 +8,13 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.778)
 
 [node name="Player_MeshContainer" parent="Team_Positioner" unique_id=1898255909 instance=ExtResource("1_fur47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
 [node name="Player_MeshContainer2" parent="Team_Positioner" unique_id=101149777 instance=ExtResource("1_fur47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Player_MeshContainer3" parent="Team_Positioner" unique_id=1902562747 instance=ExtResource("1_fur47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26)
 
 [node name="Player_MeshContainer4" parent="Team_Positioner" unique_id=1420918903 instance=ExtResource("1_fur47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42)

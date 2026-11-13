@@ -3,6 +3,7 @@ static var ref: Manage_Walking
 func _init() -> void:
 	ref = self
 	
+var _previous_state: STATES = STATES.NONE
 var _state: STATES = STATES.NONE
 enum STATES{
 	NONE,
@@ -16,6 +17,9 @@ func _ready() -> void:
 	
 func is_state(which:STATES) -> bool:
 	return which == _state
+	
+func change_to_previous() -> void:
+	change_state(_previous_state)
 
 func change_state(to:STATES) -> bool:
 	var change_approved: bool = false
@@ -33,6 +37,9 @@ func change_state(to:STATES) -> bool:
 		STATES.CUTSCENE:
 			change_approved = _check_cutscene()
 	
+	change_approved = Manage_Game.ref.change_state(
+						Manage_Game.STATES.WALKING)
+	
 	if change_approved:
 		match to:
 			STATES.NONE:
@@ -43,6 +50,8 @@ func change_state(to:STATES) -> bool:
 				_on_underworld()
 			STATES.CUTSCENE:
 				_on_cutscene()
+				
+		_previous_state = _state
 		_state = to
 		print("WALKING STATE: ",STATES.find_key(_state))
 	else:
@@ -56,20 +65,14 @@ func _on_none() -> void:
 	pass
 
 func _check_overworld() -> bool:
-	var approved = \
-		Manage_Game.ref.change_state(
-			Manage_Game.STATES.WALKING)
-	return approved
+	return true
 func _on_overworld() -> void:
 	await get_tree().process_frame
 	Player.ref.lock_movement(false)
 	Level_Container.ref.show_if_needed()
 		
 func _check_underworld() -> bool:
-	var approved = \
-		Manage_Game.ref.change_state(
-			Manage_Game.STATES.WALKING)
-	return approved
+	return true
 func _on_underworld() -> void:
 	await get_tree().process_frame
 	Player.ref.lock_movement(false)

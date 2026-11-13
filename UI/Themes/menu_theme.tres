@@ -6,6 +6,9 @@
 base_font = ExtResource("1_k8iwq")
 variation_embolden = 0.65
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8opq"]
+bg_color = Color(0.28235295, 0.101960786, 0.16470589, 1)
+
 [sub_resource type="FontVariation" id="FontVariation_ev726"]
 base_font = ExtResource("1_k8iwq")
 
@@ -16,6 +19,7 @@ bg_color = Color(0.2827637, 0.10253724, 0.16310716, 1)
 Button_Menus1/base_type = &"Button"
 Button_Menus1/font_sizes/font_size = 56
 Button_Menus1/fonts/font = SubResource("FontVariation_kqjpo")
+Button_Menus1/styles/normal = SubResource("StyleBoxFlat_p8opq")
 HSplit_Menus1/base_type = &"HSplitContainer"
 Label_MenuText1/base_type = &"Label"
 Label_MenuText1/font_sizes/font_size = 70

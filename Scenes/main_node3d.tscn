@@ -22,7 +22,7 @@ near = 0.001
 script = ExtResource("2_8624p")
 
 [node name="Camera_Battle" type="Camera3D" parent="." unique_id=1805354971]
-transform = Transform3D(1, 0, 0, 0, 0.8396199, 0.54317445, 0, -0.54317445, 0.8396199, -0.226, 34.0007, 58.4255)
+transform = Transform3D(0.99990255, -0.0030695323, 0.01362059, 0, 0.97553456, 0.2198462, -0.01396218, -0.21982478, 0.9754395, -0.012, 8.174, 59.1635)
 projection = 1
 fov = 41.6
 size = 22.131

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://crvsqxu11booc"]
+
+[ext_resource type="Script" uid="uid://bpo53ps4m1knm" path="res://Scripts/manage_menu_behavior_node.gd" id="1_xeffc"]
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="2_egtmc"]
+[ext_resource type="StyleBox" uid="uid://dlm44dld6jpn6" path="res://UI/Themes/menu_panelcontainer.tres" id="3_xjlht"]
+
+[node name="Manage_MenuBehavior" type="Node" unique_id=1034232471]
+script = ExtResource("1_xeffc")
+
+[node name="Menus_CanvasLayer" type="CanvasLayer" parent="." unique_id=1440562583]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus_CanvasLayer" unique_id=24002072]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_egtmc")
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus_CanvasLayer/MarginContainer" unique_id=483013504]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_xjlht")
+
+[node name="Menu_VSplitContainer" type="VSplitContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer" unique_id=1985317184]
+layout_mode = 2
+theme_override_constants/separation = 36
+split_offsets = PackedInt32Array(276, 534, 792)
+split_offset = 276
+
+[node name="Row1_MarginContainer" type="MarginContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1673280906]
+layout_mode = 2
+
+[node name="Row1_PanelContainer" type="PanelContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Row1_MarginContainer" unique_id=1246126708]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_xjlht")
+
+[node name="Row2_MarginContainer" type="MarginContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1633590210]
+layout_mode = 2
+
+[node name="Row2_PanelContainer" type="PanelContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Row2_MarginContainer" unique_id=1594633161]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_xjlht")
+
+[node name="Row3_MarginContainer" type="MarginContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=1615076519]
+layout_mode = 2
+
+[node name="Row3_PanelContainer" type="PanelContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Row3_MarginContainer" unique_id=880096327]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_xjlht")
+
+[node name="Row4_MarginContainer" type="MarginContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer" unique_id=672157533]
+layout_mode = 2
+
+[node name="Row4_PanelContainer" type="PanelContainer" parent="Menus_CanvasLayer/MarginContainer/PanelContainer/Menu_VSplitContainer/Row4_MarginContainer" unique_id=103036150]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_xjlht")
