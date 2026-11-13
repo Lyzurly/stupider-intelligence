@@ -9,5 +9,6 @@ func _ready_connections() -> void:
 	_button_start.pressed.connect(_on_start_pressed)
 	
 func _on_start_pressed() -> void:
+	print("switching to first cinematic...")
 	Manage_Cinematics.ref.switch(
 		Manage_Cinematics.CINEMATICS.CINEMATIC_1)

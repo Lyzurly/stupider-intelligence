@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://dl2uv1stbq2ss"]
 
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="1_q5gpp"]
 [ext_resource type="PackedScene" uid="uid://dm50xlyho7nsb" path="res://Scenes/ui_menus_box_margincontainer.tscn" id="1_qmse7"]
+[ext_resource type="Script" uid="uid://b4mxclstnmux7" path="res://Scripts/menurow_new_or_load_game_hsplitcontainer.gd" id="2_tts8k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyguf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xsij"]
 
 [node name="MenuRow_NewOrLoadGame_HSplitContainer" type="HSplitContainer" unique_id=417826448]
+theme = ExtResource("1_q5gpp")
 theme_override_constants/separation = 37
 split_offsets = PackedInt32Array(960)
 split_offset = 960
+script = ExtResource("2_tts8k")
 
 [node name="MenuBox_Title" parent="." unique_id=724700207 instance=ExtResource("1_qmse7")]
 unique_name_in_owner = true
@@ -23,6 +27,7 @@ visible = false
 text = "New Game"
 
 [node name="NewGame_Button" type="Button" parent="MenuBox_Title/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(724700207, 110614071) index="1" unique_id=634375098]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme_type_variation = &"Button_Menus1"

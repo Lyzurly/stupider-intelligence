@@ -6,8 +6,8 @@ func _init() -> void:
 const _PLAYER_SCENE: PackedScene = preload("uid://ddj6t6pm1wpst")
 	
 var _current_level: Level = null
-var _current_level_type: Manage_Level.LEVEL_TYPES = \
-	Manage_Level.LEVEL_TYPES.NONE
+#var _current_level_type: Manage_Level.LEVEL_TYPES = \
+	#Manage_Level.LEVEL_TYPES.NONE
 
 
 #region "Camera" rotation ======================
@@ -102,7 +102,7 @@ func destroy_level() -> void:
 	_current_level = null
 
 
-func _input_rotation(event:InputEvent) -> void:
+func _input_rotation(_event:InputEvent) -> void:
 	if Input.is_action_just_pressed("Clockwise"):
 			rot_amount = 1.
 	elif Input.is_action_just_pressed("CounterClockwise"):

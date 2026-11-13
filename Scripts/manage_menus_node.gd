@@ -81,10 +81,16 @@ func _on_main() -> void:
 	Manage_MenuBehavior.ref.create_new_menu(
 		Manage_MenuBehavior.ROW_SCENES.NONE,
 		Manage_MenuBehavior.ROW_SCENES.NEW_OR_LOAD_GAME)
+	Manage_MenuBehavior.ref.show_if_needed()
 
 func _check_create_party() -> bool:
 	return true
 func _on_create_party() -> void:
+	Manage_MenuBehavior.ref.create_new_menu(
+		Manage_MenuBehavior.ROW_SCENES.NONE,
+		Manage_MenuBehavior.ROW_SCENES.NONE,
+		Manage_MenuBehavior.ROW_SCENES.NONE,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS)
 	Manage_MenuBehavior.ref.show_if_needed()
 		
 func _check_pause() -> bool:
