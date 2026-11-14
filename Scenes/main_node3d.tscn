@@ -22,7 +22,7 @@ near = 0.001
 script = ExtResource("2_8624p")
 
 [node name="Camera_Battle" type="Camera3D" parent="." unique_id=1805354971]
-transform = Transform3D(0.99990255, -0.0030695323, 0.01362059, 0, 0.97553456, 0.2198462, -0.01396218, -0.21982478, 0.9754395, -0.012, 8.174, 59.1635)
+transform = Transform3D(0.99990255, -0.0030695323, 0.013620589, 0, 0.97553456, 0.21984622, -0.013962179, -0.21982479, 0.9754395, -0.012, 8.174, 59.1635)
 projection = 1
 fov = 41.6
 size = 22.131
@@ -32,7 +32,7 @@ script = ExtResource("2_0gcre")
 [node name="Managers" parent="." unique_id=1105486308 instance=ExtResource("1_8624p")]
 
 [node name="Level_Container" type="Node3D" parent="." unique_id=572984278]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0, 0)
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 0, 0, 0)
 visible = false
 script = ExtResource("2_injwd")
 

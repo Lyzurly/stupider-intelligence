@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ev1wn0sg0s6y" path="res://Scripts/manage_party_node.gd" id="13_nthkh"]
 [ext_resource type="Script" uid="uid://dfru8i8hvrc5o" path="res://Scripts/manage_battle_maze_node.gd" id="14_2ishb"]
 [ext_resource type="Script" uid="uid://dhhsj84ndayw1" path="res://Scripts/manage_camera_node.gd" id="14_rsxx7"]
+[ext_resource type="Script" uid="uid://dt51cpgkptr0r" path="res://Scripts/manage_input_node.gd" id="16_6vi18"]
 [ext_resource type="Script" uid="uid://sm430mqmutmp" path="res://Scripts/manage_battle_party_node.gd" id="16_lva0d"]
 [ext_resource type="Script" uid="uid://bot50hqxesuk7" path="res://Scripts/manage_environment_node.gd" id="16_xr8cv"]
 
@@ -61,3 +62,6 @@ script = ExtResource("14_rsxx7")
 
 [node name="Manage_Environment" type="Node" parent="." unique_id=2077755892]
 script = ExtResource("16_xr8cv")
+
+[node name="Manage_Input" type="Node" parent="." unique_id=915318384]
+script = ExtResource("16_6vi18")

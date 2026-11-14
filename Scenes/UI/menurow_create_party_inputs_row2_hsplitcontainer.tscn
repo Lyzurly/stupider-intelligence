@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bgoigumxme0pk"]
+
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="1_ac2ey"]
+[ext_resource type="Script" uid="uid://bya8tuhvxvo7m" path="res://Scripts/menurow_create_party_inputs_row2_hsplitcontainer.gd" id="2_3uwnj"]
+[ext_resource type="PackedScene" uid="uid://dp37uw53lknx5" path="res://Scenes/UI/menurow_create_char_hsplitcontainer.tscn" id="3_oupgc"]
+
+[node name="Menu_Control" type="MarginContainer" unique_id=534237236]
+offset_right = 894.0
+offset_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ac2ey")
+script = ExtResource("2_3uwnj")
+
+[node name="CreateChar_Row_HSplitContainer" parent="." unique_id=1768808590 instance=ExtResource("3_oupgc")]
+layout_mode = 2
+
+[editable path="CreateChar_Row_HSplitContainer"]
+[editable path="CreateChar_Row_HSplitContainer/MenuBox_Title"]
+[editable path="CreateChar_Row_HSplitContainer/MenuBox_Info"]

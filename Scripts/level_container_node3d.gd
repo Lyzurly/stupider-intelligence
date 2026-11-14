@@ -9,16 +9,6 @@ var _current_level: Level = null
 #var _current_level_type: Manage_Level.LEVEL_TYPES = \
 	#Manage_Level.LEVEL_TYPES.NONE
 
-
-#region "Camera" rotation ======================
-const ROT_MIN: float = -45.
-const ROT_MAX: float = 315
-var rot_amount: float = 0. # dir represented by lerp b/n -1 to 1
-#endregion -------------------------------------
-
-func _input(event: InputEvent) -> void:
-	_input_rotation(event)
-
 func show_if_needed() -> void:
 	if not visible:
 		visible = true
@@ -101,26 +91,13 @@ func destroy_level() -> void:
 	_current_level.queue_free()
 	_current_level = null
 
-
-func _input_rotation(_event:InputEvent) -> void:
-	if Input.is_action_just_pressed("Clockwise"):
-			rot_amount = 1.
-	elif Input.is_action_just_pressed("CounterClockwise"):
-			rot_amount = -1.
-	else:
-		return
+func get_level_rotation() -> Vector3:
+	return global_rotation
 	
-	var clamprot: float = clamp(
-			global_rotation.y + rot_amount,
-			ROT_MIN,ROT_MAX)
-	
-	if clamprot < ROT_MIN:
-		clamprot = ROT_MAX
-	elif clamprot > ROT_MAX:
-		clamprot = ROT_MIN 
-
+func input_rotation(to:float) -> void:
 	global_rotation.y = lerp(
-		global_rotation.y,clamprot,.6)	
+		global_rotation.y,
+		to,.6)	
 		
 	Camera_Walking.ref.set_lerp_speed(1.)
 		

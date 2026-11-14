@@ -8,12 +8,14 @@ theme_type_variation = &"PanelContainer_Menus1"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=110614071]
 layout_mode = 2
-theme_override_constants/margin_left = 35
+theme_override_constants/margin_left = 65
 theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 35
+theme_override_constants/margin_right = 65
 theme_override_constants/margin_bottom = 15
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=433706068]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_type_variation = &"Label_MenuText1"
 text = "TEXT"
+autowrap_mode = 2

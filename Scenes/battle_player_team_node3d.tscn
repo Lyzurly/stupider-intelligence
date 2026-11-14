@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://7yrnqwmwyunv"]
 
 [ext_resource type="PackedScene" uid="uid://dqk76mpfrchuu" path="res://Scenes/player_mesh_container.tscn" id="1_fur47"]
+[ext_resource type="Script" uid="uid://bgqsx2yvhviw" path="res://Scripts/battle_player_team_node3d.gd" id="1_uubry"]
 
 [node name="Battle_PlayerTeam" type="Node3D" unique_id=1274172338]
+script = ExtResource("1_uubry")
 
 [node name="Team_Positioner" type="Node3D" parent="." unique_id=400325939]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.778)
@@ -10,11 +12,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.778)
 [node name="Player_MeshContainer" parent="Team_Positioner" unique_id=1898255909 instance=ExtResource("1_fur47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
+[node name="Char1Name_Label3D" type="Label3D" parent="Team_Positioner/Player_MeshContainer" unique_id=989846207]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 1.2, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+text = "CHARNAME"
+font_size = 202
+outline_size = 127
+
 [node name="Player_MeshContainer2" parent="Team_Positioner" unique_id=101149777 instance=ExtResource("1_fur47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Char2Name_Label3D" type="Label3D" parent="Team_Positioner/Player_MeshContainer2" unique_id=891962252]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 1.2, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+text = "CHARNAME"
+font_size = 202
+outline_size = 127
 
 [node name="Player_MeshContainer3" parent="Team_Positioner" unique_id=1902562747 instance=ExtResource("1_fur47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26)
 
+[node name="Char3Name_Label3D" type="Label3D" parent="Team_Positioner/Player_MeshContainer3" unique_id=330293239]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 1.2, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+text = "CHARNAME"
+font_size = 202
+outline_size = 127
+
 [node name="Player_MeshContainer4" parent="Team_Positioner" unique_id=1420918903 instance=ExtResource("1_fur47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42)
+
+[node name="Char4Name_Label3D" type="Label3D" parent="Team_Positioner/Player_MeshContainer4" unique_id=1710403568]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 1.2, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+text = "CHARNAME"
+font_size = 202
+outline_size = 127

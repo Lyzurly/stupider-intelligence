@@ -36,8 +36,9 @@ func change_state(to:STATES) -> bool:
 		STATES.SHOPPING:
 			change_approved = _check_shopping()
 	
-	change_approved = Manage_Game.ref.change_state(
-						Manage_Game.STATES.MENUS)
+	if not to == STATES.NONE:
+		change_approved = Manage_Game.ref.change_state(
+							Manage_Game.STATES.MENUS)
 		
 	if change_approved:
 			
@@ -87,10 +88,10 @@ func _check_create_party() -> bool:
 	return true
 func _on_create_party() -> void:
 	Manage_MenuBehavior.ref.create_new_menu(
-		Manage_MenuBehavior.ROW_SCENES.NONE,
-		Manage_MenuBehavior.ROW_SCENES.NONE,
-		Manage_MenuBehavior.ROW_SCENES.NONE,
-		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS)
+		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_TITLE,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_ROW1,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_ROW2,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_SUBMIT)
 	Manage_MenuBehavior.ref.show_if_needed()
 		
 func _check_pause() -> bool:

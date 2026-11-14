@@ -37,8 +37,9 @@ func change_state(to:STATES) -> bool:
 		STATES.CUTSCENE:
 			change_approved = _check_cutscene()
 	
-	change_approved = Manage_Game.ref.change_state(
-						Manage_Game.STATES.WALKING)
+	if not to == STATES.NONE:
+		change_approved = Manage_Game.ref.change_state(
+							Manage_Game.STATES.WALKING)
 	
 	if change_approved:
 		match to:

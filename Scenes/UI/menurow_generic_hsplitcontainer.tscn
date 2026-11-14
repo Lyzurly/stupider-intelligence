@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://g61yy80letg6"]
 
+[ext_resource type="Theme" uid="uid://l13dd6ib2ywk" path="res://UI/Themes/menu_theme.tres" id="1_bh1d7"]
 [ext_resource type="PackedScene" uid="uid://dm50xlyho7nsb" path="res://Scenes/ui_menus_box_margincontainer.tscn" id="1_lmw6s"]
 
 [node name="Menu_HSplitContainer" type="HSplitContainer" unique_id=254556396]
+theme = ExtResource("1_bh1d7")
 theme_override_constants/separation = 37
 split_offsets = PackedInt32Array(562)
 split_offset = 562

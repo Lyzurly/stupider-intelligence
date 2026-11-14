@@ -10,7 +10,6 @@ func _init() -> void:
 @onready var _detect_area: Area3D = %Detect_Area3D
 
 const SPEED = 12
-const JUMP_VELOCITY = 4.5
 
 var _movement_locked: bool = false
 
@@ -35,17 +34,12 @@ func _physics_process(delta: float) -> void:
 	
 	if _movement_locked:
 		return
-		
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("Left", "Right", "Forward", "Backward")
+	Manage_Input.ref.walk(input_dir)
+	var managed_input_dir: Vector2 = Manage_Input.ref.get_managed_input_dir()
 	
-	#print("\nVEL: ",velocity,"\nINP: ",input_dir,"\nVEL-L: ",velocity.length())
-	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = (transform.basis * Vector3(managed_input_dir.x, 0, managed_input_dir.y)).normalized()
 	
 	_mesh_container.global_rotation.y = transform.basis.get_euler().y
 	
