@@ -10,15 +10,23 @@ var _current_template: TEMPLATES = TEMPLATES.NONE
 
 const _SEGMENTS_INWARD: Array[PackedScene] = [
 	preload("uid://c4r2foa8yuto1"),
+	preload("uid://cpbqqgmyqen3h"),
+	preload("uid://csyajj00a1iox"),
 	]
 const _SEGMENTS_OUTWARD: Array[PackedScene] = [
-	preload("uid://0h7k3is1apkq")
+	preload("uid://0h7k3is1apkq"),
+	preload("uid://cur5b7dn6cmub"),
+	preload("uid://dxyukui7giafu"),
 	]
 const _SEGMENTS_T1_UNIQUE: Array[PackedScene] = [
-	preload("uid://c8njoybbabm3s")
+	preload("uid://c8njoybbabm3s"),
+	preload("uid://dusiaa2fiv1tb"),
+	preload("uid://d3aullph26tov"),
 	]
 const _SEGMENTS_T2_UNIQUE: Array[PackedScene] = [
-	preload("uid://boh6pfy6igv8f")
+	preload("uid://boh6pfy6igv8f"),
+	preload("uid://bh2voy0kvr0qr"),
+	preload("uid://buo8qd3fdptm6")
 	]
 	
 var _seg_inward_node: PackedScene
