@@ -112,8 +112,6 @@ func set_party_data_content(
 who:CHARACTERS,
 what:PARTY_CONTENT,
 to:Variant) -> void:
-	print("\n\nsetting ",CHARACTERS.find_key(who),"'s ",PARTY_CONTENT.find_key(what)," to ",to,"...")
-	print_stack()
 	_party_data[who][what] = to
 
 func get_party_data_content(
