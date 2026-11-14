@@ -88,10 +88,10 @@ func _check_create_party() -> bool:
 	return true
 func _on_create_party() -> void:
 	Manage_MenuBehavior.ref.create_new_menu(
-		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_TITLE,
-		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_ROW1,
-		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_ROW2,
-		Manage_MenuBehavior.ROW_SCENES.CREATE_CLASS_SUBMIT)
+		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_TITLE,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_ROW1,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_ROW2,
+		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_SUBMIT)
 	Manage_MenuBehavior.ref.show_if_needed()
 		
 func _check_pause() -> bool:

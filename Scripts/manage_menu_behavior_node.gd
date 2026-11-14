@@ -13,18 +13,18 @@ enum ROW_SCENES {
 	NONE,
 	GENERIC,
 	NEW_OR_LOAD_GAME,
-	CREATE_CLASS_TITLE,
-	CREATE_CLASS_ROW1,
-	CREATE_CLASS_ROW2,
-	CREATE_CLASS_SUBMIT,
+	CREATE_PARTY_TITLE,
+	CREATE_PARTY_ROW1,
+	CREATE_PARTY_ROW2,
+	CREATE_PARTY_SUBMIT,
 	}
 
 const _ROW_SCENE_GENERIC: PackedScene = preload("uid://g61yy80letg6")
 const _ROW_SCENE_NEW_OR_LOAD_GAME: PackedScene = preload("uid://dl2uv1stbq2ss")
-const _ROW_SCENE_CREATE_CLASS_TITLE: PackedScene = preload("uid://cdkpycrb43jjr")
-const _ROW_SCENE_CREATE_CLASS_ROW1: PackedScene = preload("uid://datdbl873yss3")
-const _ROW_SCENE_CREATE_CLASS_ROW2: PackedScene = preload("uid://bgoigumxme0pk")
-const _ROW_SCENE_CREATE_CLASS_SUBMIT: PackedScene = preload("uid://bc65ipkw17pjw")
+const _ROW_SCENE_CREATE_PARTY_TITLE: PackedScene = preload("uid://cdkpycrb43jjr")
+const _ROW_SCENE_CREATE_PARTY_ROW1: PackedScene = preload("uid://datdbl873yss3")
+const _ROW_SCENE_CREATE_PARTY_ROW2: PackedScene = preload("uid://bgoigumxme0pk")
+const _ROW_SCENE_CREATE_PARTY_SUBMIT: PackedScene = preload("uid://bc65ipkw17pjw")
 	
 @onready var _canvas_layer: CanvasLayer = %Menus_CanvasLayer
 
@@ -37,10 +37,10 @@ var _row_scene_data: Dictionary[ROW_SCENES,PackedScene] = {
 	ROW_SCENES.NONE: null,
 	ROW_SCENES.GENERIC: _ROW_SCENE_GENERIC,
 	ROW_SCENES.NEW_OR_LOAD_GAME: _ROW_SCENE_NEW_OR_LOAD_GAME,
-	ROW_SCENES.CREATE_CLASS_TITLE: _ROW_SCENE_CREATE_CLASS_TITLE,
-	ROW_SCENES.CREATE_CLASS_ROW1: _ROW_SCENE_CREATE_CLASS_ROW1,
-	ROW_SCENES.CREATE_CLASS_ROW2: _ROW_SCENE_CREATE_CLASS_ROW2,
-	ROW_SCENES.CREATE_CLASS_SUBMIT: _ROW_SCENE_CREATE_CLASS_SUBMIT,
+	ROW_SCENES.CREATE_PARTY_TITLE: _ROW_SCENE_CREATE_PARTY_TITLE,
+	ROW_SCENES.CREATE_PARTY_ROW1: _ROW_SCENE_CREATE_PARTY_ROW1,
+	ROW_SCENES.CREATE_PARTY_ROW2: _ROW_SCENE_CREATE_PARTY_ROW2,
+	ROW_SCENES.CREATE_PARTY_SUBMIT: _ROW_SCENE_CREATE_PARTY_SUBMIT,
 	}
 
 var _current_row_nodes: Array[Control] = []
