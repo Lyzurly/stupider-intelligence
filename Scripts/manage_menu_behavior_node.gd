@@ -45,11 +45,6 @@ var _row_scene_data: Dictionary[ROW_SCENES,PackedScene] = {
 
 var _current_row_nodes: Array[Control] = []
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Pause"):
-		Manage_Menus.ref.change_state(
-			Manage_Menus.STATES.PAUSE)
-
 func create_new_menu(
 row1:ROW_SCENES=ROW_SCENES.NONE,
 row2:ROW_SCENES=ROW_SCENES.NONE,
