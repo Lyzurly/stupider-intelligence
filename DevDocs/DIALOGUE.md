@@ -32,6 +32,13 @@
 
 ---
 
+## Battle info
+
+- When a battle is "lost", the team is subject to a performance. Would you like to try proving your worth again?
+    - Think: Earthbound death scene
+
+---
+
 ## Abilities
 
 (x🕞) = How long the caster has to execute ability, and also how long the time penalty is.

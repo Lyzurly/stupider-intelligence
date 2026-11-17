@@ -61,8 +61,7 @@ enviro_scene:PackedScene
 		Manage_Level.LEVEL_TYPES.UNDERWORLD:
 			pass
 		Manage_Level.LEVEL_TYPES.BATTLE_SCENE:
-			Manage_BattleScene.ref.switch()
-			print("BATTLE SYSTEM ENGAGE!")
+			pass
 		#endregion --------------------------------------
 
 func destroy_level() -> void:

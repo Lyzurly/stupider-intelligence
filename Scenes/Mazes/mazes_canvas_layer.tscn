@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bdbb2t05dc1t0"]
+
+[ext_resource type="PackedScene" uid="uid://clj03hj7bgd38" path="res://Scenes/battle_maze_container_node2d.tscn" id="1_xx23h"]
+[ext_resource type="Script" uid="uid://dg7p3ucan4dgk" path="res://Scripts/battle_maze_container_player.gd" id="2_7xvpn"]
+[ext_resource type="Script" uid="uid://e0h1pfe30f0g" path="res://Scripts/battle_maze_container_opponent.gd" id="3_iq0vx"]
+
+[node name="Mazes_CanvasLayer" type="CanvasLayer" unique_id=2054057621]
+
+[node name="Mazes_MarginContainer" type="MarginContainer" parent="." unique_id=1864106286]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 77
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Mazes_MarginContainer" unique_id=2097214869]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(300, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Mazes_MarginContainer/SubViewportContainer" unique_id=1667783123]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="BattleMaze_Container_Player_Node2D" parent="Mazes_MarginContainer/SubViewportContainer/SubViewport" unique_id=599702001 instance=ExtResource("1_xx23h")]
+script = ExtResource("2_7xvpn")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Mazes_MarginContainer" unique_id=1021971595]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-380, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Mazes_MarginContainer/SubViewportContainer2" unique_id=2086399482]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="BattleMaze_Container_Opponent_Node2D" parent="Mazes_MarginContainer/SubViewportContainer2/SubViewport" unique_id=546412035 instance=ExtResource("1_xx23h")]
+script = ExtResource("3_iq0vx")

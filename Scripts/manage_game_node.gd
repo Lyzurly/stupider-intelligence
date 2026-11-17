@@ -136,7 +136,7 @@ func _before_battle() -> void:
 	Manage_Camera.ref.switch(
 		Manage_Camera.CAMERAS.BATTLE)
 func _after_battle() -> void:
-	pass
+	Manage_BattleScene.ref.switch()
 func _on_previously_battle() -> void:
 	Manage_Battle.ref.change_state(
 		Manage_Battle.STATES.NONE)

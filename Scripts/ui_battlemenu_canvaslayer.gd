@@ -6,7 +6,9 @@ func _init() -> void:
 @onready var _menu_timer: Timer = %BattleMenu_Timer
 
 @onready var _intro_text_container: MarginContainer = %IntroText_MenuBox_MarginContainer
-	
+@onready var _gameplay_menu_container: MarginContainer = %GameplayMenu_MarginContainer
+@onready var _opponent_menu_container: MarginContainer = %OpponentMenu_MarginContainer
+
 @onready var _abil_1_button: Button = %Abil_1_Button
 @onready var _abil_2_button: Button = %Abil_2_Button
 @onready var _abil_3_button: Button = %Abil_3_Button
@@ -15,10 +17,15 @@ func _init() -> void:
 var _last_known_state: Manage_Battle.STATES = Manage_Battle.STATES.NONE	
 
 func _ready() -> void:
+	print("BattleMenu CanvasLayer created")
+	_ready_visibilities()
 	_ready_connections()
+	
+func _ready_visibilities() -> void:
+	_on_any()
 
 func _ready_connections() -> void:
-	#_menu_timer.timeout.connect(_on_menu_timer_timeout)
+	_menu_timer.timeout.connect(_on_menu_timer_timeout)
 	_abil_1_button.pressed.connect(_on_abil_1_pressed)
 	_abil_2_button.pressed.connect(_on_abil_2_pressed)
 	_abil_3_button.pressed.connect(_on_abil_3_pressed)
@@ -41,6 +48,8 @@ to_show:Manage_Battle.STATES,
 			_on_lost()
 
 func _on_menu_timer_timeout() -> void:
+	print("MENU TIMER TIMEOUT")
+	_menu_timer.stop()
 	if _last_known_state == Manage_Battle.STATES.NONE:
 		push_error("Wait um why is the last known state none lmfao")
 	match _last_known_state:
@@ -74,9 +83,11 @@ func _on_any() -> void:
 
 func _on_intro(do_show:bool = true) -> void:
 	_intro_text_container.visible = do_show
+	_menu_timer.start(3)
 
 func _on_gameplay(do_show:bool = true) -> void:
-	pass
+	_gameplay_menu_container.visible = do_show
+	_opponent_menu_container.visible = do_show
 
 func _on_won(do_show:bool = true) -> void:
 	pass

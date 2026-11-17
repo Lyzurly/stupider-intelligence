@@ -2,8 +2,6 @@
 
 @abstract func _my_type() -> LEVEL_TYPES
 
-var _battle_container_scene: PackedScene
-
 enum LEVEL_TYPES {
 	NONE,
 	CINEMATIC,
@@ -16,12 +14,6 @@ enum LEVEL_CONTENT {
 	SCENE, # PackedScene
 	ENVIRONMENT, # PackedScene
 	}
-
-func _ready() -> void:
-	_battle_container_scene = load("uid://d2672tsns0pfy")
-	
-func get_new_battle() -> PackedScene:
-	return _battle_container_scene
 
 func _load_level(
 level_scene:PackedScene,enviro_scene:PackedScene
