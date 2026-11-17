@@ -68,13 +68,11 @@ func _check_intro() -> bool:
 	return true
 func _on_intro() -> void:
 	Level_Container.ref.show_if_needed()
-	Battle_Menu.ref.show_menu(STATES.INTRO)
-
+	
 func _check_gameplay() -> bool:
 	return true
 func _on_gameplay() -> void:
-	Battle_Menu.ref.show_menu(STATES.GAMEPLAY)
-	Manage_BattleMaze.ref.generate_mazes()
+	pass
 
 func _check_won() -> bool:
 	return true

@@ -22,8 +22,8 @@ func _stop() -> void:
 	_timer_overall_length.stop()
 	_canvas_layer.visible = false
 	_overall_length = _DEFAULT_LENGTH
-	Manage_Overworld.ref.switch(
-		Manage_Overworld.OVERWORLDS.OW1)
+	Manage_Walking.ref.change_state(
+		Manage_Walking.STATES.OVERWORLD)
 
 func _on_length_timeout() -> void:
 	if _overall_length > 0:

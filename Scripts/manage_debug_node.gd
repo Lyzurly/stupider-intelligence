@@ -13,5 +13,5 @@ func _ready_connections() -> void:
 
 func _on_pressed_key(pressed: Key) -> void:
 	if pressed == KEY_B:
-			Manage_BattleScene.ref.switch()
-			print("BATTLE SYSTEM ENGAGE!")
+		Manage_Battle.ref.change_state(
+			Manage_Battle.STATES.INTRO)

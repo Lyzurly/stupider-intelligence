@@ -115,7 +115,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_entered(area:Area3D) -> void:
 	if area is OW_Underworld:
-		print("WE HAVE ENTERED A TOWN")
-		Manage_Underworld.ref.switch(
-			Manage_Underworld.UNDERWORLDS.OW1_UW1)
+		Manage_Walking.ref.change_state(
+			Manage_Walking.STATES.UNDERWORLD)
 		

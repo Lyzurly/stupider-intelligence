@@ -17,28 +17,7 @@ func load_level(
 type:Manage_Level.LEVEL_TYPES,
 level_scene:PackedScene,
 enviro_scene:PackedScene
-) -> void:
-	var approved: bool = false
-	
-	#region State approval check =======================
-	match type:
-		Manage_Level.LEVEL_TYPES.CINEMATIC: \
-			approved = Manage_Game.ref.change_state(
-				Manage_Game.STATES.CINEMATIC)
-		Manage_Level.LEVEL_TYPES.OVERWORLD: \
-			approved = Manage_Walking.ref.change_state(
-				Manage_Walking.STATES.OVERWORLD)
-		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
-			approved = Manage_Walking.ref.change_state(
-				Manage_Walking.STATES.UNDERWORLD)
-		Manage_Level.LEVEL_TYPES.BATTLE_SCENE: \
-			approved = Manage_Battle.ref.change_state(
-				Manage_Battle.STATES.INTRO)
-	
-	if not approved:
-		return
-	#endregion --------------------------------------
-		
+) -> void:		
 	var level_node: Node3D = \
 		level_scene.instantiate()
 	var new_level: Level = \
@@ -77,12 +56,13 @@ enviro_scene:PackedScene
 			var cinematic: Cinematic = new_level as Cinematic
 			cinematic.start()
 			
-		Manage_Level.LEVEL_TYPES.OVERWORLD: \
+		Manage_Level.LEVEL_TYPES.OVERWORLD:
 			pass
-		Manage_Level.LEVEL_TYPES.UNDERWORLD: \
+		Manage_Level.LEVEL_TYPES.UNDERWORLD:
 			pass
-		Manage_Level.LEVEL_TYPES.BATTLE_SCENE: \
-			pass
+		Manage_Level.LEVEL_TYPES.BATTLE_SCENE:
+			Manage_BattleScene.ref.switch()
+			print("BATTLE SYSTEM ENGAGE!")
 		#endregion --------------------------------------
 
 func destroy_level() -> void:

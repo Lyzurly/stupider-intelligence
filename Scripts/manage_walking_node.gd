@@ -44,16 +44,27 @@ func change_state(to:STATES) -> bool:
 	if change_approved:
 		match to:
 			STATES.NONE:
-				_on_none()
+				_before_none()
 			STATES.OVERWORLD:
-				_on_overworld()
+				_before_overworld()
 			STATES.UNDERWORLD:
-				_on_underworld()
+				_before_underworld()
 			STATES.CUTSCENE:
-				_on_cutscene()
+				_before_cutscene()
 				
 		_previous_state = _state
 		_state = to
+		
+		match to:
+			STATES.NONE:
+				_after_none()
+			STATES.OVERWORLD:
+				_after_overworld()
+			STATES.UNDERWORLD:
+				_after_underworld()
+			STATES.CUTSCENE:
+				_after_cutscene()
+		
 		print("WALKING STATE: ",STATES.find_key(_state))
 	else:
 		print("REJECTED: WALKING STATE: ",STATES.find_key(_state))
@@ -62,24 +73,34 @@ func change_state(to:STATES) -> bool:
 		
 func _check_none() -> bool:
 	return true
-func _on_none() -> void:
+func _before_none() -> void:
+	pass
+func _after_none() -> void:
 	pass
 
 func _check_overworld() -> bool:
 	return true
-func _on_overworld() -> void:
+func _before_overworld() -> void:
 	await get_tree().process_frame
 	Player.ref.lock_movement(false)
 	Level_Container.ref.show_if_needed()
+func _after_overworld() -> void:
+	Manage_Overworld.ref.switch(
+		Manage_Overworld.OVERWORLDS.OW1)
 		
 func _check_underworld() -> bool:
 	return true
-func _on_underworld() -> void:
+func _before_underworld() -> void:
 	await get_tree().process_frame
 	Player.ref.lock_movement(false)
 	Level_Container.ref.show_if_needed()
+func _after_underworld() -> void:
+	Manage_Underworld.ref.switch(
+		Manage_Underworld.UNDERWORLDS.OW1_UW1)
 		
 func _check_cutscene() -> bool:
 	return true
-func _on_cutscene() -> void:
+func _before_cutscene() -> void:
+	pass
+func _after_cutscene() -> void:
 	pass

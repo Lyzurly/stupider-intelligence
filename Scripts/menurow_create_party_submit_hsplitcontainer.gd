@@ -10,5 +10,5 @@ func _ready_connections() -> void:
 	
 func _on_start_pressed() -> void:
 	print("switching to first cinematic...")
-	Manage_Cinematics.ref.switch(
-		Manage_Cinematics.CINEMATICS.CINEMATIC_1)
+	Manage_Game.ref.change_state(
+		Manage_Game.STATES.CINEMATIC)

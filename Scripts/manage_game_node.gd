@@ -45,17 +45,29 @@ func change_state(to:STATES) -> bool:
 	if change_approved:
 		match to:
 			STATES.NONE:
-				_on_none()
+				_before_none()
 			STATES.MENUS:
-				_on_menus()
+				_before_menus()
 			STATES.CINEMATIC:
-				_on_cinematic()
+				_before_cinematic()
 			STATES.WALKING:
-				_on_walking()
+				_before_walking()
 			STATES.BATTLE:
-				_on_battle()
+				_before_battle()
 		_previous_state = _state
 		_state = to
+		
+		match to:
+			STATES.NONE:
+				_after_none()
+			STATES.MENUS:
+				_after_menus()
+			STATES.CINEMATIC:
+				_after_cinematic()
+			STATES.WALKING:
+				_after_walking()
+			STATES.BATTLE:
+				_after_battle()
 		
 		match _previous_state:
 			STATES.NONE:
@@ -77,14 +89,18 @@ func change_state(to:STATES) -> bool:
 		
 func _check_none() -> bool:
 	return true
-func _on_none() -> void:
+func _before_none() -> void:
+	pass
+func _after_none() -> void:
 	pass
 func _on_previously_none() -> void:
 	pass
 
 func _check_menus() -> bool:
 	return true
-func _on_menus() -> void:
+func _before_menus() -> void:
+	pass
+func _after_menus() -> void:
 	pass
 func _on_previously_menus() -> void:
 	Manage_Menus.ref.change_state(
@@ -93,27 +109,34 @@ func _on_previously_menus() -> void:
 func _check_cinematic() -> bool:
 	#TODO BLOCK IF COMING FROM PAUSE
 	return true
-func _on_cinematic() -> void:
+func _before_cinematic() -> void:
 	Manage_MenuBehavior.ref.hide_if_needed()
+func _after_cinematic() -> void:
+	Manage_Cinematics.ref.switch(
+		Manage_Cinematics.CINEMATICS.CINEMATIC_1)
 func _on_previously_cinematic() -> void:
 	pass
 	
 func _check_walking() -> bool:
 	return true
-func _on_walking() -> void:
+func _before_walking() -> void:
 	Manage_MenuBehavior.ref.hide_if_needed()
 	Manage_Camera.ref.switch(
 		Manage_Camera.CAMERAS.WALKING)
+func _after_walking() -> void:
+	pass
 func _on_previously_walking() -> void:
 	Manage_Walking.ref.change_state(
 		Manage_Walking.STATES.NONE)
 		
 func _check_battle() -> bool:
 	return true
-func _on_battle() -> void:
+func _before_battle() -> void:
 	Manage_MenuBehavior.ref.hide_if_needed()
 	Manage_Camera.ref.switch(
 		Manage_Camera.CAMERAS.BATTLE)
+func _after_battle() -> void:
+	pass
 func _on_previously_battle() -> void:
 	Manage_Battle.ref.change_state(
 		Manage_Battle.STATES.NONE)
