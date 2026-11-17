@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddj6t6pm1wpst"]
 
 [ext_resource type="Script" uid="uid://vrj0bdkpyvjd" path="res://Scripts/player_characterbody3d.gd" id="1_4awja"]
+[ext_resource type="Script" uid="uid://cbwcypwk6iq1w" path="res://Scripts/player_lighting_node3d.gd" id="1_736di"]
 [ext_resource type="PackedScene" uid="uid://dqk76mpfrchuu" path="res://Scenes/player_mesh_container.tscn" id="2_vfbp4"]
 [ext_resource type="Script" uid="uid://c3ol45qkmwusi" path="res://Scripts/player_mesh_container.gd" id="3_736di"]
 
@@ -12,16 +13,21 @@ height = 3.12
 
 [node name="Player" type="Node3D" unique_id=294953092]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=963866506]
-transform = Transform3D(0.955793, 0.29404032, 0, -0.21364224, 0.69445497, 0.6870875, 0.20203142, -0.6567134, 0.72657466, 0, 0, 0)
+[node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1104665286]
+collision_layer = 0
+script = ExtResource("1_4awja")
+
+[node name="PlayerLighting" type="Node3D" parent="Player_CharacterBody3D" unique_id=1243550505]
+script = ExtResource("1_736di")
+
+[node name="Light1_DirectionalLight3D" type="DirectionalLight3D" parent="Player_CharacterBody3D/PlayerLighting" unique_id=963866506]
+unique_name_in_owner = true
+transform = Transform3D(0.955793, 0.29404032, 1.752617e-08, -0.21364224, 0.69445497, 0.68708754, 0.20203142, -0.6567135, 0.72657466, 0, 0, 0)
+top_level = true
 layers = 2
 light_color = Color(0.86, 0.4386, 0.6773933, 1)
 light_energy = 0.784
 light_cull_mask = 4294966274
-
-[node name="Player_CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1104665286]
-collision_layer = 0
-script = ExtResource("1_4awja")
 
 [node name="Detect_Area3D" type="Area3D" parent="Player_CharacterBody3D" unique_id=1846698510]
 unique_name_in_owner = true

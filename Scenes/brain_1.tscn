@@ -2,10 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dqjd42cgqpy1g" path="res://BlendFiles/GLTF/brain1.glb" id="1_waord"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga6lf"]
-shading_mode = 2
-albedo_color = Color(1, 0.63, 0.7718333, 1)
-
 [node name="brain1" unique_id=1980096064 instance=ExtResource("1_waord")]
 
 [node name="Brain_1_base1" parent="." index="0" unique_id=43152516]
@@ -16,4 +12,4 @@ visible = false
 
 [node name="Brain_3_base-n-bottom-n-stem1_002" parent="." index="2" unique_id=1508138315]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_ga6lf")
+layers = 2

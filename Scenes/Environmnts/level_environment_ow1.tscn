@@ -5,7 +5,6 @@
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
 sky_top_color = Color(1, 1, 1, 1)
 sky_horizon_color = Color(0.57, 0.57, 0.57, 1)
-sky_energy_multiplier = 6.2
 ground_bottom_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
 ground_horizon_color = Color(0.66, 0.66, 0.66, 1)
 
@@ -42,8 +41,9 @@ script = ExtResource("1_g41o1")
 environment = SubResource("Environment_k1c8l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1546860116]
-transform = Transform3D(-0.86602545, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.5000001, 0.75000006, -0.43301272, 0, 0, 0)
-light_energy = 0.28
+transform = Transform3D(-0.8660254, -0.4330128, 0.25000003, 0, 0.49999997, 0.86602545, -0.5000001, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.116502754, 0.026020369, 0.05651574, 1)
+light_energy = 7.718
 light_cull_mask = 4294966273
 shadow_enabled = true
 
