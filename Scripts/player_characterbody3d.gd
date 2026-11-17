@@ -5,7 +5,7 @@ func _init() -> void:
 	
 @onready var _mesh_container: Player_MeshContainer = %Player_MeshContainer
 
-@onready var _mesh: MeshInstance3D
+@onready var _mesh: Node3D
 
 @onready var _detect_area: Area3D = %Detect_Area3D
 
