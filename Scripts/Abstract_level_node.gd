@@ -2,7 +2,7 @@
 
 @abstract func _my_type() -> LEVEL_TYPES
 
-const _BATTLE_CONTAINER_SCENE: PackedScene = preload("uid://d2672tsns0pfy")
+var _battle_container_scene: PackedScene
 
 enum LEVEL_TYPES {
 	NONE,
@@ -16,13 +16,40 @@ enum LEVEL_CONTENT {
 	SCENE, # PackedScene
 	ENVIRONMENT, # PackedScene
 	}
+
+func _ready() -> void:
+	_battle_container_scene = load("uid://d2672tsns0pfy")
 	
 func get_new_battle() -> PackedScene:
-	return _BATTLE_CONTAINER_SCENE
+	return _battle_container_scene
 
 func _load_level(
 level_scene:PackedScene,enviro_scene:PackedScene
 ) -> void:
+	var approved: bool = false
+	match _my_type():
+		LEVEL_TYPES.CINEMATIC:
+			approved = Manage_Game.ref.is_state(
+				Manage_Game.STATES.CINEMATIC)
+		LEVEL_TYPES.OVERWORLD:
+			approved = Manage_Walking.ref.is_state(
+				Manage_Walking.STATES.OVERWORLD)
+		LEVEL_TYPES.UNDERWORLD:
+			approved = Manage_Walking.ref.is_state(
+				Manage_Walking.STATES.UNDERWORLD)
+		LEVEL_TYPES.BATTLE_SCENE:
+			approved = Manage_Game.ref.is_state(
+				Manage_Game.STATES.BATTLE)
+	
+	assert(
+		approved,
+		"WHOA WHOA WHOA you are tryna to instantiate a level (" \
+			+ str(level_scene) \
+			+ ") BEFORE having switched to the state that corresponds to that levels' type (" \
+			+ LEVEL_TYPES.find_key(_my_type()) \
+			+ ") Trust me, you don't wanna do that."
+		)
+		
 	Level_Container.ref.load_level(
 		_my_type(),level_scene,enviro_scene)
 

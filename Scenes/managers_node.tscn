@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvurslyph7hv1" path="res://Scripts/manage_game_node.gd" id="1_gxb8a"]
 [ext_resource type="Script" uid="uid://caclkedusdwuo" path="res://Scripts/manage_menus_node.gd" id="2_88c7l"]
 [ext_resource type="Script" uid="uid://7cxwhlwjygyf" path="res://Scripts/manage_debug_node.gd" id="2_j70b7"]
+[ext_resource type="PackedScene" uid="uid://dhswb6bqy7pko" path="res://Scenes/ui_battlemenu_canvaslayer.tscn" id="3_6vi18"]
 [ext_resource type="PackedScene" uid="uid://crvsqxu11booc" path="res://Scenes/manage_menu_behavior_node.tscn" id="4_2ishb"]
 [ext_resource type="Script" uid="uid://c7hd3gjks5tse" path="res://Scripts/manage_cinematics_node.gd" id="6_oaooj"]
 [ext_resource type="Script" uid="uid://bwwddngyab632" path="res://Scripts/manage_walking_node.gd" id="8_88c7l"]
@@ -23,6 +24,9 @@
 
 [node name="Manage_Menus" type="Node" parent="." unique_id=1624568645]
 script = ExtResource("2_88c7l")
+
+[node name="BattleMenu_CanvasLayer" parent="." unique_id=1460470583 instance=ExtResource("3_6vi18")]
+visible = false
 
 [node name="Manage_Game" type="Node" parent="." unique_id=1739263060]
 script = ExtResource("1_gxb8a")
