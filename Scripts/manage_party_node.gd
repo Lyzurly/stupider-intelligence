@@ -33,53 +33,53 @@ enum PARTY_CONTENT { ## Contnet of _data
 	}
 
 enum ABILITIES { ## Abilities party members can use
-	NAVIGATE,
-	BRUTE_FORCE_SOLVER,
-	A_STAR_SOLVER,
-	FIGHT_BUG,
-	PROGRAM_PATH,
-	OPTIMIZE,
-	WEAKEN_BUG,
-	REVEAL_PATH
+	Navigate,
+	Brute_Force_Solver,
+	A_Star_Solver,
+	Fight_Bug,
+	Program_Path,
+	Optimize,
+	Weaken_Bug,
+	Reveal_Path
 	}
 
 const _CLASS_DATA: Dictionary[CLASSES,Dictionary] = {
 	CLASSES.Project_Manager: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.OPTIMIZE:{},
-			ABILITIES.REVEAL_PATH:{},
+			ABILITIES.Optimize:{},
+			ABILITIES.Reveal_Path:{},
 		},
 	},
 	CLASSES.Automation_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.BRUTE_FORCE_SOLVER:{},
-			ABILITIES.A_STAR_SOLVER:{},
+			ABILITIES.Brute_Force_Solver:{},
+			ABILITIES.A_Star_Solver:{},
 		},
 	},
 	CLASSES.Backend_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.PROGRAM_PATH:{},
-			ABILITIES.FIGHT_BUG:{},
+			ABILITIES.Program_Path:{},
+			ABILITIES.Fight_Bug:{},
 		},
 	},
 	CLASSES.Frontend_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.NAVIGATE:{},
-			ABILITIES.FIGHT_BUG:{},
+			ABILITIES.Navigate:{},
+			ABILITIES.Fight_Bug:{},
 		},
 	},
 	CLASSES.Full_Stack_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.BRUTE_FORCE_SOLVER:{},
-			ABILITIES.PROGRAM_PATH:{},
-			ABILITIES.NAVIGATE:{},
-			ABILITIES.FIGHT_BUG:{},
+			ABILITIES.Brute_Force_Solver:{},
+			ABILITIES.Program_Path:{},
+			ABILITIES.Navigate:{},
+			ABILITIES.Fight_Bug:{},
 		},
 	},
 	CLASSES.Quality_Assurer: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			ABILITIES.OPTIMIZE:{},
-			ABILITIES.WEAKEN_BUG:{},
+			ABILITIES.Optimize:{},
+			ABILITIES.Weaken_Bug:{},
 		},
 	},
 	}
@@ -111,6 +111,12 @@ var _party_data: Dictionary[CHARACTERS,Dictionary] = {
 	},
 }
 
+func get_class_data_content(
+which:CLASSES,
+what:CLASS_CONTENT,
+) -> Variant:
+	return _CLASS_DATA[which][what]
+	
 func get_party_data() -> Dictionary[CHARACTERS,Dictionary]:
 	return _party_data
 

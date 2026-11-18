@@ -231,7 +231,7 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/Menu_HSplitContainer/GameplayMenu_MarginContainer/VSplitContainer/PanelContainer2/MarginContainer" unique_id=988130168]
 layout_mode = 2
 
-[node name="CharName_Label" type="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/Menu_HSplitContainer/GameplayMenu_MarginContainer/VSplitContainer/PanelContainer2/MarginContainer/VBoxContainer2" unique_id=1216615285]
+[node name="CharAbility_Label" type="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/Menu_HSplitContainer/GameplayMenu_MarginContainer/VSplitContainer/PanelContainer2/MarginContainer/VBoxContainer2" unique_id=1216615285]
 layout_mode = 2
 theme_type_variation = &"Label_MenuText1"
 theme_override_font_sizes/font_size = 30

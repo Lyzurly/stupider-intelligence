@@ -3,9 +3,9 @@ static var ref: Battle_Menu
 func _init() -> void:
 	ref = self
 	
-signal next_player_attacker_ready(
-	attacker_name:String,
-	attacker_class: Manage_Party.CLASSES)
+#signal next_player_attacker_ready(
+	#attacker_name:String,
+	#attacker_class: Manage_Party.CLASSES)
 
 @onready var _menu_timer: Timer = %BattleMenu_Timer
 
@@ -113,8 +113,37 @@ func _on_abil_4_pressed() -> void:
 	pass
 
 #region Ability Menu Stuff ==========================
-func _set_current_attacker_name(to:String) -> void:
+func _update_current_attacker_name(to:String) -> void:
 	_char_name_label.text = to
+	
+func _update_current_attacker_class(
+to:Manage_Party.CLASSES
+) -> void:
+	var ability_array: Array[Manage_Party.ABILITIES] = []
+	var ability_dictionary: Dictionary = \
+		Manage_Party.ref.get_class_data_content(
+			to,
+			Manage_Party.CLASS_CONTENT.ABILITY_LIST)
+	
+	for ability: Manage_Party.ABILITIES in ability_dictionary:
+		ability_array.append(ability)
+	
+	var ability_count: int = ability_array.size()
+	
+	for count in ability_count:
+		var ability_enum_string: String = \
+			Manage_Party.ABILITIES.find_key(ability_array[count])
+		var ability_name_string: String = \
+			ability_enum_string.replace("_"," ")
+			
+		if count == 0:
+			_abil_1_button.text = ability_name_string
+		elif count == 1:
+			_abil_2_button.text = ability_name_string
+		elif count == 2:
+			_abil_3_button.text = ability_name_string
+		elif count == 3:
+			_abil_4_button.text = ability_name_string
 	
 func _prepare_next_player_attacker() -> void:
 	var next_attacker_name: String
@@ -158,10 +187,13 @@ func _prepare_next_player_attacker() -> void:
 	
 		assert(not next_attacker == Manage_Party.CHARACTERS.NONE,
 		"Oh dearie me, you didn't find a next attacker at all, is everyone dead lmao?")
-		_set_current_attacker_name(next_attacker_name)
+		_update_current_attacker_name(next_attacker_name)
+		_update_current_attacker_class(next_attacker_class)
 		
-		next_player_attacker_ready.emit(
-			next_attacker_name,next_attacker_class)
+		#next_player_attacker_ready.emit(
+			#next_attacker_name,next_attacker_class)
+			
+		
 		
 				
 #endregion --------------------------------------------
