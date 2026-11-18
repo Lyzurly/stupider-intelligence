@@ -2,8 +2,10 @@ class_name Manage_MenuBehavior extends Node
 static var ref: Manage_MenuBehavior
 func _init() -> void:
 	ref = self
-	
+
+@warning_ignore_start("unused_signal")
 signal a_create_party_property_was_set
+@warning_ignore_restore("unused_signal")
 	
 ## To add new rows:
 ## Duplicate the generic menurow scene. Style it as desired.

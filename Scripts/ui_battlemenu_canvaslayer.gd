@@ -2,12 +2,18 @@ class_name Battle_Menu extends CanvasLayer
 static var ref: Battle_Menu
 func _init() -> void:
 	ref = self
+	
+signal next_player_attacker_ready(
+	attacker_name:String,
+	attacker_class: Manage_Party.CLASSES)
 
 @onready var _menu_timer: Timer = %BattleMenu_Timer
 
 @onready var _intro_text_container: MarginContainer = %IntroText_MenuBox_MarginContainer
 @onready var _gameplay_menu_container: MarginContainer = %GameplayMenu_MarginContainer
 @onready var _opponent_menu_container: MarginContainer = %OpponentMenu_MarginContainer
+
+@onready var _char_name_label: Label = %CharName_Label
 
 @onready var _abil_1_button: Button = %Abil_1_Button
 @onready var _abil_2_button: Button = %Abil_2_Button
@@ -52,6 +58,7 @@ func _on_menu_timer_timeout() -> void:
 	_menu_timer.stop()
 	if _last_known_state == Manage_Battle.STATES.NONE:
 		push_error("Wait um why is the last known state none lmfao")
+		
 	match _last_known_state:
 		Manage_Battle.STATES.INTRO:
 			_after_intro()
@@ -86,6 +93,7 @@ func _on_intro(do_show:bool = true) -> void:
 	_menu_timer.start(3)
 
 func _on_gameplay(do_show:bool = true) -> void:
+	_prepare_next_player_attacker()
 	_gameplay_menu_container.visible = do_show
 	_opponent_menu_container.visible = do_show
 
@@ -103,3 +111,57 @@ func _on_abil_3_pressed() -> void:
 	pass
 func _on_abil_4_pressed() -> void:
 	pass
+
+#region Ability Menu Stuff ==========================
+func _set_current_attacker_name(to:String) -> void:
+	_char_name_label.text = to
+	
+func _prepare_next_player_attacker() -> void:
+	var next_attacker_name: String
+	var next_attacker_class: Manage_Party.CLASSES = \
+		Manage_Party.CLASSES.NONE
+	
+	var party_data: Dictionary[Manage_Party.CHARACTERS,Dictionary] = \
+		Manage_Party.ref.get_party_data()
+	
+	const INF_ORDER: int = 999999999999999999
+	var next_attacker_order: int = INF_ORDER
+	var next_attacker: Manage_Party.CHARACTERS = \
+		Manage_BattleParty.ref.get_current_attacker() 
+		
+	if next_attacker == Manage_Party.CHARACTERS.NONE:
+		for party_character: Manage_Party.CHARACTERS \
+		in party_data:
+			var current_attacker_order: int = \
+				party_data[party_character][
+				Manage_Party.PARTY_CONTENT.ORDER]
+			var current_attacker_is_alive: bool = \
+				party_data[party_character][
+				Manage_Party.PARTY_CONTENT.ALIVE]
+			if current_attacker_order < next_attacker_order \
+			and current_attacker_is_alive:
+				next_attacker_order = current_attacker_order
+				
+				next_attacker = party_character
+			
+				next_attacker_name = \
+					party_data[party_character][
+					Manage_Party.PARTY_CONTENT.NAME]
+				next_attacker_class = \
+					party_data[party_character][
+					Manage_Party.PARTY_CONTENT.CLASS]
+			else:
+				continue
+					
+		assert(not next_attacker_order == INF_ORDER,
+		"Uh oh you didn't find the order of the next attacker, is everyone dead lmao?")
+	
+		assert(not next_attacker == Manage_Party.CHARACTERS.NONE,
+		"Oh dearie me, you didn't find a next attacker at all, is everyone dead lmao?")
+		_set_current_attacker_name(next_attacker_name)
+		
+		next_player_attacker_ready.emit(
+			next_attacker_name,next_attacker_class)
+		
+				
+#endregion --------------------------------------------

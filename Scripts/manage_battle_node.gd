@@ -79,9 +79,11 @@ func _on_gameplay() -> void:
 func _check_won() -> bool:
 	return true
 func _on_won() -> void:
-	pass
+	Manage_BattleParty.ref.set_current_attacker(
+		Manage_Party.CHARACTERS.NONE)
 
 func _check_lost() -> bool:
 	return true
 func _on_lost() -> void:
-	pass
+	Manage_BattleParty.ref.set_current_attacker(
+		Manage_Party.CHARACTERS.NONE)

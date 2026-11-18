@@ -212,6 +212,7 @@ theme_override_constants/margin_top = 11
 theme_override_constants/margin_bottom = 16
 
 [node name="CharName_Label" type="Label" parent="MarginContainer/PanelContainer/Menu_VSplitContainer/Title_MarginContainer/PanelContainer/Menu_HSplitContainer/GameplayMenu_MarginContainer/VSplitContainer/PanelContainer/MarginContainer" unique_id=420496520]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"Label_MenuText1"
 theme_override_font_sizes/font_size = 30
