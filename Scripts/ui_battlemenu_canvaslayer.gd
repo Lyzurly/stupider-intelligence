@@ -32,10 +32,22 @@ func _ready_visibilities() -> void:
 
 func _ready_connections() -> void:
 	_menu_timer.timeout.connect(_on_menu_timer_timeout)
-	_abil_1_button.pressed.connect(_on_abil_1_pressed)
-	_abil_2_button.pressed.connect(_on_abil_2_pressed)
-	_abil_3_button.pressed.connect(_on_abil_3_pressed)
-	_abil_4_button.pressed.connect(_on_abil_4_pressed)
+	_abil_1_button.pressed.connect(
+		_on_abil_1_pressed.bind(
+			_abil_1_button.text)
+			)
+	_abil_2_button.pressed.connect(
+		_on_abil_2_pressed.bind(
+			_abil_2_button.text)
+			)
+	_abil_3_button.pressed.connect(
+		_on_abil_3_pressed.bind(
+			_abil_3_button.text)
+			)
+	_abil_4_button.pressed.connect(
+		_on_abil_4_pressed.bind(
+			_abil_4_button.text)
+			)
 
 func show_menu(
 to_show:Manage_Battle.STATES,
@@ -103,14 +115,21 @@ func _on_won(do_show:bool = true) -> void:
 func _on_lost(do_show:bool = true) -> void:
 	pass
 	
-func _on_abil_1_pressed() -> void:
-	pass
-func _on_abil_2_pressed() -> void:
-	pass
-func _on_abil_3_pressed() -> void:
-	pass
-func _on_abil_4_pressed() -> void:
-	pass
+func _on_abil_pressed(button_text:String) -> void:
+	print(button_text)
+	
+func _on_abil_1_pressed(button_text:String) -> void:
+	if button_text:
+		_on_abil_pressed(button_text)
+func _on_abil_2_pressed(button_text:String) -> void:
+	if button_text:
+		_on_abil_pressed(button_text)
+func _on_abil_3_pressed(button_text:String) -> void:
+	if button_text:
+		_on_abil_pressed(button_text)
+func _on_abil_4_pressed(button_text:String) -> void:
+	if button_text:
+		_on_abil_pressed(button_text)
 
 #region Ability Menu Stuff ==========================
 func _update_current_attacker_name(to:String) -> void:
@@ -135,7 +154,8 @@ to:Manage_Party.CLASSES
 			Manage_Party.ABILITIES.find_key(ability_array[count])
 		var ability_name_string: String = \
 			ability_enum_string.replace("_"," ")
-			
+		
+		push_error("HEY LYZ good job also can u make sure the ones that arent abilitizing are disabled tbh u shuold rewrite this whole for loop luv ya")
 		if count == 0:
 			_abil_1_button.text = ability_name_string
 		elif count == 1:
@@ -144,6 +164,7 @@ to:Manage_Party.CLASSES
 			_abil_3_button.text = ability_name_string
 		elif count == 3:
 			_abil_4_button.text = ability_name_string
+			
 	
 func _prepare_next_player_attacker() -> void:
 	var next_attacker_name: String
@@ -187,8 +208,14 @@ func _prepare_next_player_attacker() -> void:
 	
 		assert(not next_attacker == Manage_Party.CHARACTERS.NONE,
 		"Oh dearie me, you didn't find a next attacker at all, is everyone dead lmao?")
+		
+		
 		_update_current_attacker_name(next_attacker_name)
 		_update_current_attacker_class(next_attacker_class)
+		
+		push_error("UM hey lyz everything is fine, BUT why does uncommenting the code below this mess up all of the gameplay menu loadins? Just comment the breakpoint in and check it out luv u")
+		#breakpoint
+		#Manage_BattleParty.ref.set_current_attacker(next_attacker)
 		
 		#next_player_attacker_ready.emit(
 			#next_attacker_name,next_attacker_class)

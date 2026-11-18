@@ -33,6 +33,7 @@ enum PARTY_CONTENT { ## Contnet of _data
 	}
 
 enum ABILITIES { ## Abilities party members can use
+	NONE,
 	Navigate,
 	Brute_Force_Solver,
 	A_Star_Solver,
