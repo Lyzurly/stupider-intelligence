@@ -12,12 +12,12 @@ enum CHARACTERS {
 
 enum CLASSES {
 	NONE,
-	PROJECT_MANAGER,
-	AUTOMATION_DEV,
-	BACKEND_DEV,
-	FRONTEND_DEV,
-	FULL_STACK_DEV,
-	QUALITY_ASSURER,
+	Project_Manager,
+	Automation_Dev,
+	Backend_Dev,
+	Frontend_Dev,
+	Full_Stack_Dev,
+	Quality_Assurer,
 	}
 
 enum CLASS_CONTENT { ## Contnet of _data
@@ -42,31 +42,31 @@ enum ABILITIES { ## Abilities party members can use
 	}
 
 const _CLASS_DATA: Dictionary[CLASSES,Dictionary] = {
-	CLASSES.PROJECT_MANAGER: {
+	CLASSES.Project_Manager: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.OPTIMIZE:{},
 			ABILITIES.REVEAL_PATH:{},
 		},
 	},
-	CLASSES.AUTOMATION_DEV: {
+	CLASSES.Automation_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.BRUTE_FORCE_SOLVER:{},
 			ABILITIES.A_STAR_SOLVER:{},
 		},
 	},
-	CLASSES.BACKEND_DEV: {
+	CLASSES.Backend_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.PROGRAM_PATH:{},
 			ABILITIES.FIGHT_BUG:{},
 		},
 	},
-	CLASSES.FRONTEND_DEV: {
+	CLASSES.Frontend_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.NAVIGATE:{},
 			ABILITIES.FIGHT_BUG:{},
 		},
 	},
-	CLASSES.FULL_STACK_DEV: {
+	CLASSES.Full_Stack_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.BRUTE_FORCE_SOLVER:{},
 			ABILITIES.PROGRAM_PATH:{},
@@ -74,7 +74,7 @@ const _CLASS_DATA: Dictionary[CLASSES,Dictionary] = {
 			ABILITIES.FIGHT_BUG:{},
 		},
 	},
-	CLASSES.QUALITY_ASSURER: {
+	CLASSES.Quality_Assurer: {
 		CLASS_CONTENT.ABILITY_LIST: {
 			ABILITIES.OPTIMIZE:{},
 			ABILITIES.WEAKEN_BUG:{},
@@ -120,15 +120,54 @@ what:PARTY_CONTENT,
 ) -> Variant:
 	return _party_data[who][what]
  
-
 func get_class_from_int(from:int) -> CLASSES:
-	var class_to_retrun: CLASSES = \
+	var class_to_return: CLASSES = \
 		CLASSES.NONE
 	match from:
-		1: class_to_retrun = CLASSES.PROJECT_MANAGER
-		2: class_to_retrun = CLASSES.AUTOMATION_DEV
-		3: class_to_retrun = CLASSES.BACKEND_DEV
-		4: class_to_retrun = CLASSES.FRONTEND_DEV
-		5: class_to_retrun = CLASSES.FULL_STACK_DEV
-		6: class_to_retrun = CLASSES.QUALITY_ASSURER
-	return class_to_retrun
+		1: class_to_return = CLASSES.Project_Manager
+		2: class_to_return = CLASSES.Automation_Dev
+		3: class_to_return = CLASSES.Backend_Dev
+		4: class_to_return = CLASSES.Frontend_Dev
+		5: class_to_return = CLASSES.Full_Stack_Dev
+		6: class_to_return = CLASSES.Quality_Assurer
+	return class_to_return
+	
+func all_names_set() -> bool:
+	var chosen: bool = true
+	var chosen_names: Array[String] = []
+	var party_data: Dictionary[CHARACTERS,Dictionary] = \
+		ref.get_party_data()
+	
+	for character in party_data:
+		var chosen_name: String = \
+			party_data[character][
+			PARTY_CONTENT.NAME] 
+		chosen_names.append(chosen_name)
+	
+	for chosen_name in chosen_names:
+		if chosen_name == "":
+			print(chosen_names)
+			return false
+		
+	
+	return chosen
+	
+
+func all_classes_chosen() -> bool:
+	var chosen: bool = true
+	var chosen_classes: Array[CLASSES] = []
+	var party_data: Dictionary[CHARACTERS,Dictionary] = \
+		ref.get_party_data()
+	
+	for character in party_data:
+		var chosen_class: CLASSES = \
+			party_data[character][
+			PARTY_CONTENT.CLASS] 
+		chosen_classes.append(chosen_class)
+	
+	for chosen_class in chosen_classes:
+		if chosen_class == CLASSES.NONE:
+			print(chosen_classes)
+			return false
+	
+	return chosen

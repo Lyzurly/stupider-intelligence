@@ -3,6 +3,8 @@ static var ref: Manage_MenuBehavior
 func _init() -> void:
 	ref = self
 	
+signal a_create_party_property_was_set
+	
 ## To add new rows:
 ## Duplicate the generic menurow scene. Style it as desired.
 ## Add and name a new ROW_SCENE enum, and create a corresponding entry in the other places here that make sense.
