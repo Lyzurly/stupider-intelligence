@@ -25,7 +25,9 @@ func is_previous_state(which:STATES) -> bool:
 func change_state(to:STATES) -> bool:
 	var change_approved: bool = false
 	
-	#NOTE If you comment this in, changing the walking state will get rejected!
+	#NOTE This is commented out,
+	#NOTE because it should be handled
+	#NOTE on the child-state-machines themselves.
 	#if _state == to:
 		#return change_approved
 			

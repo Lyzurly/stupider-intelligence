@@ -36,7 +36,12 @@ func change_state(to:STATES) -> bool:
 		STATES.SHOPPING:
 			change_approved = _check_shopping()
 	
-	if not to == STATES.NONE:
+	# As long as we're not switching to NONE...
+	# and we're not already in the parent state...
+	if not to == STATES.NONE \
+	and not Manage_Game.ref.is_state(
+	Manage_Game.STATES.MENUS
+	):
 		change_approved = Manage_Game.ref.change_state(
 							Manage_Game.STATES.MENUS)
 		
