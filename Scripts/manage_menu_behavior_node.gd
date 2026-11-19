@@ -60,25 +60,29 @@ row4:ROW_SCENES=ROW_SCENES.NONE,
 	
 	if not row1 == ROW_SCENES.NONE:
 		var row1_node: Control = \
-			_row_scene_data[row1].instantiate()
+			Manage_Instantiation.ref.instantiate_something(
+				_row_scene_data[row1])
 		_row1_container.add_child(row1_node)
 		_current_row_nodes.append(row1_node)
 	
 	if not row2 == ROW_SCENES.NONE:
 		var row2_node: Control = \
-			_row_scene_data[row2].instantiate()
+			Manage_Instantiation.ref.instantiate_something(
+				_row_scene_data[row2])
 		_row2_container.add_child(row2_node)
 		_current_row_nodes.append(row2_node)
 	
 	if not row3 == ROW_SCENES.NONE:
 		var row3_node: Control = \
-			_row_scene_data[row3].instantiate()
+			Manage_Instantiation.ref.instantiate_something(
+				_row_scene_data[row3])
 		_row3_container.add_child(row3_node)
 		_current_row_nodes.append(row3_node)
 	
 	if not row4 == ROW_SCENES.NONE:
 		var row4_node: Control = \
-			_row_scene_data[row4].instantiate()
+			Manage_Instantiation.ref.instantiate_something(
+				_row_scene_data[row4])
 		_row4_container.add_child(row4_node)
 		_current_row_nodes.append(row4_node)
 

@@ -7,8 +7,10 @@ var _current_attacker: Manage_Party.CHARACTERS = Manage_Party.CHARACTERS.NONE
 var _current_ability: Manage_Party.ABILITIES = Manage_Party.ABILITIES.NONE
 
 func get_current_attacker() -> Manage_Party.CHARACTERS:
+	print("Getting CURRENT attacker... ", Manage_Party.CHARACTERS.find_key(_current_attacker))
 	return _current_attacker
 func set_current_attacker(attacker: Manage_Party.CHARACTERS) -> void:
+	print("Set CURRENT attacker to: ", Manage_Party.CHARACTERS.find_key(attacker))
 	_current_attacker = attacker
 	
 	

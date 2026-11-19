@@ -93,27 +93,59 @@ func _after_won() -> void:
 	
 func _after_lost() -> void:
 	pass
-			
+#TODO #TODO #TODO
+# Consider refactoring these names because they confuse me and i think they are states but rly they are menustuff		
 func _on_any() -> void:
 	_on_intro(false)
 	_on_gameplay(false)
 	_on_won(false)
 	_on_lost(false)
+	
+func _handle_ui_visibility_if_needed(
+ui_array:Array[Control],
+do_show:bool
+) -> void:
+	for ui_object in ui_array:
+		if not ui_object:
+			continue
+		ui_object.visible = do_show
 
 func _on_intro(do_show:bool = true) -> void:
-	_intro_text_container.visible = do_show
-	_menu_timer.start(3)
+	var ui_array: Array[Control] = [
+		_intro_text_container
+	]
+	_handle_ui_visibility_if_needed(ui_array,do_show)
+	
+	if not do_show:
+		return
+		
+	if _menu_timer:
+		_menu_timer.start(3)
 
 func _on_gameplay(do_show:bool = true) -> void:
-	_prepare_next_player_attacker()
-	_gameplay_menu_container.visible = do_show
-	_opponent_menu_container.visible = do_show
+	var ui_array: Array[Control] = [
+		_gameplay_menu_container,_opponent_menu_container
+	]
+	
+	if do_show:
+		_prepare_next_player_attacker()
+	_handle_ui_visibility_if_needed(ui_array,do_show)
 
 func _on_won(do_show:bool = true) -> void:
-	pass
+	var ui_array: Array[Control] = [
+	]
+	_handle_ui_visibility_if_needed(ui_array,do_show)
+	
+	if not do_show:
+		return
 
 func _on_lost(do_show:bool = true) -> void:
-	pass
+	var ui_array: Array[Control] = [
+	]
+	_handle_ui_visibility_if_needed(ui_array,do_show)
+	
+	if not do_show:
+		return
 	
 func _on_abil_pressed(button_text:String) -> void:
 	print(button_text)
@@ -133,11 +165,14 @@ func _on_abil_4_pressed(button_text:String) -> void:
 
 #region Ability Menu Stuff ==========================
 func _update_current_attacker_name(to:String) -> void:
+	print("Next attacker name should be ",to)
 	_char_name_label.text = to
 	
 func _update_current_attacker_class(
 to:Manage_Party.CLASSES
 ) -> void:
+	print("Next attacker class should be ",
+	Manage_Party.CLASSES.find_key(to))
 	var ability_array: Array[Manage_Party.ABILITIES] = []
 	var ability_dictionary: Dictionary = \
 		Manage_Party.ref.get_class_data_content(
@@ -155,7 +190,7 @@ to:Manage_Party.CLASSES
 		var ability_name_string: String = \
 			ability_enum_string.replace("_"," ")
 		
-		push_error("HEY LYZ good job also can u make sure the ones that arent abilitizing are disabled tbh u shuold rewrite this whole for loop luv ya")
+		#push_error("HEY LYZ good job also can u make sure the ones that arent abilitizing are disabled tbh u shuold rewrite this whole for loop luv ya")
 		if count == 0:
 			_abil_1_button.text = ability_name_string
 		elif count == 1:
@@ -178,7 +213,7 @@ func _prepare_next_player_attacker() -> void:
 	var next_attacker_order: int = INF_ORDER
 	var next_attacker: Manage_Party.CHARACTERS = \
 		Manage_BattleParty.ref.get_current_attacker() 
-		
+	
 	if next_attacker == Manage_Party.CHARACTERS.NONE:
 		for party_character: Manage_Party.CHARACTERS \
 		in party_data:
@@ -191,17 +226,24 @@ func _prepare_next_player_attacker() -> void:
 			if current_attacker_order < next_attacker_order \
 			and current_attacker_is_alive:
 				next_attacker_order = current_attacker_order
-				
-				next_attacker = party_character
-			
-				next_attacker_name = \
-					party_data[party_character][
-					Manage_Party.PARTY_CONTENT.NAME]
-				next_attacker_class = \
-					party_data[party_character][
-					Manage_Party.PARTY_CONTENT.CLASS]
 			else:
 				continue
+				
+			next_attacker = party_character
+			
+		next_attacker_name = \
+			party_data[next_attacker][
+			Manage_Party.PARTY_CONTENT.NAME]
+		next_attacker_class = \
+			party_data[next_attacker][
+			Manage_Party.PARTY_CONTENT.CLASS]
+			
+		print("Considering setting CURRENT attacker to next attacker: ",
+				Manage_Party.CHARACTERS.find_key(next_attacker))
+		Manage_BattleParty.ref.set_current_attacker(next_attacker)
+		
+		_update_current_attacker_name(next_attacker_name)
+		_update_current_attacker_class(next_attacker_class)	
 					
 		assert(not next_attacker_order == INF_ORDER,
 		"Uh oh you didn't find the order of the next attacker, is everyone dead lmao?")
@@ -209,13 +251,9 @@ func _prepare_next_player_attacker() -> void:
 		assert(not next_attacker == Manage_Party.CHARACTERS.NONE,
 		"Oh dearie me, you didn't find a next attacker at all, is everyone dead lmao?")
 		
-		
-		_update_current_attacker_name(next_attacker_name)
-		_update_current_attacker_class(next_attacker_class)
-		
-		push_error("UM hey lyz everything is fine, BUT why does uncommenting the code below this mess up all of the gameplay menu loadins? Just comment the breakpoint in and check it out luv u")
+		#push_error("UM hey lyz everything is fine, BUT why does uncommenting the code below this mess up all of the gameplay menu loadins? Just comment the breakpoint in and check it out luv u")
 		#breakpoint
-		#Manage_BattleParty.ref.set_current_attacker(next_attacker)
+		
 		
 		#next_player_attacker_ready.emit(
 			#next_attacker_name,next_attacker_class)

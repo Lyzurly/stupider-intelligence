@@ -20,15 +20,21 @@ func _ready() -> void:
 func _ready_segments() -> void:
 	var inward_scene: PackedScene = \
 		Manage_BattleMaze.ref.get_inward_segment()
-	_current_seg_inward = inward_scene.instantiate() as TileMapLayer
+	_current_seg_inward = \
+		Manage_Instantiation.ref.instantiate_something(
+			inward_scene) as TileMapLayer
 
 	var outward_scene: PackedScene = \
 		Manage_BattleMaze.ref.get_outward_segment()
-	_current_seg_outward = outward_scene.instantiate() as TileMapLayer
+	_current_seg_outward = \
+		Manage_Instantiation.ref.instantiate_something(
+			outward_scene) as TileMapLayer
 		
 	var unique_scene: PackedScene = \
 		Manage_BattleMaze.ref.get_unique_segment()
-	_current_seg_unique = unique_scene.instantiate() as TileMapLayer
+	_current_seg_unique = \
+		Manage_Instantiation.ref.instantiate_something(
+			unique_scene) as TileMapLayer
 		
 	
 	match Manage_BattleMaze.ref.get_current_template_type():

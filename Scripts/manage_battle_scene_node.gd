@@ -25,8 +25,11 @@ func switch() -> void:
 	_set_current_scene(current)
 	
 	var menu_canvaslayer: CanvasLayer = \
-		_BATTLE_MENU_CANVASLAYER_SCENE.instantiate()
-	add_child(menu_canvaslayer)
+		Manage_Instantiation.ref.instantiate_something(
+			_BATTLE_MENU_CANVASLAYER_SCENE,
+			Manage_Instantiation.INSTANCES.BATTLE_MENU)
+	if menu_canvaslayer:
+		add_child(menu_canvaslayer)
 
 func get_current_scene() -> PackedScene:
 	return _current_scene
@@ -34,7 +37,8 @@ func get_current_scene() -> PackedScene:
 func load_maze_canvaslayer() -> void:
 	Manage_BattleMaze.ref.generate_mazes()
 	var maze_canvaslayer: CanvasLayer = \
-		_BATTLE_MAZE_CANVASLAYER_SCENE.instantiate()
+		Manage_Instantiation.ref.instantiate_something(
+			_BATTLE_MAZE_CANVASLAYER_SCENE)
 	add_child(maze_canvaslayer)
 
 func _set_current_scene(to:PackedScene) -> void:

@@ -19,14 +19,16 @@ level_scene:PackedScene,
 enviro_scene:PackedScene
 ) -> void:		
 	var level_node: Node3D = \
-		level_scene.instantiate()
+		Manage_Instantiation.ref.instantiate_something(
+			level_scene)
 	var new_level: Level = \
 		level_node as Level
 	
 	Manage_Environment.ref.set_current_scene(
 		enviro_scene)
 	var enviro_node: Node3D = \
-		enviro_scene.instantiate()
+		Manage_Instantiation.ref.instantiate_something(
+			enviro_scene)
 	var new_enviro: Level_Environment = \
 		enviro_node as Level_Environment
 	
@@ -37,7 +39,8 @@ enviro_scene:PackedScene
 		Manage_Level.LEVEL_TYPES.OVERWORLD, \
 		Manage_Level.LEVEL_TYPES.UNDERWORLD:
 			var player: Node3D = \
-				_PLAYER_SCENE.instantiate()
+				Manage_Instantiation.ref.instantiate_something(
+					_PLAYER_SCENE)
 			new_level.add_child(player)
 	#endregion --------------------------------------
 	
