@@ -61,6 +61,14 @@
 - Optimize
     - Reduces the time penalty of all abilities.
 
+---
+
+morphamn Stretch goal idea: White Hat class that can do things like "Poison Pill" that will set the AI model back a few steps (Poison Pill is applied to your own code. If it triggers on your co-worker, they have stolen your code to train their model on) and "Datamine" that brings your team to the progress of the AI bot if they are ahead.
+gamedevhobby/saad Actually, the original game had "superclasses" in the end game. White Hat could be the superclass of the Automation Engineer or something
+    - lyzedit: white/greyhat ability shops like blk/yt mages with aforementioned abilities
+        - morphedit: Actually, the original game had "superclasses" in the end game. White Hat could be the superclass of the Automation Engineer or something
+
+gamedevhobby/saad AI could launch cyber attacks, like the PHP vulnerability AI discovered, making player's abilities behave different for a turn or so
 
 ---
 

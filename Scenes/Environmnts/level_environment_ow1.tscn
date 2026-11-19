@@ -15,6 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_4kqn6")
 background_mode = 2
 background_energy_multiplier = 0.22
 sky = SubResource("Sky_jtdjp")
+adjustment_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3xgss"]
 

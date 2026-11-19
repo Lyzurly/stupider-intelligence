@@ -34,19 +34,19 @@ func _ready_connections() -> void:
 	_menu_timer.timeout.connect(_on_menu_timer_timeout)
 	_abil_1_button.pressed.connect(
 		_on_abil_1_pressed.bind(
-			_abil_1_button.text)
+			_abil_1_button)
 			)
 	_abil_2_button.pressed.connect(
 		_on_abil_2_pressed.bind(
-			_abil_2_button.text)
+			_abil_2_button)
 			)
 	_abil_3_button.pressed.connect(
 		_on_abil_3_pressed.bind(
-			_abil_3_button.text)
+			_abil_3_button)
 			)
 	_abil_4_button.pressed.connect(
 		_on_abil_4_pressed.bind(
-			_abil_4_button.text)
+			_abil_4_button)
 			)
 
 func show_menu(
@@ -147,21 +147,23 @@ func _on_lost(do_show:bool = true) -> void:
 	if not do_show:
 		return
 	
-func _on_abil_pressed(button_text:String) -> void:
-	print(button_text)
+func _on_abil_pressed(button:Button) -> void:
+	var enumified_abil_name: String = \
+		button.text.replace(" ","_")
+	Manage_Abilities.ref.set_current_by_string(enumified_abil_name)
 	
-func _on_abil_1_pressed(button_text:String) -> void:
-	if button_text:
-		_on_abil_pressed(button_text)
-func _on_abil_2_pressed(button_text:String) -> void:
-	if button_text:
-		_on_abil_pressed(button_text)
-func _on_abil_3_pressed(button_text:String) -> void:
-	if button_text:
-		_on_abil_pressed(button_text)
-func _on_abil_4_pressed(button_text:String) -> void:
-	if button_text:
-		_on_abil_pressed(button_text)
+func _on_abil_1_pressed(button:Button) -> void:
+	if button:
+		_on_abil_pressed(button)
+func _on_abil_2_pressed(button:Button) -> void:
+	if button:
+		_on_abil_pressed(button)
+func _on_abil_3_pressed(button:Button) -> void:
+	if button:
+		_on_abil_pressed(button)
+func _on_abil_4_pressed(button:Button) -> void:
+	if button:
+		_on_abil_pressed(button)
 
 #region Ability Menu Stuff ==========================
 func _update_current_attacker_name(to:String) -> void:
@@ -173,20 +175,20 @@ to:Manage_Party.CLASSES
 ) -> void:
 	print("Next attacker class should be ",
 	Manage_Party.CLASSES.find_key(to))
-	var ability_array: Array[Manage_Party.ABILITIES] = []
+	var ability_array: Array[Manage_Abilities.ABILITIES] = []
 	var ability_dictionary: Dictionary = \
 		Manage_Party.ref.get_class_data_content(
 			to,
 			Manage_Party.CLASS_CONTENT.ABILITY_LIST)
 	
-	for ability: Manage_Party.ABILITIES in ability_dictionary:
+	for ability: Manage_Abilities.ABILITIES in ability_dictionary:
 		ability_array.append(ability)
 	
 	var ability_count: int = ability_array.size()
 	
 	for count in ability_count:
 		var ability_enum_string: String = \
-			Manage_Party.ABILITIES.find_key(ability_array[count])
+			Manage_Abilities.ABILITIES.find_key(ability_array[count])
 		var ability_name_string: String = \
 			ability_enum_string.replace("_"," ")
 		

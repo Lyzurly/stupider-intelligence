@@ -8,11 +8,18 @@ var _who_controls_me: Battle_Maze_Container.WHO_CONTROLS = \
 
 func _ready() -> void:
 	_ready_who_controls()
+	_ready_connections()
 
 func _ready_who_controls() -> void:
 	var owner_node: Node = get_owner()
 	if owner_node is Battle_Maze_Container:
 		_who_controls_me = owner_node.get_who_controls_me()
+		
+func _ready_connections() -> void:
+	if _who_controls_me == Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
+		return
+	Manage_Abilities.ref.ability_chosen.connect(
+		_on_ability_chosen)
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,7 +32,9 @@ func _physics_process(delta: float) -> void:
 	Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
 		pass
 	elif _who_controls_me == \
-	Battle_Maze_Container.WHO_CONTROLS.PLAYER:
+	Battle_Maze_Container.WHO_CONTROLS.PLAYER \
+	and Manage_PlayerActionPawn.ref.is_state(
+	Manage_PlayerActionPawn.STATES.Navigate):
 		direction = Input.get_vector("Left", "Right", "Forward", "Backward").normalized()
 		
 	if direction:
@@ -36,3 +45,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func _on_ability_chosen(which: Manage_Abilities.ABILITIES) -> void:
+	match which:
+		Manage_Abilities.ABILITIES.Navigate:
+			Manage_PlayerActionPawn.ref.change_state(
+			Manage_PlayerActionPawn.STATES.Navigate)

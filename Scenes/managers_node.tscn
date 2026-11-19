@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://sm430mqmutmp" path="res://Scripts/manage_battle_party_node.gd" id="16_lva0d"]
 [ext_resource type="Script" uid="uid://bot50hqxesuk7" path="res://Scripts/manage_environment_node.gd" id="16_xr8cv"]
 [ext_resource type="Script" uid="uid://cg74ovfpe7tx1" path="res://Scripts/manage_instantiation_node.gd" id="17_6vi18"]
+[ext_resource type="Script" uid="uid://wmganf5t80w0" path="res://Scripts/manage_abilities_node.gd" id="18_nthkh"]
+[ext_resource type="Script" uid="uid://c23svobgy2nm0" path="res://Scripts/manage_player_action_pawn_node.gd" id="19_lva0d"]
 
 [node name="Managers" type="Node" unique_id=1105486308]
 
@@ -70,4 +72,8 @@ script = ExtResource("16_6vi18")
 [node name="Manage_Instantiation" type="Node" parent="." unique_id=1520666065]
 script = ExtResource("17_6vi18")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=633649205]
+[node name="Manage_Abilities" type="Node" parent="." unique_id=1860153587]
+script = ExtResource("18_nthkh")
+
+[node name="Manage_PlayerActionPawn" type="Node" parent="." unique_id=221958048]
+script = ExtResource("19_lva0d")
