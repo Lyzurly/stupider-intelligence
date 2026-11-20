@@ -1,7 +1,20 @@
 [gd_scene format=4 uid="uid://c4r2foa8yuto1"]
 
 [ext_resource type="TileSet" uid="uid://cp42l26td7fs6" path="res://Tilesets/maze_tile_set_1.tres" id="1_axpg0"]
+[ext_resource type="PackedScene" uid="uid://f4vw66iqgrxt" path="res://Scenes/Mazes/Stencils/battle_maze_inward_stencil.tscn" id="2_jvho4"]
 
-[node name="BattleMazeSeg_TileMapLayer" type="TileMapLayer" unique_id=1852365185]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kqjpo"]
+vertices = PackedVector2Array(38, 1574, 10, 1574, 10, 1546, 38, 1546, 278, 1526, 202, 1526, 202, 1450, 278, 1450, 182, 1382, 154, 1382, 154, 1258, 182, 1258, 86, 1334, 58, 1334, 58, 1202, 86, 1202, -10, 1258, -10, 1286, -58, 1286, -94, 1258, -94, 1718, -58, 1402, 346, 1594, 346, 1402, 374, 1402, 374, 1594, 442, 1382, 394, 1382, 394, 1334, 442, 1306, 326, 1334, 326, 1382, 250, 1382, 250, 1258, 326, 1258, 326, 1306, 442, 1258, 478, 1258, 478, 1622, 442, 1594, 278, 1622, 106, 1642, 134, 1594, 154, 1670, 106, 1478, 134, 1402, 58, 1478, 58, 1430, -10, 1430, -10, 1478, -58, 1478, -58, 1690, 86, 1718, 10, 1690, 86, 1670, 10, 1642, 278, 1690, 478, 1690, 478, 1718, 250, 1718, 250, 1670, 182, 1670, 182, 1774, 154, 1774)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 19, 18, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(33, 34, 35), PackedInt32Array(30, 33, 35), PackedInt32Array(28, 30, 35, 29), PackedInt32Array(29, 36, 37, 38), PackedInt32Array(26, 29, 38), PackedInt32Array(39, 26, 38), PackedInt32Array(39, 38, 40, 25), PackedInt32Array(22, 25, 40), PackedInt32Array(41, 42, 22, 40, 43), PackedInt32Array(42, 41, 44, 45), PackedInt32Array(44, 46, 47, 45), PackedInt32Array(21, 45, 47, 48), PackedInt32Array(48, 49, 50, 21), PackedInt32Array(20, 21, 50), PackedInt32Array(20, 50, 51), PackedInt32Array(52, 20, 51, 53), PackedInt32Array(54, 52, 53, 55), PackedInt32Array(54, 55, 41, 43), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(56, 59, 60, 40), PackedInt32Array(61, 62, 63, 43), PackedInt32Array(61, 43, 40), PackedInt32Array(61, 40, 60)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 1192, -104, 1784, 488, 1784, 488, 1192)])
+
+[node name="Node2D" type="Node2D" unique_id=1589483972]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=797943109]
+navigation_polygon = SubResource("NavigationPolygon_kqjpo")
+
+[node name="BattleMazeSeg_TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D" unique_id=1852365185]
 tile_map_data = PackedByteArray("AAD//x8AAAAAAAAABQD//yAAAAAAAAAABQD//yEAAAAAAAAABQAAACEAAAAAAAAABQABACEAAAAAAAAABQABACAAAAAAAAAABQADAB0AAAAAAAAABQADAB4AAAAAAAAABQADAB8AAAAAAAAABQADACAAAAAAAAAABQAEACAAAAAAAAAABQAFACAAAAAAAAAABQAGACAAAAAAAAAABQAGAB8AAAAAAAAABQAGAB4AAAAAAAAABQAGAB0AAAAAAAAABQAFAB0AAAAAAAAABQAEAB0AAAAAAAAABQD//xsAAAAAAAAABQD//xwAAAAAAAAABQAAABwAAAAAAAAABQABABwAAAAAAAAABQACABwAAAAAAAAABQABAB8AAAAAAAAABQAAAB8AAAAAAAAABQAIAB0AAAAAAAAABQAIAB4AAAAAAAAABQAIAB8AAAAAAAAABQAIACAAAAAAAAAABQAHABwAAAAAAAAABQAGACIAAAAAAAAABQAHACIAAAAAAAAABQAIACIAAAAAAAAABQAJACIAAAAAAAAABQAAABoAAAAAAAAABQAAABkAAAAAAAAABQACABkAAAAAAAAABQACABoAAAAAAAAABQACACMAAAAAAAAABQAEACMAAAAAAAAABQAHABoAAAAAAAAABQAIABoAAAAAAAAABQAEABwAAAAAAAAABQAEABsAAAAAAAAABQAEABoAAAAAAAAABQAGABkAAAAAAAAABQD//yIAAAAAAAAABQAAAB4AAAAAAAAABQA=")
 tile_set = ExtResource("1_axpg0")
+
+[node name="BattleMazeTemplate_T1_TileMapLayer" parent="NavigationRegion2D" unique_id=1554802967 instance=ExtResource("2_jvho4")]

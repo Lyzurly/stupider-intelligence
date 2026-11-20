@@ -2,6 +2,9 @@ class_name Manage_PlayerActionPawn extends Node
 static var ref: Manage_PlayerActionPawn
 func _init() -> void:
 	ref = self
+	
+const _template1_entrance_pos: Vector2 = Vector2(-21,215.)
+const _template2_entrance_pos: Vector2 = Vector2(120.,215.)
 
 var _state: STATES = STATES.NONE
 enum STATES{
@@ -10,9 +13,23 @@ enum STATES{
 	Brute_Force_Solver,
 	A_Star_Solver,
 	}
+
+var _current_maze_entrance_pos: Vector2 = \
+	Vector2(-100000,-100000)
 	
 func _ready() -> void:
 	pass
+
+func get_current_maze_entrance_pos() -> Vector2:
+	return _current_maze_entrance_pos
+func set_current_maze_entrance_pos(
+template:Manage_BattleMaze.TEMPLATES
+) -> void:
+	match template:
+		Manage_BattleMaze.TEMPLATES.T1:
+			_current_maze_entrance_pos = _template1_entrance_pos
+		Manage_BattleMaze.TEMPLATES.T2:
+			_current_maze_entrance_pos = _template2_entrance_pos
 	
 func is_state(which:STATES) -> bool:
 	return which == _state

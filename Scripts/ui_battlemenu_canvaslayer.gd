@@ -148,9 +148,15 @@ func _on_lost(do_show:bool = true) -> void:
 		return
 	
 func _on_abil_pressed(button:Button) -> void:
+	var ability_button_text: String = \
+		button.text
+	if not ability_button_text:
+		return
+	print("Pressed ",ability_button_text)
 	var enumified_abil_name: String = \
 		button.text.replace(" ","_")
-	Manage_Abilities.ref.set_current_by_string(enumified_abil_name)
+	Manage_Abilities.ref.set_current_by_string(
+		enumified_abil_name)
 	
 func _on_abil_1_pressed(button:Button) -> void:
 	if button:

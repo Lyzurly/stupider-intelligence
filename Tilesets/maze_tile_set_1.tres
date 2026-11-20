@@ -16,4 +16,5 @@ scenes/5/scene = ExtResource("5_i82hl")
 
 [resource]
 tile_size = Vector2i(48, 48)
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetScenesCollectionSource_xn5wa")

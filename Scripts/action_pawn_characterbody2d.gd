@@ -9,6 +9,8 @@ var _who_controls_me: Battle_Maze_Container.WHO_CONTROLS = \
 func _ready() -> void:
 	_ready_who_controls()
 	_ready_connections()
+	_ready_start_pos()
+	print("action pawn ready")
 
 func _ready_who_controls() -> void:
 	var owner_node: Node = get_owner()
@@ -20,6 +22,13 @@ func _ready_connections() -> void:
 		return
 	Manage_Abilities.ref.ability_chosen.connect(
 		_on_ability_chosen)
+		
+func _ready_start_pos() -> void:
+	var start_pos: Vector2 = \
+		Manage_PlayerActionPawn.ref.get_current_maze_entrance_pos()
+		
+	global_position = start_pos
+	
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

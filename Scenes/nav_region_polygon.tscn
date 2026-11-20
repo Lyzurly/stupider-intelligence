@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cr3waqbru6c8a"]
+
+[ext_resource type="Script" uid="uid://c76hfux1ipevg" path="res://Scripts/nav_region_polygon_polygon2d.gd" id="1_mwkds"]
+
+[node name="Polygon2D" type="Polygon2D" unique_id=39633441]
+polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
+script = ExtResource("1_mwkds")

@@ -80,7 +80,7 @@ func _check_gameplay() -> bool:
 func _on_gameplay() -> void:
 	Battle_Menu.ref.show_menu(STATES.GAMEPLAY)
 	Manage_BattleScene.ref.load_maze_canvaslayer()
-
+	
 func _check_won() -> bool:
 	return true
 func _on_won() -> void:

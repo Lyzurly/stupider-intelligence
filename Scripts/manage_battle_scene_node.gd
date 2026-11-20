@@ -3,6 +3,12 @@ static var ref: Manage_BattleScene
 func _init() -> void:
 	ref = self
 
+signal mazes_generated
+
+@warning_ignore_start("unused_signal")
+signal a_nav_poly_ready(nav_poly:Polygon2D)
+@warning_ignore_restore("unused_signal")
+
 const _BATTLE_CONTAINER_SCENE: PackedScene = preload("uid://d2672tsns0pfy")
 const _BATTLE_MAZE_CANVASLAYER_SCENE: PackedScene = preload("uid://bdbb2t05dc1t0")
 const _BATTLE_MENU_CANVASLAYER_SCENE: PackedScene = preload("uid://dhswb6bqy7pko")
@@ -40,6 +46,10 @@ func load_maze_canvaslayer() -> void:
 		Manage_Instantiation.ref.instantiate_something(
 			_BATTLE_MAZE_CANVASLAYER_SCENE)
 	add_child(maze_canvaslayer)
+	
+	await get_tree().process_frame
+	mazes_generated.emit()
+	
 
 func _set_current_scene(to:PackedScene) -> void:
 	_current_scene = to
