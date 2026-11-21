@@ -34,6 +34,7 @@ script = ExtResource("6_4h271")
 shape = SubResource("RectangleShape2D_kqjpo")
 
 [node name="STRETCHED_Sprite_Node2D" type="Node2D" parent="ActionPawn/ActionPawn_CharacterBody2D" unique_id=267273842]
+z_index = 50
 position = Vector2(0, 0.72)
 scale = Vector2(0.55, 0.726)
 
@@ -45,3 +46,11 @@ texture = SubResource("GradientTexture2D_kqjpo")
 position = Vector2(32, 0)
 scale = Vector2(-1, 1)
 texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="ActionPawn/ActionPawn_CharacterBody2D" unique_id=586316313]
+unique_name_in_owner = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.98333335, 0, 1)
+debug_path_custom_point_size = 7.4
+debug_path_custom_line_width = 3.71
