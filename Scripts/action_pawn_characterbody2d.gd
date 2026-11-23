@@ -139,7 +139,10 @@ func _follow_next_point() -> void:
 		_update_next_nav_pos()
 		return
 
-	if _nav_agent.is_navigation_finished() and _is_wandering and not _nav_agent.is_target_reached():
+	var nav_finished: bool = _nav_agent.is_navigation_finished()
+	var targ_reached: bool = _nav_agent.is_target_reached()
+
+	if nav_finished and _is_wandering and not targ_reached:
 		_on_journey_begin()
 		_is_wandering = false
 

@@ -54,3 +54,6 @@ debug_use_custom = true
 debug_path_custom_color = Color(1, 0.98333335, 0, 1)
 debug_path_custom_point_size = 7.4
 debug_path_custom_line_width = 3.71
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=906136203]
+position = Vector2(120, 215)
