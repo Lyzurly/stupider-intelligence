@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://cg74ovfpe7tx1" path="res://Scripts/manage_instantiation_node.gd" id="17_6vi18"]
 [ext_resource type="Script" uid="uid://wmganf5t80w0" path="res://Scripts/manage_abilities_node.gd" id="18_nthkh"]
 [ext_resource type="Script" uid="uid://c23svobgy2nm0" path="res://Scripts/manage_player_action_pawn_node.gd" id="19_lva0d"]
+[ext_resource type="Script" uid="uid://cand086xrxn8g" path="res://Scripts/manage_ability_programpath_node.gd" id="20_wyaxh"]
 
 [node name="Managers" type="Node" unique_id=1105486308]
 
@@ -77,3 +78,6 @@ script = ExtResource("18_nthkh")
 
 [node name="Manage_PlayerActionPawn" type="Node" parent="." unique_id=221958048]
 script = ExtResource("19_lva0d")
+
+[node name="Manage_Ability_ProgramPath" type="Node" parent="." unique_id=1928688848]
+script = ExtResource("20_wyaxh")

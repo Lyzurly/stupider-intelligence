@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b3c4jeosh1njc"]
 
+[ext_resource type="Script" uid="uid://bjv42twaganw3" path="res://Scripts/abil_programpath_arrow_node2d.gd" id="1_v31hd"]
+
 [sub_resource type="Gradient" id="Gradient_v31hd"]
 offsets = PackedFloat32Array(0.58774376)
 colors = PackedColorArray(0.30960003, 0.6490133, 0.86, 1)
@@ -8,6 +10,7 @@ colors = PackedColorArray(0.30960003, 0.6490133, 0.86, 1)
 gradient = SubResource("Gradient_v31hd")
 
 [node name="Abil_ProgramPath_Arrow" type="Node2D" unique_id=79983099]
+script = ExtResource("1_v31hd")
 
 [node name="ArrowSprites" type="Node2D" parent="." unique_id=411585438]
 

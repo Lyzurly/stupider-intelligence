@@ -105,7 +105,7 @@ var _is_wandering: bool = true
 var _current_target: Vector2 = Vector2.ZERO
 var _next_nav_pos: Vector2 = Vector2.ZERO
 
-func _physics_process_auto_nav(delta:float) -> void:
+func _physics_process_auto_nav(_delta:float) -> void:
 	_follow_next_point()
 	
 # Functions responsible for calculating waypoints, setting the Navigation Agent target, and following the path.
@@ -185,7 +185,7 @@ func _follow_next_point() -> void:
 		
 		#Safety net that ensures cat doesn't accidentally try to move toward a point that’s effectively “reached.”
 		if distance_to_next_path_pos > _APPROX_TARGET_DISTANCE:
-			var new_velocity: Vector2 = global_position.direction_to(position_to_follow) * _speed
+			#var new_velocity: Vector2 = global_position.direction_to(position_to_follow) * _speed
 			move_and_slide()
 			
 	# navigation is done but the cat isn't sitting yet

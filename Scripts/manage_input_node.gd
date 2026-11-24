@@ -20,6 +20,15 @@ func _input(event: InputEvent) -> void:
 		_set_new_level_rotation()
 	elif Input.is_action_just_pressed("Pause"):
 		_handle_pause()
+	
+	#print("Input is happening...", event)
+	if Input.is_action_just_pressed("Action"):
+		print("Action pressed...")
+		if _can_place_arrow():
+			_place_arrow()
+			
+		#elif some other action action
+		#elif some other action action
 
 
 #region Handle debug keys ==========================
@@ -48,6 +57,11 @@ func _is_paused() -> bool:
 	return \
 	Manage_Menus.ref.is_state(
 	Manage_Menus.STATES.PAUSE)
+	
+func _is_battle_gameplay() -> bool:
+	return Manage_Battle.ref.is_state(
+	Manage_Battle.STATES.GAMEPLAY)
+	
 #endregion ------------------------------------------
 
 #region Menu inputs =================================
@@ -56,6 +70,22 @@ func _handle_pause() -> void:
 	or _is_paused():
 		Manage_Menus.ref.change_state(
 			Manage_Menus.STATES.PAUSE)
+#endregion -----------------------------------------
+
+#region Ability: Programming =======================
+func _can_place_arrow() -> bool:
+	if Manage_Ability_ProgramPath.ref.is_programming() \
+	and _is_battle_gameplay():
+		return true
+	return false
+	
+func _place_arrow() -> void:
+	var arrow: Programmed_Arrow = \
+		Manage_Ability_ProgramPath.ref.get_current_arrow()
+	arrow.place_me()
+	
+	Manage_Ability_ProgramPath.ref.change_state(false)
+	
 #endregion -----------------------------------------
 
 #region Walking Over/Underworld inputs ==============

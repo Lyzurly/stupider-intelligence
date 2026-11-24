@@ -18,6 +18,7 @@ theme_override_constants/margin_left = 77
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(300, 0)
+offset_transform_visual_only = false
 
 [node name="SubViewport" type="SubViewport" parent="Mazes_MarginContainer/SubViewportContainer" unique_id=1667783123]
 transparent_bg = true
