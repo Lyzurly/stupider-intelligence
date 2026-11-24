@@ -9,8 +9,9 @@ var _current: ABILITIES = ABILITIES.NONE
 enum ABILITIES { ## Abilities party members can use
 	NONE,
 	Navigate,
-	Brute_Force_Solver,
-	A_Star_Solver,
+	Auto_Navigate,
+	#Brute_Force_Solver,
+	#A_Star_Solver,
 	Fight_Bug,
 	Program_Path,
 	Optimize,

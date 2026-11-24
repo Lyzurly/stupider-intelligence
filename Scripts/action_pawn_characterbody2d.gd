@@ -34,22 +34,23 @@ func _ready_start_pos() -> void:
 func _physics_process(delta: float) -> void:
 	if _who_controls_me == Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
 		return
+		
+	_physics_process_player_nav(delta)
 	
-	if Manage_PlayerActionPawn.ref.is_state(
-	Manage_PlayerActionPawn.STATES.Brute_Force_Solver) \
-	or Manage_PlayerActionPawn.ref.is_state(
-	Manage_PlayerActionPawn.STATES.A_Star_Solver):
-		_physics_process_auto_nav(delta)
-		#global_position = _nav_agent.target_position
+	#if Manage_PlayerActionPawn.ref.is_state(
+	#Manage_PlayerActionPawn.STATES.Brute_Force_Solver) \
+	#or Manage_PlayerActionPawn.ref.is_state(
+	#Manage_PlayerActionPawn.STATES.A_Star_Solver):
+		#_physics_process_auto_nav(delta)
+		##global_position = _nav_agent.target_position
 		
-		_update_next_nav_pos()
-	elif not Manage_PlayerActionPawn.ref.is_state(
-	Manage_PlayerActionPawn.STATES.Brute_Force_Solver) \
-	or not Manage_PlayerActionPawn.ref.is_state(
-	Manage_PlayerActionPawn.STATES.A_Star_Solver):
-		_physics_process_player_nav(delta)
-		
-
+		#_update_next_nav_pos()
+	#elif not Manage_PlayerActionPawn.ref.is_state(
+	#Manage_PlayerActionPawn.STATES.Brute_Force_Solver) \
+	#or not Manage_PlayerActionPawn.ref.is_state(
+	#Manage_PlayerActionPawn.STATES.A_Star_Solver):
+		#_physics_process_player_nav(delta)
+	
 func _physics_process_player_nav(delta: float) -> void:
 	_nav_agent.target_position = global_position
 	# Add the gravity.
@@ -62,11 +63,18 @@ func _physics_process_player_nav(delta: float) -> void:
 	Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
 		pass
 	elif _who_controls_me == \
-	Battle_Maze_Container.WHO_CONTROLS.PLAYER \
-	and Manage_PlayerActionPawn.ref.is_state(
-	Manage_PlayerActionPawn.STATES.Navigate):
-		direction = Input.get_vector("Left", "Right", "Forward", "Backward").normalized()
+	Battle_Maze_Container.WHO_CONTROLS.PLAYER:
+		#print("player pawn in control")
+		if Manage_PlayerActionPawn.ref.is_state(
+		Manage_PlayerActionPawn.STATES.Navigate):
+			#print("manual navving")
+			direction = Input.get_vector("Left", "Right", "Forward", "Backward").normalized()
+		elif Manage_PlayerActionPawn.ref.is_state(
+		Manage_PlayerActionPawn.STATES.Auto_Navigate):
+			#print("autonavving")
+			direction = Vector2(0,-1)
 		
+		#print("PlayerActionPawn moving: ",direction)
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.y = direction.y * SPEED
@@ -81,12 +89,15 @@ func _on_ability_chosen(which: Manage_Abilities.ABILITIES) -> void:
 		Manage_Abilities.ABILITIES.Navigate:
 			Manage_PlayerActionPawn.ref.change_state(
 			Manage_PlayerActionPawn.STATES.Navigate)
-		Manage_Abilities.ABILITIES.Brute_Force_Solver:
+		Manage_Abilities.ABILITIES.Auto_Navigate:
 			Manage_PlayerActionPawn.ref.change_state(
-			Manage_PlayerActionPawn.STATES.Brute_Force_Solver)
-		Manage_Abilities.ABILITIES.A_Star_Solver:
-			Manage_PlayerActionPawn.ref.change_state(
-			Manage_PlayerActionPawn.STATES.A_Star_Solver)
+			Manage_PlayerActionPawn.STATES.Auto_Navigate)
+		#Manage_Abilities.ABILITIES.Brute_Force_Solver:
+			#Manage_PlayerActionPawn.ref.change_state(
+			#Manage_PlayerActionPawn.STATES.Brute_Force_Solver)
+		#Manage_Abilities.ABILITIES.A_Star_Solver:
+			#Manage_PlayerActionPawn.ref.change_state(
+			#Manage_PlayerActionPawn.STATES.A_Star_Solver)
 
 var _speed: float = SPEED
 const _APPROX_TARGET_DISTANCE: float = .1

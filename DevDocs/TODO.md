@@ -1,1 +1,3 @@
-Make the Action Pawn be controllable and followed by SEPARATE cameras in the battle mazes
+- IF you have time...
+	- Add in navmeshes for the rest of the segments
+	- Reimplement Brute_Force_Solver and A_Star_Solver

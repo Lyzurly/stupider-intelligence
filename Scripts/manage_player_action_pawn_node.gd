@@ -10,8 +10,9 @@ var _state: STATES = STATES.NONE
 enum STATES{
 	NONE,
 	Navigate,
-	Brute_Force_Solver,
-	A_Star_Solver,
+	Auto_Navigate,
+	#Brute_Force_Solver,
+	#A_Star_Solver,
 	}
 
 var _current_maze_entrance_pos: Vector2 = \
@@ -45,10 +46,12 @@ func change_state(to:STATES) -> bool:
 			change_approved = _check_none()
 		STATES.Navigate:
 			change_approved = _check_navigate()
-		STATES.Brute_Force_Solver:
-			change_approved = _check_brute_force_solver()
-		STATES.A_Star_Solver:
-			change_approved = _check_a_star_solver()
+		STATES.Auto_Navigate:
+			change_approved = _check_auto_navigate()
+		#STATES.Brute_Force_Solver:
+			#change_approved = _check_brute_force_solver()
+		#STATES.A_Star_Solver:
+			#change_approved = _check_a_star_solver()
 
 	if change_approved:
 		match to:
@@ -56,10 +59,12 @@ func change_state(to:STATES) -> bool:
 				_on_none()
 			STATES.Navigate:
 				_on_navigate()
-			STATES.Brute_Force_Solver:
-				_on_brute_force_solver()
-			STATES.A_Star_Solver:
-				_on_a_star_solver()
+			STATES.Auto_Navigate:
+				_on_auto_navigate()
+			#STATES.Brute_Force_Solver:
+				#_on_brute_force_solver()
+			#STATES.A_Star_Solver:
+				#_on_a_star_solver()
 		_state = to
 		print("ACTION PAWN STATE: ",STATES.find_key(_state))
 	else:
@@ -75,6 +80,11 @@ func _on_none() -> void:
 func _check_navigate() -> bool:
 	return true
 func _on_navigate() -> void:
+	pass
+
+func _check_auto_navigate() -> bool:
+	return true
+func _on_auto_navigate() -> void:
 	pass
 	
 func _check_brute_force_solver() -> bool:

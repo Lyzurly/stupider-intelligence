@@ -41,8 +41,8 @@ const _CLASS_DATA: Dictionary[CLASSES,Dictionary] = {
 	},
 	CLASSES.Automation_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			Manage_Abilities.ABILITIES.Brute_Force_Solver:{},
-			Manage_Abilities.ABILITIES.A_Star_Solver:{},
+			Manage_Abilities.ABILITIES.Program_Path:{},
+			Manage_Abilities.ABILITIES.Auto_Navigate:{},
 		},
 	},
 	CLASSES.Backend_Dev: {
@@ -59,9 +59,9 @@ const _CLASS_DATA: Dictionary[CLASSES,Dictionary] = {
 	},
 	CLASSES.Full_Stack_Dev: {
 		CLASS_CONTENT.ABILITY_LIST: {
-			Manage_Abilities.ABILITIES.Brute_Force_Solver:{},
 			Manage_Abilities.ABILITIES.Program_Path:{},
 			Manage_Abilities.ABILITIES.Navigate:{},
+			Manage_Abilities.ABILITIES.Auto_Navigate:{},
 			Manage_Abilities.ABILITIES.Fight_Bug:{},
 		},
 	},
