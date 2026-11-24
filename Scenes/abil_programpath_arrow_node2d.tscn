@@ -9,6 +9,9 @@ colors = PackedColorArray(0.30960003, 0.6490133, 0.86, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
 gradient = SubResource("Gradient_v31hd")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3u0v"]
+radius = 1.0
+
 [node name="Abil_ProgramPath_Arrow" type="Node2D" unique_id=79983099]
 script = ExtResource("1_v31hd")
 
@@ -30,3 +33,10 @@ position = Vector2(7.85, -7.3898)
 rotation = -0.7853982
 scale = Vector2(0.18857822, 0.5353784)
 texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="PawnSeeker_Area2D" type="Area2D" parent="." unique_id=1354261780]
+unique_name_in_owner = true
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PawnSeeker_Area2D" unique_id=1336154623]
+shape = SubResource("CircleShape2D_f3u0v")

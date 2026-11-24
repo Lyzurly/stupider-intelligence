@@ -1,13 +1,32 @@
 class_name ActionPawn extends CharacterBody2D
 
-const SPEED = 50.0
-const JUMP_VELOCITY = -400.0
+@onready var _boost_timer: Timer = %Boost_Timer
+@onready var _center_overlap_area: Area2D = %Center_Overlap_Area2D
+
+const _speed_boost_duration: float = 1.
+
+const _SPEED_BOOSTED = 170.
+const _SPEED = 50.0
+var _speed = _SPEED
+
+var _current_auto_direction: Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS = \
+	Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS.UP
+
+const _JUMP_VELOCITY = -400.0
 
 var _who_controls_me: Battle_Maze_Container.WHO_CONTROLS = \
 	Battle_Maze_Container.WHO_CONTROLS.NONE
+	
+
+const _APPROX_TARGET_DISTANCE: float = .1
+var _is_wandering: bool = true
+var _current_target: Vector2 = Vector2.ZERO
+var _next_nav_pos: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	_ready_who_controls()
+	_ready_timers()
 	_ready_connections()
 	_ready_start_pos()
 	print("action pawn ready")
@@ -16,12 +35,19 @@ func _ready_who_controls() -> void:
 	var owner_node: Node = get_owner()
 	if owner_node is Battle_Maze_Container:
 		_who_controls_me = owner_node.get_who_controls_me()
+
+func _ready_timers() -> void:
+	_boost_timer.one_shot = true
 		
 func _ready_connections() -> void:
 	if _who_controls_me == Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
 		return
 	Manage_Abilities.ref.ability_chosen.connect(
 		_on_ability_chosen)
+		
+	_boost_timer.timeout.connect(_on_boost_timeout)
+	_center_overlap_area.area_entered.connect(
+		_on_area_entered)
 		
 func _ready_start_pos() -> void:
 	var start_pos: Vector2 = \
@@ -30,6 +56,18 @@ func _ready_start_pos() -> void:
 	global_position = start_pos
 
 @onready var _nav_agent: NavigationAgent2D = %NavigationAgent2D
+
+func _boost_speed(indeed:bool) -> void:
+	if indeed:
+		_speed = _SPEED_BOOSTED
+		_boost_timer.start(_speed_boost_duration)
+	else:
+		_speed = _SPEED
+
+func change_auto_direction(
+direction:Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS
+) -> void:
+	_current_auto_direction = direction
 
 func _physics_process(delta: float) -> void:
 	if _who_controls_me == Battle_Maze_Container.WHO_CONTROLS.OPPONENT:
@@ -50,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	#or not Manage_PlayerActionPawn.ref.is_state(
 	#Manage_PlayerActionPawn.STATES.A_Star_Solver):
 		#_physics_process_player_nav(delta)
-	
+		
 func _physics_process_player_nav(delta: float) -> void:
 	_nav_agent.target_position = global_position
 	# Add the gravity.
@@ -72,17 +110,42 @@ func _physics_process_player_nav(delta: float) -> void:
 		elif Manage_PlayerActionPawn.ref.is_state(
 		Manage_PlayerActionPawn.STATES.Auto_Navigate):
 			#print("autonavving")
-			direction = Vector2(0,-1)
+			if _current_auto_direction == \
+			Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS.UP:
+				direction = Vector2(0,-1)
+			elif _current_auto_direction == \
+			Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS.DOWN:
+				direction = Vector2(0,1)
+			elif _current_auto_direction == \
+			Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS.LEFT:
+				direction = Vector2(-1,0)
+			elif _current_auto_direction == \
+			Manage_Ability_ProgramPath.PROGRAM_DIRECTIONS.RIGHT:
+				direction = Vector2(1,0)
 		
 		#print("PlayerActionPawn moving: ",direction)
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.y = direction.y * SPEED
+		velocity.x = direction.x * _speed
+		velocity.y = direction.y * _speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, _speed)
+		velocity.y = move_toward(velocity.y, 0, _speed)
 
 	move_and_slide()
+	
+func _on_area_entered(area:Area2D) -> void:
+	if not area.get_parent() is Programmed_Arrow:
+		return
+	
+	var arrow: Programmed_Arrow = area.get_parent()
+	
+	if Manage_PlayerActionPawn.ref.is_state(
+	Manage_PlayerActionPawn.STATES.Navigate):
+		_boost_speed(true)
+	elif Manage_PlayerActionPawn.ref.is_state(
+	Manage_PlayerActionPawn.STATES.Auto_Navigate):
+		change_auto_direction(
+		arrow.get_my_direction())
 
 func _on_ability_chosen(which: Manage_Abilities.ABILITIES) -> void:
 	match which:
@@ -98,12 +161,6 @@ func _on_ability_chosen(which: Manage_Abilities.ABILITIES) -> void:
 		#Manage_Abilities.ABILITIES.A_Star_Solver:
 			#Manage_PlayerActionPawn.ref.change_state(
 			#Manage_PlayerActionPawn.STATES.A_Star_Solver)
-
-var _speed: float = SPEED
-const _APPROX_TARGET_DISTANCE: float = .1
-var _is_wandering: bool = true
-var _current_target: Vector2 = Vector2.ZERO
-var _next_nav_pos: Vector2 = Vector2.ZERO
 
 func _physics_process_auto_nav(_delta:float) -> void:
 	_follow_next_point()
@@ -191,3 +248,7 @@ func _follow_next_point() -> void:
 	# navigation is done but the cat isn't sitting yet
 	else:
 		move_and_slide()
+
+func _on_boost_timeout() -> void:
+	_boost_speed(false)
+	

@@ -5,6 +5,10 @@ func _init() -> void:
 	
 signal programming(arrow:Programmed_Arrow)
 
+
+enum PROGRAM_DIRECTIONS {
+	UP,DOWN,LEFT,RIGHT}
+
 const _PROGRAM_ARROW: PackedScene = preload("uid://b3c4jeosh1njc")
 var _current_arrow: Programmed_Arrow
 
