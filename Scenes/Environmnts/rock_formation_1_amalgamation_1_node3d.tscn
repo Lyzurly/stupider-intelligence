@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dt822qmifsund"]
+
+[ext_resource type="PackedScene" uid="uid://dsw285mgsx2t7" path="res://Scenes/rock_formation_1_node3d.tscn" id="1_xehmr"]
+
+[node name="Rock_Formation_1-Amalgamation-1" type="Node3D" unique_id=691405807]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 0, 0)
+
+[node name="Rock_Formation_1" parent="." unique_id=401213191 instance=ExtResource("1_xehmr")]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, -1, 0, 1, 1.1924881e-08, 0, -2.3849761e-08, -2)
+
+[node name="Rock_Formation_13" parent="." unique_id=2024481736 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-4.371139e-08, 0, -1, -1, 1.1924881e-08, 4.371139e-08, 1.1924881e-08, 1, -5.2125306e-16, 45, -31, -1.9999996)
+
+[node name="Rock_Formation_14" parent="." unique_id=1168101173 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-4.371139e-08, -1.7484555e-07, -1, -1, 1.1924881e-08, 4.3711385e-08, 1.1924873e-08, 1, -1.7484555e-07, -30, 2, -1)
+
+[node name="Rock_Formation_15" parent="." unique_id=70362562 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-4.371139e-08, -1.7484555e-07, -1, -1, 1.1924881e-08, 4.3711385e-08, 1.1924873e-08, 1, -1.7484555e-07, 66, -41, -0.9999995)
+
+[node name="Rock_Formation_2" parent="." unique_id=1846833561 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0.50000006, 1.1924881e-08, 0.8660254, -5.962441e-09, 1, -1.0327249e-08, -21, -34, -1.9999996)
+
+[node name="Rock_Formation_3" parent="." unique_id=876110370 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0.50000006, 1.1924881e-08, 0.8660254, -5.962441e-09, 1, -1.0327249e-08, 22, -9, -1.9999999)
+
+[node name="Rock_Formation_4" parent="." unique_id=534974818 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.9659258, 0, 0.25881907, 0.25881907, 1.1924881e-08, 0.9659258, -3.0863865e-09, 1, -1.151855e-08, -18.054432, -60.26454, -1.9999993)
+
+[node name="Rock_Formation_5" parent="." unique_id=1170944351 instance=ExtResource("1_xehmr")]
+transform = Transform3D(0.7071067, 0, -0.7071068, -0.7071068, 1.1924881e-08, -0.7071067, 8.432164e-09, 1, 8.432163e-09, 11.029861, -32.858265, -1.9999996)
+
+[node name="Rock_Formation_6" parent="." unique_id=1922894161 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-5.9604645e-08, 0, -0.99999994, -0.99999994, 1.1924881e-08, 5.9604645e-08, 1.192488e-08, 1, -7.107783e-16, -36.975426, -45.87719, -1.9999994)
+
+[node name="Rock_Formation_7" parent="." unique_id=489348217 instance=ExtResource("1_xehmr")]
+transform = Transform3D(0.7558535, -1.0671982e-08, 0.6547408, 0.6547408, 2.861963e-08, -0.7558535, -1.0671982e-08, 1, 2.861963e-08, 22.2406, 34.6835, -2)
+
+[node name="Rock_Formation_8" parent="." unique_id=906831843 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.70710665, 0, 0.70710695, 0.70710695, 1.1924881e-08, 0.70710665, -8.432166e-09, 1, -8.4321625e-09, -23.477646, 33.70527, -2.0000005)
+
+[node name="Rock_Formation_9" parent="." unique_id=957688263 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.70710665, 0, 0.70710695, 0.70710695, 1.1924881e-08, 0.70710665, -8.432166e-09, 1, -8.4321625e-09, 42.52765, -15.275806, -1.9999998)
+
+[node name="Rock_Formation_10" parent="." unique_id=8804375 instance=ExtResource("1_xehmr")]
+transform = Transform3D(-0.8660253, 0, 0.5000001, 0.5000001, 1.1924881e-08, 0.8660253, -5.9624417e-09, 1, -1.0327248e-08, -25.43021, 18.573303, -2.0000002)
+
+[node name="Rock_Formation_11" parent="." unique_id=816809620 instance=ExtResource("1_xehmr")]
+transform = Transform3D(0.49999982, 0, -0.8660255, -0.8660255, 1.1924881e-08, -0.49999982, 1.0327251e-08, 1, 5.962438e-09, 9.756329, 37.518158, -2.0000005)
+
+[node name="Rock_Formation_12" parent="." unique_id=40531220 instance=ExtResource("1_xehmr")]
+transform = Transform3D(0.49999982, 0, -0.8660255, -0.8660255, 1.1924881e-08, -0.49999982, 1.0327251e-08, 1, 5.962438e-09, -39.982765, 37.36753, -2.0000005)

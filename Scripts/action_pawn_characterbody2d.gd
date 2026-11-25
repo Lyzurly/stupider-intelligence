@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		#_physics_process_player_nav(delta)
 		
 func _physics_process_player_nav(delta: float) -> void:
-	_nav_agent.target_position = global_position
+	#_nav_agent.target_position = global_position
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -197,6 +197,7 @@ func _get_next_waypoint() -> Vector2:
 	return next_waypoint
 	
 func _on_journey_begin() -> void:
+	print("it begin")
 	move_and_slide()
 	_update_next_nav_pos()
 	
@@ -242,11 +243,13 @@ func _follow_next_point() -> void:
 		
 		#Safety net that ensures cat doesn't accidentally try to move toward a point that’s effectively “reached.”
 		if distance_to_next_path_pos > _APPROX_TARGET_DISTANCE:
+			print("distance to next greater than approx target distance")
 			#var new_velocity: Vector2 = global_position.direction_to(position_to_follow) * _speed
 			move_and_slide()
 			
 	# navigation is done but the cat isn't sitting yet
 	else:
+		print("nav done but not fully stopped")
 		move_and_slide()
 
 func _on_boost_timeout() -> void:

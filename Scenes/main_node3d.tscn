@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://8b6kvd4nhwbn" path="res://Scripts/camera_battle_camera3d.gd" id="2_0gcre"]
 [ext_resource type="Script" uid="uid://d38bfydxwrlmc" path="res://Scripts/camera_walking_camera3d.gd" id="2_8624p"]
 [ext_resource type="Script" uid="uid://dfid243cu68nv" path="res://Scripts/level_container_node3d.gd" id="2_injwd"]
+[ext_resource type="Script" uid="uid://bjyctonjrvuxe" path="res://Scripts/camera_cinematic_camera3d.gd" id="2_y01mb"]
 
 [sub_resource type="Gradient" id="Gradient_8624p"]
 
@@ -20,6 +21,15 @@ fov = 41.6
 size = 26.44
 near = 0.001
 script = ExtResource("2_8624p")
+
+[node name="Camera_Cinematic" type="Camera3D" parent="." unique_id=29961404]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -0.216, 34.0007, 57.6275)
+projection = 1
+current = true
+fov = 41.6
+size = 26.44
+near = 0.001
+script = ExtResource("2_y01mb")
 
 [node name="Camera_Battle" type="Camera3D" parent="." unique_id=1805354971]
 transform = Transform3D(0.99990255, -0.0030695323, 0.013620589, 0, 0.97553456, 0.21984622, -0.013962179, -0.21982479, 0.9754395, -0.012, 7.19, 59.164)

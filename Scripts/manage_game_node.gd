@@ -113,9 +113,12 @@ func _check_cinematic() -> bool:
 	return true
 func _before_cinematic() -> void:
 	Manage_MenuBehavior.ref.hide_if_needed()
+	Manage_Camera.ref.switch(
+		Manage_Camera.CAMERAS.CINEMATIC)
 func _after_cinematic() -> void:
 	Manage_Cinematics.ref.switch(
 		Manage_Cinematics.CINEMATICS.CINEMATIC_1)
+	Level_Container.ref.show_if_needed()
 func _on_previously_cinematic() -> void:
 	pass
 	

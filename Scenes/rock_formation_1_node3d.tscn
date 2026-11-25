@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dsw285mgsx2t7"]
+
+[ext_resource type="PackedScene" uid="uid://dqv1d5a5xdt1b" path="res://Scenes/rock_large_mesh.tscn" id="1_fydym"]
+
+[node name="Rock_Formation_1" type="Node3D" unique_id=401213191]
+
+[node name="rock_large_mesh" parent="." unique_id=346551742 instance=ExtResource("1_fydym")]
+transform = Transform3D(-0.8660254, 0, 0.5000002, 0, 1, 0, -0.5000002, 0, -0.8660254, 8, -3, 3)
+
+[node name="rock_large_mesh2" parent="." unique_id=755924849 instance=ExtResource("1_fydym")]
+transform = Transform3D(0.7842163, -0.59971094, 0.15922149, -0.61247337, -0.7070586, 0.35347486, -0.09940382, -0.37471965, -0.92179394, 10, -7, 17)
+
+[node name="rock_large_mesh3" parent="." unique_id=1666011008 instance=ExtResource("1_fydym")]
+transform = Transform3D(0.06493522, 0.18101937, 0.47450966, -0.31353465, -0.3620387, 0.18101941, 0.39952907, -0.31353474, 0.064935125, -2.524, -4, -3.934)
+
+[node name="rock_large_mesh4" parent="." unique_id=1228421387 instance=ExtResource("1_fydym")]
+transform = Transform3D(-0.31353465, -0.36203873, 0.18101941, -0.14352901, 0.31353477, 0.37846982, -0.37846994, 0.18101934, -0.29349032, -9, 0, 9)
+
+[node name="rock_large_mesh5" parent="." unique_id=105984009 instance=ExtResource("1_fydym")]
+transform = Transform3D(-0.14352898, 0.31353477, 0.37846985, 0.1709972, -0.33778667, 0.34467977, 0.46076393, 0.223025, -0.0100222, 1, -3, 17)

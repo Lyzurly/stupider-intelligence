@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dlp2oc15yqmhe"]
+
+[ext_resource type="PackedScene" uid="uid://du88m58ermicu" path="res://BlendFiles/GLTF/bunker_1.glb" id="1_suc6e"]
+[ext_resource type="Material" uid="uid://c3l5iac2vm3fp" path="res://Materials/level_ow5_mat.tres" id="2_beeor"]
+
+[sub_resource type="Gradient" id="Gradient_lt004"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.042168673, 0.61445785, 0.8340249)
+colors = PackedColorArray(0.51, 0.2193, 0.2193, 1, 0.85, 0.65237504, 0.46750003, 1, 0.85, 0.65237504, 0.46750003, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7lmcx"]
+noise_type = 3
+frequency = 0.064
+fractal_type = 2
+fractal_lacunarity = 2.042
+fractal_gain = 0.218
+fractal_weighted_strength = 1.0
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 30.104
+domain_warp_frequency = 0.026
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b6fi1"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_7lmcx")
+color_ramp = SubResource("Gradient_lt004")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cq40v"]
+albedo_texture = SubResource("NoiseTexture2D_b6fi1")
+uv1_scale = Vector3(-0.284, -0.284, -0.284)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24oix"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_oxaoj"]
+offsets = PackedFloat32Array(0, 0.9879518)
+colors = PackedColorArray(0.18, 0.18, 0.18, 1, 0.56, 0.56, 0.56, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_te0gl"]
+noise_type = 2
+frequency = 0.0387
+cellular_distance_function = 1
+cellular_jitter = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2ha5"]
+noise = SubResource("FastNoiseLite_te0gl")
+color_ramp = SubResource("Gradient_oxaoj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmgb6"]
+albedo_texture = SubResource("NoiseTexture2D_l2ha5")
+uv1_offset = Vector3(0.026, -0.032, 0)
+
+[node name="bunker_1" unique_id=18292008 instance=ExtResource("1_suc6e")]
+
+[node name="Bunker-5" parent="." index="0" unique_id=2086046994]
+surface_material_override/0 = ExtResource("2_beeor")
+surface_material_override/1 = SubResource("StandardMaterial3D_cq40v")
+
+[node name="Door_L" parent="." index="2" unique_id=1732270731]
+surface_material_override/0 = SubResource("StandardMaterial3D_24oix")
+surface_material_override/2 = SubResource("StandardMaterial3D_lmgb6")
+
+[node name="Door_R" parent="." index="3" unique_id=1268480742]
+transform = Transform3D(0.68097365, 0, 0, 0, 0.52855366, 0.302487, 0, -0.38068074, 0.41998613, 0.62708837, 0.3533576, 0.56897867)
+surface_material_override/2 = SubResource("StandardMaterial3D_lmgb6")

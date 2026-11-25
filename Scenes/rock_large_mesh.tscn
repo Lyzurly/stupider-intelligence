@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqv1d5a5xdt1b"]
+
+[ext_resource type="PackedScene" uid="uid://eladk0ma5g17" path="res://BlendFiles/GLTF/rock_large_mesh.glb" id="1_7h25l"]
+[ext_resource type="Material" uid="uid://c3l5iac2vm3fp" path="res://Materials/level_ow5_mat.tres" id="2_wtnly"]
+
+[node name="rock_large_mesh" unique_id=346551742 instance=ExtResource("1_7h25l")]
+
+[node name="Rock_Large Remeshed Remeshed Remeshed" parent="." index="0" unique_id=1164634460]
+surface_material_override/0 = ExtResource("2_wtnly")

@@ -3,7 +3,9 @@ static var ref: Manage_Camera
 func _init() -> void:
 	ref = self
 
-enum CAMERAS {NONE,WALKING,BATTLE}
+enum CAMERAS {
+	NONE,WALKING,BATTLE,CINEMATIC
+	}
 var _current: CAMERAS = CAMERAS.NONE
 
 func switch(to: CAMERAS) -> void:
@@ -18,3 +20,5 @@ func switch(to: CAMERAS) -> void:
 			Camera_Walking.ref.current = true
 		CAMERAS.BATTLE:
 			Camera_Battle.ref.current = true
+		CAMERAS.CINEMATIC:
+			Camera_Cinematic.ref.current = true

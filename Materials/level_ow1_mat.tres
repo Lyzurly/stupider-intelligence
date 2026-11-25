@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dybuebfacgpsi"]
+
+[sub_resource type="Gradient" id="Gradient_hu6cj"]
+offsets = PackedFloat32Array(0.6497175, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vn7b7"]
+frequency = 0.116
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0s4yl"]
+noise = SubResource("FastNoiseLite_vn7b7")
+color_ramp = SubResource("Gradient_hu6cj")
+
+[resource]
+albedo_texture = SubResource("NoiseTexture2D_0s4yl")
