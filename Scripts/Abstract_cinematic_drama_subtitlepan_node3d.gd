@@ -25,6 +25,7 @@ var _blackout_start_time: float
 @abstract func _my_length() -> float
 @abstract func _my_top_subtitle_text() -> String
 @abstract func _my_bottom_subtitle_text() -> String
+@abstract func _on_cinematic_end() -> void
 
 func _ready() -> void:
 	_ready_connections()
@@ -50,6 +51,7 @@ func _ready_timers() -> void:
 	_blackout_start_time = _overall_length - blackout_start_length
 
 func start() -> void:
+	Camera_Cinematic.ref.dramatic_pan(false)
 	_blackout_visibility(false)
 	_canvas_layer.visible = true
 	_dramatic_subtitle_movement()
@@ -105,14 +107,14 @@ func _dramatic_subtitle_movement() -> void:
 		"offset_transform_position",
 		Vector2(
 			top_offset + _SUBTITLE_OFFSET_OFFSET,0.),
-		_overall_length * _overall_length
+		_overall_length + _overall_length/3
 		)
 	tween.parallel().tween_property(
 		_subtitle_bottom,
 		"offset_transform_position",
 		Vector2(
 			bottom_offset + -_SUBTITLE_OFFSET_OFFSET,0.),
-		_overall_length
+		_overall_length - _overall_length/3
 		)
 
 
@@ -122,9 +124,8 @@ func _stop() -> void:
 	_canvas_layer.visible = false
 	Camera_Cinematic.ref.dramatic_pan(false)
 	_overall_length = _DEFAULT_LENGTH
-	Manage_Walking.ref.change_state(
-		Manage_Walking.STATES.OVERWORLD)
-
+	_on_cinematic_end()
+	
 func _on_length_timeout() -> void:
 	if _overall_length > 0:
 		_overall_length -= 1.

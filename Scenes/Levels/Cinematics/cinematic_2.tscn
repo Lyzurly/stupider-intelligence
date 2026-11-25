@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://brhmirj3boin0"]
+
+[ext_resource type="Script" uid="uid://c5w41sxriypxq" path="res://Scenes/Levels/Cinematics/cinematic_dramasubtitlepan_2_node3d.gd" id="1_kdcvj"]
+[ext_resource type="FontFile" uid="uid://jul0bknmmsm1" path="res://UI/Fonts/Lexend-VariableFont_wght.ttf" id="2_nev87"]
+[ext_resource type="PackedScene" uid="uid://dpt2au71wq405" path="res://Scenes/buildings_group_1_ow4_node3d.tscn" id="3_m2w07"]
+
+[sub_resource type="Gradient" id="Gradient_8ot3o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
+gradient = SubResource("Gradient_8ot3o")
+
+[sub_resource type="FontVariation" id="FontVariation_0gcre"]
+base_font = ExtResource("2_nev87")
+variation_embolden = 0.13
+variation_transform = Transform2D(1.03, 0.134, -0.02, 1.232, 0, 4.894)
+spacing_glyph = -1
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ot3o"]
+paragraph_spacing = 0.596
+font = SubResource("FontVariation_0gcre")
+font_size = 78
+font_color = Color(0.8366, 0.8969167, 0.94, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(4.518, 3.448)
+stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
+stacked_shadow_0/outline_size = 18
+
+[node name="Cinematic_2" type="Node3D" unique_id=1677114923]
+script = ExtResource("1_kdcvj")
+
+[node name="Blackout_TextureRect" type="TextureRect" parent="." unique_id=67167225]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="Cinematic_CanvasLayer" type="CanvasLayer" parent="." unique_id=209932159]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Cinematic_CanvasLayer" unique_id=585764051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cinematic_CanvasLayer/MarginContainer" unique_id=880389675]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label_Subtitle_Top" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=203814804]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(100, 0)
+theme_override_font_sizes/font_size = 81
+text = "This is a dramatic line of dialogue,"
+label_settings = SubResource("LabelSettings_8ot3o")
+autowrap_mode = 2
+
+[node name="Label_Subtitle_Bottom" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=1300905387]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-80, 0)
+theme_override_fonts/font = SubResource("FontVariation_0gcre")
+theme_override_font_sizes/font_size = 81
+text = "stretched out concerningly..."
+label_settings = SubResource("LabelSettings_8ot3o")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]
+unique_name_in_owner = true
+
+[node name="Timer_BeginningOfEnd" type="Timer" parent="." unique_id=1501718245]
+unique_name_in_owner = true
+
+[node name="Timer_BlackoutStart" type="Timer" parent="." unique_id=209892907]
+unique_name_in_owner = true
+
+[node name="Level_Positioner" type="Node3D" parent="." unique_id=624015852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.926, 0, 1.186)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Positioner" unique_id=1217570418]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 19.134, 25.486, -1.802)
+light_color = Color(0.015125763, 0.37429073, 0.3066719, 1)
+light_energy = 12.541
+light_negative = true
+light_cull_mask = 4294967293
+spot_range = 59.028
+spot_attenuation = 0.43
+spot_angle = 91.94
+spot_angle_attenuation = 1.3660403
+
+[node name="buildings-group1_ow4-1" parent="Level_Positioner" unique_id=1924096493 instance=ExtResource("3_m2w07")]
+
+[node name="buildings-group1_ow4-2" parent="Level_Positioner" unique_id=214903953 instance=ExtResource("3_m2w07")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 24.33, -0.732, -33.992)

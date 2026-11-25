@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dpt2au71wq405"]
+
+[ext_resource type="PackedScene" uid="uid://ef4y0dvybrdt" path="res://Scenes/building_1_ow4_node3d.tscn" id="1_mdt1x"]
+[ext_resource type="PackedScene" uid="uid://b3j0tsab1nljm" path="res://Scenes/building_2_ow4_node3d.tscn" id="2_mitt7"]
+
+[node name="buildings-group1_ow4" type="Node3D" unique_id=1924096493]
+
+[node name="building-1_ow4-1" parent="." unique_id=1588184463 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.592, 0)
+
+[node name="building-1_ow4-2" parent="." unique_id=1490262112 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.158, -10.436, 0)
+
+[node name="building-1_ow4-3" parent="." unique_id=653488234 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63, -9.134, -7.5)
+
+[node name="building-1_ow4-4" parent="." unique_id=1745475545 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.47, -9.134, -7.752)
+
+[node name="building-1_ow4-5" parent="." unique_id=460506545 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.47, -9.286, 15.346)
+
+[node name="building-1_ow4-6" parent="." unique_id=1109956060 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.054, -10.068, 15.346)
+
+[node name="building-1_ow4-7" parent="." unique_id=1355815137 instance=ExtResource("1_mdt1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.92, -7.59, -17.188)
+
+[node name="building-2_ow4-1" parent="." unique_id=110909866 instance=ExtResource("2_mitt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4520001, -10.178, 0)
+
+[node name="building-2_ow4-5" parent="." unique_id=2004964957 instance=ExtResource("2_mitt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.844, -7.094, 12.756)
+
+[node name="building-2_ow4-2" parent="." unique_id=1155864444 instance=ExtResource("2_mitt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.914, -5.664, -15.488)
+
+[node name="building-2_ow4-3" parent="." unique_id=2033649841 instance=ExtResource("2_mitt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.986, -11.524, -20.816)
+
+[node name="building-2_ow4-4" parent="." unique_id=160418570 instance=ExtResource("2_mitt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.762, -11.086, -8.466)

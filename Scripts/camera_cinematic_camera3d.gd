@@ -6,16 +6,17 @@ func _init() -> void:
 const _H_OFFSET_END: float = 30.
 const _H_OFFSET_START: float = 0.
 
-const _PAN_SPEED_RESET: float = .1
-
 var tween: Tween
 
 func dramatic_pan(
 indeed:bool,
-pan_speed:float=_PAN_SPEED_RESET
+pan_speed:float=1.
 ) -> void:
-	var target_offset: float = \
-		_H_OFFSET_END if indeed	else _H_OFFSET_START
+	if not indeed:
+		h_offset = 0.
+		return
+		
+	var target_offset: float = _H_OFFSET_END
 		
 	if tween:
 		tween.kill()

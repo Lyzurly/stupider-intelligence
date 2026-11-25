@@ -13,8 +13,8 @@ var _data: Dictionary[CINEMATICS,Dictionary] = {
 		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://dsvi7knyt542x")
 	},
 	CINEMATICS.CINEMATIC_2:{
-		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bnt4tq6t4bjse"),
-		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://c2ifkl0ktxr37")
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://brhmirj3boin0"),
+		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://cnm5yt6strlkn")
 	},
 }
 

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cnm5yt6strlkn"]
+
+[ext_resource type="Script" uid="uid://l1ax3jmynje0" path="res://Scripts/level_environment_ow1.gd" id="1_drb1p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.57, 0.57, 0.57, 1)
+ground_bottom_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
+ground_horizon_color = Color(0.66, 0.66, 0.66, 1)
+
+[sub_resource type="Sky" id="Sky_jtdjp"]
+sky_material = SubResource("ProceduralSkyMaterial_4kqn6")
+
+[sub_resource type="Environment" id="Environment_k1c8l"]
+background_mode = 2
+background_energy_multiplier = 0.22
+sky = SubResource("Sky_jtdjp")
+adjustment_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3xgss"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4p5n1"]
+size = Vector3(138.66504, 0.001, 130.77637)
+
+[sub_resource type="Gradient" id="Gradient_kxt5m"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.13422818, 0.26845637, 0.32885906, 0.60738254, 0.67114097, 0.6912752, 0.72483224, 0.7483221, 0.7986577, 0.8389262, 0.88255036)
+colors = PackedColorArray(0.50980395, 0.50980395, 0.54901963, 1, 0.51, 0.51, 0.51, 1, 0.7284602, 0.72855514, 0.7316601, 1, 0.51, 0.51, 0.51, 1, 0.18039216, 0.1764706, 0.047058824, 1, 0.82, 0.7988167, 0.779, 1, 0.56, 0.43381333, 0.26880002, 1, 0.51, 0.2193, 0.2193, 1, 0.29475, 0.45, 0.2475, 1, 0.85, 0.65237504, 0.46750003, 1, 0.72098124, 0.7211067, 0.7252205, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_drb1p"]
+noise_type = 2
+frequency = 0.0168
+fractal_type = 2
+fractal_lacunarity = 2.042
+fractal_gain = 0.218
+fractal_weighted_strength = 1.0
+cellular_jitter = 0.0
+cellular_return_type = 0
+domain_warp_type = 2
+domain_warp_amplitude = 30.104
+domain_warp_frequency = 0.026
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thx6g"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_drb1p")
+color_ramp = SubResource("Gradient_kxt5m")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4gaq"]
+albedo_texture = SubResource("NoiseTexture2D_thx6g")
+uv1_scale = Vector3(3.87, 3.87, 3.87)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1nwk3"]
+size = Vector3(5, 10, 5)
+
+[node name="Level_Environment_5_Node3D" type="Node3D" unique_id=68497433]
+script = ExtResource("1_drb1p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583738365]
+environment = SubResource("Environment_k1c8l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1546860116]
+transform = Transform3D(-0.8660254, -0.4330128, 0.25000003, 0, 0.49999997, 0.86602545, -0.5000001, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.46314198, 0.46430194, 0.55964607, 1)
+light_energy = 4.046
+light_cull_mask = 4294966273
+shadow_enabled = true
+
+[node name="Ground_StaticBody3D" type="StaticBody3D" parent="." unique_id=1066297917]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground_StaticBody3D" unique_id=1185631467]
+shape = SubResource("WorldBoundaryShape3D_3xgss")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground_StaticBody3D" unique_id=682070093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+mesh = SubResource("BoxMesh_4p5n1")
+surface_material_override/0 = SubResource("StandardMaterial3D_u4gaq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=686994730]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 19.134, 25.486, -1.802)
+visible = false
+light_color = Color(0.015125763, 0.37429073, 0.3066719, 1)
+light_energy = 12.541
+light_negative = true
+light_cull_mask = 4294967293
+spot_range = 59.028
+spot_attenuation = 0.43
+spot_angle = 91.94
+spot_angle_attenuation = 1.3660403
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=416187196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5333958, 0)
+visible = false
+mesh = SubResource("BoxMesh_1nwk3")
