@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://cnbpriy2eno0g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7hum"]
+size = Vector3(0.65, 0.65, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_begnu"]
+albedo_color = Color(0.3665946, 0.3665946, 0.36659455, 1)
+
+[node name="bigbox_roofboxes" type="Node3D" unique_id=1681399785]
+
+[node name="roofbox1" type="MeshInstance3D" parent="." unique_id=473154960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.209342, 5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox2" type="MeshInstance3D" parent="." unique_id=1925145041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, 5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox3" type="MeshInstance3D" parent="." unique_id=1688422927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, 5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox4" type="MeshInstance3D" parent="." unique_id=114084630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.209342, -5.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox5" type="MeshInstance3D" parent="." unique_id=792128542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, -5.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox6" type="MeshInstance3D" parent="." unique_id=1957999131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, -5.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox7" type="MeshInstance3D" parent="." unique_id=956372781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, -4)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox8" type="MeshInstance3D" parent="." unique_id=1896915878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, -2.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox9" type="MeshInstance3D" parent="." unique_id=1751343451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, -1)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox10" type="MeshInstance3D" parent="." unique_id=1507124535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, 0.49999988)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox11" type="MeshInstance3D" parent="." unique_id=168161057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, 1.9999999)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox12" type="MeshInstance3D" parent="." unique_id=345050312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.209342, 3.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox13" type="MeshInstance3D" parent="." unique_id=188347857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, -4)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox14" type="MeshInstance3D" parent="." unique_id=643015304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, -2.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox15" type="MeshInstance3D" parent="." unique_id=1156683633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, -1)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox16" type="MeshInstance3D" parent="." unique_id=318434862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, 0.49999988)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox17" type="MeshInstance3D" parent="." unique_id=85942181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, 1.9999999)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")
+
+[node name="roofbox18" type="MeshInstance3D" parent="." unique_id=948205338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.209342, 3.5)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_begnu")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bobvw23iyfqiu"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_55808"]
+size = Vector3(4.182, 1.518, 3.788)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjio2"]
+albedo_color = Color(0.32322973, 0.18373278, 0.09083038, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqjpo"]
+size = Vector3(3, 3, 3.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n2np"]
+albedo_color = Color(0.67058825, 0.59607846, 0.54901963, 1)
+
+[node name="house-1_ow3" type="Node3D" unique_id=483300928]
+transform = Transform3D(0.28568837, 0, -0.9583226, 0, 1, 0, 0.9583226, 0, 0.28568837, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=823777968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14, 0)
+mesh = SubResource("PrismMesh_55808")
+surface_material_override/0 = SubResource("StandardMaterial3D_yjio2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1050837061]
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_4n2np")

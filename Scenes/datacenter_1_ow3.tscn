@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d2btq2yx3agns"]
+
+[ext_resource type="PackedScene" uid="uid://u6oekaeuhgy6" path="res://Scenes/datacenter-1_ow3_lilboxes.tscn" id="1_csn60"]
+[ext_resource type="PackedScene" uid="uid://j04nmgk2cjcp" path="res://Scenes/datacenter-1_ow3_energydrums.tscn" id="2_8d8bm"]
+[ext_resource type="PackedScene" uid="uid://cnbpriy2eno0g" path="res://Scenes/datacenter-1_ow3_roofboxes.tscn" id="2_dtqud"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqjpo"]
+size = Vector3(8.5, 4, 17.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csn60"]
+albedo_color = Color(0.63213223, 0.586741, 0.57351094, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7g1cm"]
+size = Vector3(28.5, 1, 19.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bi1is"]
+albedo_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+
+[node name="datacenter-1_ow3" type="Node3D" unique_id=1392673993]
+
+[node name="bigbox1" type="MeshInstance3D" parent="." unique_id=175273956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.999996, 1.5, 0.5)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="bigbox2" type="MeshInstance3D" parent="." unique_id=360486456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.000004, 1.5, 0.5)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilboxes-1" parent="." unique_id=2010269644 instance=ExtResource("1_csn60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="lilboxes-2" parent="." unique_id=1572378548 instance=ExtResource("1_csn60")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, 0.9999999)
+
+[node name="foundation" type="MeshInstance3D" parent="." unique_id=994645120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82342386, 0.39999998)
+mesh = SubResource("BoxMesh_7g1cm")
+surface_material_override/0 = SubResource("StandardMaterial3D_bi1is")
+
+[node name="energythings" parent="." unique_id=301227310 instance=ExtResource("2_8d8bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.75)
+
+[node name="bigbox_roofboxes1" parent="." unique_id=1681399785 instance=ExtResource("2_dtqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.8419561, 0)
+
+[node name="bigbox_roofboxes2" parent="." unique_id=2018290057 instance=ExtResource("2_dtqud")]
+transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 10.5, 3.8419561, 0)

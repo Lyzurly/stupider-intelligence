@@ -3,7 +3,10 @@ static var ref: Manage_Cinematics
 func _init() -> void:
 	ref = self
 
-enum CINEMATICS {NONE,CINEMATIC_1,CINEMATIC_2}
+enum CINEMATICS {
+	NONE,
+	CINEMATIC_1,CINEMATIC_2,CINEMATIC_3,CINEMATIC_4,CINEMATIC_5,
+	}
 var _current: CINEMATICS = CINEMATICS.NONE
 
 var _data: Dictionary[CINEMATICS,Dictionary] = {
@@ -15,6 +18,10 @@ var _data: Dictionary[CINEMATICS,Dictionary] = {
 	CINEMATICS.CINEMATIC_2:{
 		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://brhmirj3boin0"),
 		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://cnm5yt6strlkn")
+	},
+	CINEMATICS.CINEMATIC_3:{
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bpo6svotutiqm"),
+		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://7wq1ynucwryt")
 	},
 }
 

@@ -4,7 +4,7 @@ const _DEFAULT_LENGTH: float = 4.
 const _BEGINNING_OF_END_DESCALAR: float = .45
 const _BLACKOUT_START_DESCALAR: float = .3
 
-const _SUBTITLE_OFFSET_OFFSET: float = 300
+const _SUBTITLE_OFFSET_OFFSET: float = 400
 const _SUBTITLE_FADE_IN_SPEED: float = 2.
 
 const _BLACKOUT_FADE_SPEED: float = 4.
@@ -114,7 +114,7 @@ func _dramatic_subtitle_movement() -> void:
 		"offset_transform_position",
 		Vector2(
 			bottom_offset + -_SUBTITLE_OFFSET_OFFSET,0.),
-		_overall_length - _overall_length/3
+		_overall_length
 		)
 
 

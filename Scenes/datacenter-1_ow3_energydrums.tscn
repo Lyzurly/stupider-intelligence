@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://j04nmgk2cjcp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqjpo"]
+radius = 0.214
+height = 1.86
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csn60"]
+albedo_color = Color(0.63213223, 0.586741, 0.57351094, 1)
+
+[node name="energythings" type="Node3D" unique_id=301227310]
+
+[node name="capsulylinder1" type="MeshInstance3D" parent="." unique_id=831155868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5000005, 0, 0)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="capsulylinder2" type="MeshInstance3D" parent="." unique_id=880821690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5000005, 0, -0.5)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="capsulylinder3" type="MeshInstance3D" parent="." unique_id=241827096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-07, 0, -0.5)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="capsulylinder4" type="MeshInstance3D" parent="." unique_id=182790732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-07, 0, 0)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="capsulylinder5" type="MeshInstance3D" parent="." unique_id=1294727811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999952, 0, 0)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="capsulylinder6" type="MeshInstance3D" parent="." unique_id=1209403778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999952, 0, -0.5)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")

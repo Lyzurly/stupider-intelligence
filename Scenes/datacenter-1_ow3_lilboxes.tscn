@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://u6oekaeuhgy6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yjio2"]
+size = Vector3(1, 1, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csn60"]
+albedo_color = Color(0.601223, 0.601223, 0.60122293, 1)
+
+[node name="lilboxes" type="Node3D" unique_id=2010269644]
+
+[node name="lilbox1" type="MeshInstance3D" parent="." unique_id=1123471652]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -7)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilbox2" type="MeshInstance3D" parent="." unique_id=1221609820]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -4)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilbox3" type="MeshInstance3D" parent="." unique_id=1375531147]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -1.0000001)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilbox4" type="MeshInstance3D" parent="." unique_id=2063856629]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 1.9999999)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilbox5" type="MeshInstance3D" parent="." unique_id=1354986278]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 5)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")
+
+[node name="lilbox6" type="MeshInstance3D" parent="." unique_id=299381173]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 8)
+mesh = SubResource("BoxMesh_yjio2")
+surface_material_override/0 = SubResource("StandardMaterial3D_csn60")

@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bpo6svotutiqm"]
+
+[ext_resource type="Script" uid="uid://cxup5gx7lnigr" path="res://Scenes/Levels/Cinematics/cinematic_dramasubtitlepan_3_node3d.gd" id="1_wpmav"]
+[ext_resource type="FontFile" uid="uid://jul0bknmmsm1" path="res://UI/Fonts/Lexend-VariableFont_wght.ttf" id="2_4n2np"]
+[ext_resource type="PackedScene" uid="uid://bobvw23iyfqiu" path="res://Scenes/house_1_ow3.tscn" id="3_yjio2"]
+[ext_resource type="PackedScene" uid="uid://d2btq2yx3agns" path="res://Scenes/datacenter_1_ow3.tscn" id="4_4n2np"]
+
+[sub_resource type="Gradient" id="Gradient_8ot3o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
+gradient = SubResource("Gradient_8ot3o")
+
+[sub_resource type="FontVariation" id="FontVariation_0gcre"]
+base_font = ExtResource("2_4n2np")
+variation_embolden = 0.13
+variation_transform = Transform2D(1.03, 0.134, -0.02, 1.232, 0, 4.894)
+spacing_glyph = -1
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ot3o"]
+paragraph_spacing = 0.596
+font = SubResource("FontVariation_0gcre")
+font_size = 78
+font_color = Color(0.8366, 0.8969167, 0.94, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(4.518, 3.448)
+stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
+stacked_shadow_0/outline_size = 18
+
+[node name="Cinematic_3" type="Node3D" unique_id=1677114923]
+script = ExtResource("1_wpmav")
+
+[node name="Blackout_TextureRect" type="TextureRect" parent="." unique_id=67167225]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="Cinematic_CanvasLayer" type="CanvasLayer" parent="." unique_id=209932159]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Cinematic_CanvasLayer" unique_id=585764051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cinematic_CanvasLayer/MarginContainer" unique_id=880389675]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label_Subtitle_Top" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=203814804]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(100, 0)
+theme_override_font_sizes/font_size = 81
+text = "This is a dramatic line of dialogue,"
+label_settings = SubResource("LabelSettings_8ot3o")
+autowrap_mode = 2
+
+[node name="Label_Subtitle_Bottom" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=1300905387]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-80, 0)
+theme_override_fonts/font = SubResource("FontVariation_0gcre")
+theme_override_font_sizes/font_size = 81
+text = "stretched out concerningly..."
+label_settings = SubResource("LabelSettings_8ot3o")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]
+unique_name_in_owner = true
+
+[node name="Timer_BeginningOfEnd" type="Timer" parent="." unique_id=1501718245]
+unique_name_in_owner = true
+
+[node name="Timer_BlackoutStart" type="Timer" parent="." unique_id=209892907]
+unique_name_in_owner = true
+
+[node name="Level_Positioner" type="Node3D" parent="." unique_id=624015852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.926, 0, 1.186)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Positioner" unique_id=1217570418]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 46.688, 22.452, -18.302)
+light_color = Color(0.13, 0.0325, 0.079625025, 1)
+light_energy = 4.372
+light_specular = 1.374
+light_cull_mask = 4294967293
+spot_range = 36.922
+spot_attenuation = -0.45
+spot_angle = 84.07
+spot_angle_attenuation = 1.7410997
+
+[node name="house-1_ow3-1" parent="Level_Positioner" unique_id=483300928 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.094108276, 0, -0.99556196, 0, 1, 0, 0.99556196, 0, -0.094108276, 12.726, 0, 2.476)
+
+[node name="house-1_ow3-2" parent="Level_Positioner" unique_id=496083781 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.9933727, 0, -0.11493726, 0, 1, 0, 0.11493726, 0, -0.9933727, 14.112, 0, -16.152)
+
+[node name="house-1_ow3-3" parent="Level_Positioner" unique_id=2080777638 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.6073757, 0, -0.79441464, 0, 1, 0, 0.79441464, 0, -0.6073757, -2.092, 0, -7.416)
+
+[node name="house-1_ow3-4" parent="Level_Positioner" unique_id=1726944438 instance=ExtResource("3_yjio2")]
+transform = Transform3D(0.32226545, 0, 0.94664925, 0, 1, 0, -0.94664925, 0, 0.32226545, -11.206, 0, 0.282)
+
+[node name="house-1_ow3-5" parent="Level_Positioner" unique_id=771181717 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.96501637, 0, -0.2621892, 0, 1, 0, 0.2621892, 0, -0.96501637, -19.42, 0, -7.492)
+
+[node name="house-1_ow3-6" parent="Level_Positioner" unique_id=53375797 instance=ExtResource("3_yjio2")]
+transform = Transform3D(0.020942597, 0, -0.99978054, 0, 1, 0, 0.99978054, 0, 0.020942597, -24.326, 0, -1.614)
+
+[node name="house-1_ow3-7" parent="Level_Positioner" unique_id=594885558 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.04884972, 0, -0.99880594, 0, 1, 0, 0.99880594, 0, -0.04884972, -1.966, 0, -25.272)
+
+[node name="house-1_ow3-8" parent="Level_Positioner" unique_id=276657406 instance=ExtResource("3_yjio2")]
+transform = Transform3D(-0.48175347, 0, -0.8763065, 0, 1, 0, 0.8763065, 0, -0.48175347, 8.68, 0, -29.384)
+
+[node name="datacenter-1_ow3" parent="Level_Positioner" unique_id=1392673993 instance=ExtResource("4_4n2np")]
+transform = Transform3D(-0.08994381, 0, 1.2547805, 0, 1.258, 0, -1.2547805, 0, -0.08994381, 36.702, -0.0892, -21.824)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level_Positioner" unique_id=416443395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, 0, -24)
+light_energy = 10.492
+light_negative = true
+light_cull_mask = 4294967293
+omni_range = 21.411
+omni_attenuation = -0.53

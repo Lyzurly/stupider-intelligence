@@ -1,0 +1,30 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ep2eafk1vpk2"]
+
+[sub_resource type="Gradient" id="Gradient_kxt5m"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.13422818, 0.26845637, 0.32885906, 0.60738254, 0.67114097, 0.6912752, 0.72483224, 0.7483221, 0.7986577, 0.8389262, 0.88255036)
+colors = PackedColorArray(0.50980395, 0.50980395, 0.54901963, 1, 0.51, 0.51, 0.51, 1, 0.7284602, 0.72855514, 0.7316601, 1, 0.51, 0.51, 0.51, 1, 0.18039216, 0.1764706, 0.047058824, 1, 0.82, 0.7988167, 0.779, 1, 0.56, 0.43381333, 0.26880002, 1, 0.51, 0.2193, 0.2193, 1, 0.29475, 0.45, 0.2475, 1, 0.85, 0.65237504, 0.46750003, 1, 0.72098124, 0.7211067, 0.7252205, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_drb1p"]
+noise_type = 2
+frequency = 0.0168
+fractal_type = 2
+fractal_lacunarity = 2.042
+fractal_gain = 0.218
+fractal_weighted_strength = 1.0
+cellular_jitter = 0.0
+cellular_return_type = 0
+domain_warp_type = 2
+domain_warp_amplitude = 30.104
+domain_warp_frequency = 0.026
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thx6g"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_drb1p")
+color_ramp = SubResource("Gradient_kxt5m")
+seamless = true
+
+[resource]
+albedo_texture = SubResource("NoiseTexture2D_thx6g")
+uv1_scale = Vector3(3.87, 3.87, 3.87)
