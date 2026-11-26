@@ -18,6 +18,9 @@ var _data: Dictionary[OVERWORLDS,Dictionary] = {
 	},
 }
 
+func _ready_instance() -> void:
+	pass
+	
 func _my_type() -> LEVEL_TYPES:
 	return LEVEL_TYPES.OVERWORLD
 

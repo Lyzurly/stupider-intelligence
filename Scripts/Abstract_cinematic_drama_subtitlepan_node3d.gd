@@ -21,12 +21,15 @@ var _blackout_start_time: float
 @onready var _subtitle_top: Label = %Label_Subtitle_Top
 @onready var _subtitle_bottom: Label = %Label_Subtitle_Bottom
 @onready var _blackout_texture: TextureRect = %Blackout_TextureRect
+@onready var _label_skip: Label = %Label_Skip
 
 @abstract func _my_length() -> float
 @abstract func _my_top_subtitle_text() -> String
 @abstract func _my_bottom_subtitle_text() -> String
 @abstract func _on_cinematic_end() -> void
 @abstract func _ready_instance() -> void
+
+var _skip_in_progress: bool = false
 
 func _ready() -> void:
 	_ready_connections()
@@ -51,6 +54,27 @@ func _ready_timers() -> void:
 	
 	var blackout_start_length = _my_length() * _BLACKOUT_START_DESCALAR
 	_blackout_start_time = _overall_length - blackout_start_length
+	
+func _physics_process(_delta: float) -> void:
+	_physicis_process_check_for_skip()
+
+func _physicis_process_check_for_skip() -> void:
+	if not Manage_Cinematics.ref.get_skip_desirability() \
+	and not _skip_in_progress:
+		return
+	_skip_in_progress = true
+	var _blackout_skip_timer: Timer = Timer.new()
+	_blackout_skip_timer.timeout.connect(
+		_on_blackout_skip_timeout)
+	_blackout_skip_timer.one_shot = true
+	_blackout_visibility(true)
+	_blackout_skip_timer.start(_BLACKOUT_FADE_SPEED)
+	Manage_Cinematics.ref.reset_skip_desirability()
+
+func _on_blackout_skip_timeout() -> void:
+	
+	_stop(true)
+	
 
 func start() -> void:
 	Camera_Cinematic.ref.dramatic_pan(false)
@@ -120,13 +144,21 @@ func _dramatic_subtitle_movement() -> void:
 		)
 
 
-func _stop() -> void:
+func _stop(is_skip:bool = false) -> void:
 	print("A cinematic stopped!")
 	_timer_overall_length.stop()
 	_canvas_layer.visible = false
 	Camera_Cinematic.ref.dramatic_pan(false)
 	_overall_length = _DEFAULT_LENGTH
-	_on_cinematic_end()
+	
+	if is_skip:
+		_on_skip()
+	else:
+		_on_cinematic_end()
+	
+func _on_skip() -> void:
+	Manage_Walking.ref.change_state(
+		Manage_Walking.STATES.OVERWORLD)
 	
 func _on_length_timeout() -> void:
 	if _overall_length > 0:

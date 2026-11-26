@@ -79,6 +79,23 @@ label_settings = SubResource("LabelSettings_8ot3o")
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="Cinematic_CanvasLayer" unique_id=1180605706]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_right = 130.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 47
+
+[node name="Label_Skip" type="Label" parent="Cinematic_CanvasLayer/MarginContainer2" unique_id=1107797142]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 44
+theme_override_font_sizes/font_size = 56
+text = "Hold to skip in ... "
+
 [node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]
 unique_name_in_owner = true
 

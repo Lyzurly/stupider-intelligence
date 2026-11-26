@@ -20,6 +20,9 @@ var _data: Dictionary[UNDERWORLDS,Dictionary] = {
 	},
 }
 
+func _ready_instance() -> void:
+	pass
+
 func _my_type() -> LEVEL_TYPES:
 	return LEVEL_TYPES.UNDERWORLD
 	

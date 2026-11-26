@@ -9,6 +9,8 @@ enum CINEMATICS {
 	}
 var _current: CINEMATICS = CINEMATICS.NONE
 
+var _skip_desired: bool = false
+
 var _data: Dictionary[CINEMATICS,Dictionary] = {
 	CINEMATICS.NONE:{},
 	CINEMATICS.CINEMATIC_1:{
@@ -29,6 +31,12 @@ var _data: Dictionary[CINEMATICS,Dictionary] = {
 	},
 }
 
+func _ready_instance() -> void:
+	_ready_connections()
+
+func _ready_connections() -> void:
+	Manage_Input.ref.skip_pressed.connect(_on_skip_pressed)
+
 func _my_type() -> LEVEL_TYPES:
 	return LEVEL_TYPES.CINEMATIC
 
@@ -43,3 +51,11 @@ func get_current() -> CINEMATICS:
 
 func set_current(to:CINEMATICS) -> void:
 	_current = to
+	
+func get_skip_desirability() -> bool:
+	return _skip_desired
+func reset_skip_desirability() -> void:
+	_skip_desired = false
+
+func _on_skip_pressed() -> void:
+	_skip_desired = true

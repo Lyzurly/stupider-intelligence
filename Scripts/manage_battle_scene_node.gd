@@ -14,6 +14,10 @@ const _BATTLE_MAZE_CANVASLAYER_SCENE: PackedScene = preload("uid://bdbb2t05dc1t0
 const _BATTLE_MENU_CANVASLAYER_SCENE: PackedScene = preload("uid://dhswb6bqy7pko")
 
 var _current_scene: PackedScene
+
+func _ready_instance() -> void:
+	pass
+
 func _my_type() -> LEVEL_TYPES:
 	return LEVEL_TYPES.BATTLE_SCENE
 

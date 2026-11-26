@@ -3,6 +3,8 @@ static var ref: Manage_Input
 func _init() -> void:
 	ref = self
 	
+signal skip_pressed
+	
 var _input_dir: Vector2
 
 #region "Camera" rotation ======================
@@ -11,7 +13,17 @@ const _ROT_MAX: float = 315
 var _rot_amount: float = 0. # dir represented by lerp b/n -1 to 1
 #endregion -------------------------------------
 
-	
+var _holding_skip: bool = false
+var _hold_skip_progress: float = 0.
+
+func _physics_process(delta: float) -> void:
+	if _holding_skip:
+		_hold_skip_progress += delta
+		if _hold_skip_progress >= 4.:
+			skip_pressed.emit()
+			_hold_skip_progress = 0.
+			_holding_skip = false
+			
 func _input(event: InputEvent) -> void:
 	_input_pressed_key(event)
 	
@@ -29,6 +41,11 @@ func _input(event: InputEvent) -> void:
 			
 		#elif some other action action
 		#elif some other action action
+		
+	if Input.is_action_just_pressed("Skip") \
+	and Manage_Game.ref.is_state(
+	Manage_Game.STATES.CINEMATIC):
+		_holding_skip = true
 
 
 #region Handle debug keys ==========================
@@ -71,6 +88,8 @@ func _handle_pause() -> void:
 		Manage_Menus.ref.change_state(
 			Manage_Menus.STATES.PAUSE)
 #endregion -----------------------------------------
+
+#region Skip 
 
 #region Ability: Programming =======================
 func _can_place_arrow() -> bool:

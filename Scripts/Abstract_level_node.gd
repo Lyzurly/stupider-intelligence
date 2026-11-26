@@ -1,5 +1,6 @@
 @abstract class_name Manage_Level extends Node
 
+@abstract func _ready_instance() -> void
 @abstract func _my_type() -> LEVEL_TYPES
 
 enum LEVEL_TYPES {
@@ -14,6 +15,9 @@ enum LEVEL_CONTENT {
 	SCENE, # PackedScene
 	ENVIRONMENT, # PackedScene
 	}
+	
+func _ready() -> void:
+	_ready_instance()
 
 func _load_level(
 level_scene:PackedScene,enviro_scene:PackedScene
