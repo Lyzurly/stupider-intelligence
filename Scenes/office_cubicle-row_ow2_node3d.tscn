@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://chp5m3v5d5i1o"]
+
+[ext_resource type="PackedScene" uid="uid://d03y3vyoeywhv" path="res://Scenes/office_cubicle_ow2_node3d.tscn" id="1_ioinf"]
+[ext_resource type="PackedScene" uid="uid://c6n7bbn1saywv" path="res://Scenes/office_cubicle-flipped_ow2_node3d.tscn" id="2_n8apx"]
+
+[node name="cubicle-row" type="Node3D" unique_id=801976881]
+
+[node name="Positioner" type="Node3D" parent="." unique_id=704241490]
+
+[node name="cubicle" parent="Positioner" unique_id=431144812 instance=ExtResource("1_ioinf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.05)
+
+[node name="cubicle4" parent="Positioner" unique_id=2142854394 instance=ExtResource("1_ioinf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8, 0, 2.3500001)
+
+[node name="cubicle_flipped" parent="Positioner" unique_id=961974171 instance=ExtResource("2_n8apx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.15)
+
+[node name="cubicle_flipped5" parent="Positioner" unique_id=273598154 instance=ExtResource("2_n8apx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8, 0, 1.15)
+
+[node name="cubicle_flipped4" parent="Positioner" unique_id=512017106 instance=ExtResource("2_n8apx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8, 0, -0.05000012)
+
+[node name="cubicle2" parent="Positioner" unique_id=1247618484 instance=ExtResource("1_ioinf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2.3500004)
+
+[node name="cubicle_flipped2" parent="Positioner" unique_id=1842241600 instance=ExtResource("2_n8apx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3.5500002)
+
+[node name="cubicle_flipped6" parent="Positioner" unique_id=1565295940 instance=ExtResource("2_n8apx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8, 0, 3.5500002)
+
+[node name="cubicle3" parent="Positioner" unique_id=667144938 instance=ExtResource("1_ioinf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4.7500005)
+
+[node name="cubicle5" parent="Positioner" unique_id=1427074915 instance=ExtResource("1_ioinf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8, 0, 4.7500005)
+
+[node name="cubicle_flipped3" parent="Positioner" unique_id=252966721 instance=ExtResource("2_n8apx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5.9500003)
+
+[node name="cubicle_flipped7" parent="Positioner" unique_id=1620838831 instance=ExtResource("2_n8apx")]
+transform = Transform3D(-1, 0, 1.0331603e-07, 0, 1, 0, -1.0331603e-07, 0, -1, 1.8, 0, 5.9500003)

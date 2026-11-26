@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ckp71tpyyybkb"]
+
+[ext_resource type="Material" uid="uid://dtxca1pndu4vb" path="res://Materials/office-plant-green.tres" id="1_f2dh6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqjpo"]
+size = Vector3(0.2, 0.020117188, 0.3)
+
+[node name="planet_skirt" type="Node3D" unique_id=296681453]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2087412713]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0.0019593239, -0.0061413646, -0.14187431)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = ExtResource("1_f2dh6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2135617557]
+transform = Transform3D(-4.3711385e-08, 0.34202012, -0.93969256, 1.3027009e-15, 0.9396927, 0.34202015, 1.0000001, 1.4950176e-08, -4.107527e-08, 0.15195942, -0.0061413646, 0.008125782)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = ExtResource("1_f2dh6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1330109859]
+transform = Transform3D(-1, 7.450581e-09, 1.4901161e-08, 7.713408e-09, 0.9396927, 0.34202018, -5.960464e-08, 0.34202012, -0.9396926, 0.0019593239, -0.0061413646, 0.15812588)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = ExtResource("1_f2dh6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=782257371]
+transform = Transform3D(1.0331603e-07, -0.34202012, 0.9396926, 7.713408e-09, 0.9396927, 0.34202018, -1, -7.499594e-09, 5.5976425e-08, -0.14804077, -0.0061413646, 0.008125782)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = ExtResource("1_f2dh6")

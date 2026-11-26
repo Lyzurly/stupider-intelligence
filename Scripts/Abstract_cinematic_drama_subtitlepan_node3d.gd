@@ -26,11 +26,13 @@ var _blackout_start_time: float
 @abstract func _my_top_subtitle_text() -> String
 @abstract func _my_bottom_subtitle_text() -> String
 @abstract func _on_cinematic_end() -> void
+@abstract func _ready_instance() -> void
 
 func _ready() -> void:
 	_ready_connections()
 	_ready_subtitles()
 	_ready_timers()
+	_ready_instance()
 
 func _ready_connections() -> void:
 	_timer_overall_length.timeout.connect(_on_length_timeout)

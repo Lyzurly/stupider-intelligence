@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dytgrkubhumw8"]
+
+[ext_resource type="Material" uid="uid://dtxca1pndu4vb" path="res://Materials/office-plant-green.tres" id="1_myxag"]
+[ext_resource type="PackedScene" uid="uid://ckp71tpyyybkb" path="res://Scenes/office_plant-skirt_ow2_node3d.tscn" id="1_s88li"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kqjpo"]
+top_radius = 0.35
+bottom_radius = 0.22
+height = 0.62
+
+[sub_resource type="Gradient" id="Gradient_myxag"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.45606694, 0.57740587, 0.72384936, 0.7573222, 0.7866109, 0.87447697, 0.9372385)
+colors = PackedColorArray(0.25490198, 0, 0, 1, 0.53, 0.39034498, 0.2597, 1, 0.25490198, 0, 0, 1, 0.25490198, 0, 0, 1, 0.53, 0.39034498, 0.2597, 1, 0.25490198, 0, 0, 1, 0.53, 0.39034498, 0.2597, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d1365"]
+gradient = SubResource("Gradient_myxag")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4801"]
+albedo_texture = SubResource("GradientTexture2D_d1365")
+uv1_scale = Vector3(1, 1, 0.34)
+uv1_offset = Vector3(0, 0.192, -0.702)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqjpo"]
+radius = 0.05
+height = 0.99075
+
+[node name="plant" type="Node3D" unique_id=739273125]
+
+[node name="Resizer" type="Node3D" parent="." unique_id=733333475]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, 0, 0, 0)
+
+[node name="pot" type="MeshInstance3D" parent="Resizer" unique_id=369976585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.049999982)
+mesh = SubResource("CylinderMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_i4801")
+
+[node name="stalk" type="MeshInstance3D" parent="Resizer" unique_id=516872926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9953751, 0.049999982)
+mesh = SubResource("CapsuleMesh_kqjpo")
+surface_material_override/0 = ExtResource("1_myxag")
+
+[node name="planet_skirt" parent="Resizer" unique_id=296681453 instance=ExtResource("1_s88li")]
+transform = Transform3D(1.176, 0, 0, 0, 1.176, 0, 0, 0, 1.176, 0, 1.1500001, 0.049999982)
+
+[node name="planet_skirt2" parent="Resizer" unique_id=557818791 instance=ExtResource("1_s88li")]
+transform = Transform3D(0.67146856, 0, 0.67146856, 0, 0.9496, 0, -0.67146856, 0, 0.67146856, 0, 1.3499999, 0.049999982)
+
+[node name="planet_skirt3" parent="Resizer" unique_id=1900026501 instance=ExtResource("1_s88li")]
+transform = Transform3D(0.48988357, 0, 0.48988357, 0, 0.6928, 0, -0.48988357, 0, 0.48988357, 0, 0.9, 0.049999982)

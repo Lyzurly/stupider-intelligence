@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d03y3vyoeywhv"]
+
+[ext_resource type="PackedScene" uid="uid://dsc4f0kn4ioc8" path="res://Scenes/office_chair_ow2_node3d.tscn" id="1_f6ha6"]
+[ext_resource type="Material" uid="uid://dw6gmc3e8qyb7" path="res://Materials/office-cubicle.tres" id="1_pykxc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7hum"]
+size = Vector3(1, 0.1, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf3u5"]
+
+[node name="cubicle" type="Node3D" unique_id=431144812]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=916182198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+material_override = ExtResource("1_pykxc")
+
+[node name="cubicle-outside" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1661189447]
+size = Vector3(1.2, 1.2, 1.2)
+
+[node name="cubicle-inside" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1852121117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.08951697, 0.25)
+operation = 2
+size = Vector3(1.5, 2, 0.5)
+
+[node name="cubicle-inside2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=248251326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08951697, 0)
+operation = 2
+size = Vector3(1, 2, 1)
+
+[node name="desk1" type="MeshInstance3D" parent="." unique_id=2040505424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.34999996)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pf3u5")
+
+[node name="desk2" type="MeshInstance3D" parent="." unique_id=226122293]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3499999, 0.45000005, 0)
+mesh = SubResource("BoxMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pf3u5")
+
+[node name="chair" parent="." unique_id=662642253 instance=ExtResource("1_f6ha6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dw6gmc3e8qyb7"]
+
+[sub_resource type="Gradient" id="Gradient_xux7n"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.23849373, 0.29288703, 0.33472803, 0.40167364, 0.52719665, 0.57322174, 0.748954, 0.79916316)
+colors = PackedColorArray(0.8509804, 0.8509804, 0.8509804, 1, 0.915438, 0.9158125, 0.9163024, 1, 0.26, 0.26, 0.26, 1, 0.8509804, 0.8509804, 0.8509804, 1, 0.9047037, 0.90523475, 0.9059294, 1, 0.8233559, 0.8241533, 0.8251961, 1, 0.26, 0.26, 0.26, 1, 0.7350271, 0.6645416, 0.5723682, 1, 0.82, 0.7382733, 0.6314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pf3u5"]
+gradient = SubResource("Gradient_xux7n")
+fill_to = Vector2(0, 1)
+
+[resource]
+albedo_color = Color(0.76, 0.76, 0.76, 1)
+albedo_texture = SubResource("GradientTexture2D_pf3u5")
+uv1_scale = Vector3(1, 1, 0)
+uv1_offset = Vector3(0, 0.562, 0.474)
+uv1_triplanar = true

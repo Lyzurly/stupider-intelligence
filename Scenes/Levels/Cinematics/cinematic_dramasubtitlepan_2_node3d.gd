@@ -1,5 +1,8 @@
 extends Cinematic_DramaSubtitlePan
 
+func _ready_instance() -> void:
+	pass
+	
 func _my_length() -> float:
 	return 14.
 

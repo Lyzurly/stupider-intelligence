@@ -28,7 +28,7 @@ stacked_shadow_0/offset = Vector2(4.518, 3.448)
 stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
 stacked_shadow_0/outline_size = 18
 
-[node name="Cinematic_3" type="Node3D" unique_id=1677114923]
+[node name="Cinematic_4" type="Node3D" unique_id=1677114923]
 script = ExtResource("1_wpmav")
 
 [node name="Blackout_TextureRect" type="TextureRect" parent="." unique_id=67167225]
@@ -93,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.926, 0, 1.186)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Level_Positioner" unique_id=1217570418]
 transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 46.688, 22.452, -18.302)
-light_color = Color(0.13, 0.0325, 0.079625025, 1)
+light_color = Color(0.0325, 0.038999993, 0.13, 1)
 light_energy = 4.372
 light_specular = 1.374
 light_cull_mask = 4294967293
@@ -135,4 +135,4 @@ light_energy = 10.492
 light_negative = true
 light_cull_mask = 4294967293
 omni_range = 21.411
-omni_attenuation = -0.53
+omni_attenuation = 0.906

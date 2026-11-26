@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://bcswdbeeh35ij"]
+
+[ext_resource type="Script" uid="uid://vxhshdh6jecv" path="res://Scenes/Levels/Cinematics/cinematic_dramasubtitlepan_4_node3d.gd" id="1_pf3u5"]
+[ext_resource type="FontFile" uid="uid://jul0bknmmsm1" path="res://UI/Fonts/Lexend-VariableFont_wght.ttf" id="2_unt1n"]
+[ext_resource type="PackedScene" uid="uid://dytgrkubhumw8" path="res://Scenes/office_plant_ow2_node3d.tscn" id="3_pf3u5"]
+[ext_resource type="PackedScene" uid="uid://chp5m3v5d5i1o" path="res://Scenes/office_cubicle-row_ow2_node3d.tscn" id="3_r75xx"]
+
+[sub_resource type="Gradient" id="Gradient_8ot3o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqjpo"]
+gradient = SubResource("Gradient_8ot3o")
+
+[sub_resource type="FontVariation" id="FontVariation_0gcre"]
+base_font = ExtResource("2_unt1n")
+variation_embolden = 0.13
+variation_transform = Transform2D(1.03, 0.134, -0.02, 1.232, 0, 4.894)
+spacing_glyph = -1
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ot3o"]
+paragraph_spacing = 0.596
+font = SubResource("FontVariation_0gcre")
+font_size = 78
+font_color = Color(0.8366, 0.8969167, 0.94, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(4.518, 3.448)
+stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
+stacked_shadow_0/outline_size = 18
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqjpo"]
+size = Vector3(22, 6.5, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf3u5"]
+albedo_color = Color(0.65, 0.65, 0.65, 1)
+
+[node name="Cinematic_4" type="Node3D" unique_id=1677114923]
+script = ExtResource("1_pf3u5")
+
+[node name="Blackout_TextureRect" type="TextureRect" parent="." unique_id=67167225]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kqjpo")
+
+[node name="Cinematic_CanvasLayer" type="CanvasLayer" parent="." unique_id=209932159]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Cinematic_CanvasLayer" unique_id=585764051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cinematic_CanvasLayer/MarginContainer" unique_id=880389675]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label_Subtitle_Top" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=203814804]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(100, 0)
+theme_override_font_sizes/font_size = 81
+text = "This is a dramatic line of dialogue,"
+label_settings = SubResource("LabelSettings_8ot3o")
+autowrap_mode = 2
+
+[node name="Label_Subtitle_Bottom" type="Label" parent="Cinematic_CanvasLayer/MarginContainer/VBoxContainer" unique_id=1300905387]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-80, 0)
+theme_override_fonts/font = SubResource("FontVariation_0gcre")
+theme_override_font_sizes/font_size = 81
+text = "stretched out concerningly..."
+label_settings = SubResource("LabelSettings_8ot3o")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]
+unique_name_in_owner = true
+
+[node name="Timer_BeginningOfEnd" type="Timer" parent="." unique_id=1501718245]
+unique_name_in_owner = true
+
+[node name="Timer_BlackoutStart" type="Timer" parent="." unique_id=209892907]
+unique_name_in_owner = true
+
+[node name="Level_Positioner" type="Node3D" parent="." unique_id=624015852]
+transform = Transform3D(5.024, 0, 0, 0, 5.024, 0, 0, 0, 5.024, 29.258, 14.078, -9.39)
+
+[node name="Alarm_SpotLight3D" type="SpotLight3D" parent="Level_Positioner" unique_id=1217570418]
+unique_name_in_owner = true
+transform = Transform3D(0.3469356, 0.5094374, -0.7874701, 1.4680379e-07, -0.8396198, -0.5431745, -0.937889, 0.18844646, -0.29129407, -0.6974, -11.9336, 7.5902)
+visible = false
+light_color = Color(0.13, 0.031200001, 0.06907331, 1)
+light_energy = 16.0
+light_specular = 5.557
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_bias = 5.193
+shadow_normal_bias = 6.621
+shadow_transmittance_bias = -2.042
+spot_range = 115.638
+spot_attenuation = -0.55
+spot_angle = 90.0
+spot_angle_attenuation = 1.7410997
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Level_Positioner" unique_id=416443395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.236, -8.724, 8.198)
+light_color = Color(0.76095, 0.7565, 0.89, 1)
+light_energy = 0.005
+light_specular = 0.605
+light_cull_mask = 4294967293
+omni_range = 65.718
+omni_attenuation = -1.09
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level_Positioner" unique_id=1951496880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6876, 3.8, 0.142)
+light_color = Color(0.76095, 0.7565, 0.89, 1)
+light_energy = 0.005
+light_specular = 0.605
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_bias = 1.08
+shadow_normal_bias = 0.0
+shadow_opacity = 0.66
+distance_fade_enabled = true
+omni_range = 47.242
+omni_attenuation = -1.066
+
+[node name="Plants" type="Node3D" parent="Level_Positioner" unique_id=1456917262]
+
+[node name="plant" parent="Level_Positioner/Plants" unique_id=739273125 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="plant3" parent="Level_Positioner/Plants" unique_id=569198800 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.25)
+
+[node name="plant2" parent="Level_Positioner/Plants" unique_id=415119503 instance=ExtResource("3_pf3u5")]
+
+[node name="plant7" parent="Level_Positioner/Plants" unique_id=504073451 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="plant8" parent="Level_Positioner/Plants" unique_id=288845493 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8.25)
+
+[node name="plant9" parent="Level_Positioner/Plants" unique_id=844813281 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="plant4" parent="Level_Positioner/Plants" unique_id=1501577721 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="plant5" parent="Level_Positioner/Plants" unique_id=1288904375 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8.25)
+
+[node name="plant6" parent="Level_Positioner/Plants" unique_id=937522994 instance=ExtResource("3_pf3u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="cubicles" type="Node3D" parent="Level_Positioner" unique_id=188945757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068, 0)
+
+[node name="cubicle-row" parent="Level_Positioner/cubicles" unique_id=801976881 instance=ExtResource("3_r75xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.426, 0, 1.186)
+
+[node name="cubicle-row2" parent="Level_Positioner/cubicles" unique_id=374814419 instance=ExtResource("3_r75xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42600012, 0, 1.186)
+
+[node name="cubicle-row3" parent="Level_Positioner/cubicles" unique_id=805792227 instance=ExtResource("3_r75xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.574, 0, 1.186)
+
+[node name="cubicle-row4" parent="Level_Positioner/cubicles" unique_id=1729293631 instance=ExtResource("3_r75xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.574, 0, 1.186)
+
+[node name="wall" type="MeshInstance3D" parent="Level_Positioner" unique_id=575438586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2.5, -1.512)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_pf3u5")
+
+[node name="wall2" type="MeshInstance3D" parent="Level_Positioner" unique_id=417569041]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5, 2.5, 3.9499998)
+mesh = SubResource("BoxMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_pf3u5")
+
+[node name="Alarm_Timer" type="Timer" parent="." unique_id=466630555]
+unique_name_in_owner = true
+one_shot = true

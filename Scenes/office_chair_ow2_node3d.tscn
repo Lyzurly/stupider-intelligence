@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dsc4f0kn4ioc8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kqjpo"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.087500006
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6ha6"]
+albedo_color = Color(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7g1cm"]
+size = Vector3(0.05, 0.2, 0.15)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y7hum"]
+top_radius = 0.021484375
+bottom_radius = 0.021484375
+height = 0.164
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pykxc"]
+albedo_color = Color(0.44, 0.44, 0.44, 1)
+
+[node name="chair" type="Node3D" unique_id=662642253]
+
+[node name="Resizer" type="Node3D" parent="." unique_id=1527531083]
+transform = Transform3D(1.386, 0, 0, 0, 1.386, 0, 0, 0, 1.386, 0, 0.45000002, 0)
+
+[node name="seat" type="MeshInstance3D" parent="Resizer" unique_id=583306273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14999998, -0.15625006, 0.005699843)
+mesh = SubResource("CylinderMesh_kqjpo")
+surface_material_override/0 = SubResource("StandardMaterial3D_f6ha6")
+
+[node name="back" type="MeshInstance3D" parent="Resizer" unique_id=1169379711]
+transform = Transform3D(0.98480767, 0.17364818, 0, -0.17364818, 0.98480767, 0, 0, 0, 1, 0.21717644, -0.024620205, 0.005699843)
+mesh = SubResource("BoxMesh_7g1cm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f6ha6")
+
+[node name="pole" type="MeshInstance3D" parent="Resizer" unique_id=331806348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14999998, -0.25, 0.0056999475)
+mesh = SubResource("CylinderMesh_y7hum")
+
+[node name="bottom1" type="MeshInstance3D" parent="Resizer" unique_id=1223014562]
+transform = Transform3D(0.46386203, 0.46386203, 2.0276055e-08, 0, -2.8674672e-08, 0.656, 0.46386203, -0.46386203, -2.0276055e-08, 0.118467204, -0.31526765, 0.049577296)
+mesh = SubResource("CylinderMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pykxc")
+
+[node name="bottom2" type="MeshInstance3D" parent="Resizer" unique_id=654493504]
+transform = Transform3D(-2.8674672e-08, -0.656, -2.8674672e-08, 0, -2.8674672e-08, 0.656, -0.656, 2.8674672e-08, 1.2534097e-15, 0.22104298, -0.31526765, -0.00042262673)
+mesh = SubResource("CylinderMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pykxc")
+
+[node name="bottom3" type="MeshInstance3D" parent="Resizer" unique_id=169288627]
+transform = Transform3D(-0.56811273, -0.32799995, -1.4337334e-08, 0, -2.8674672e-08, 0.656, -0.32799995, 0.56811273, 2.4832996e-08, 0.18998969, -0.31526765, -0.054091036)
+mesh = SubResource("CylinderMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pykxc")
+
+[node name="bottom4" type="MeshInstance3D" parent="Resizer" unique_id=2139259964]
+transform = Transform3D(0.46386203, -0.46386212, -2.0276058e-08, 1.0091709e-15, -2.8674673e-08, 0.6560001, -0.46386212, -0.46386203, -2.0276053e-08, 0.18577802, -0.31526765, 0.04986687)
+mesh = SubResource("CylinderMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pykxc")
+
+[node name="bottom5" type="MeshInstance3D" parent="Resizer" unique_id=1016379024]
+transform = Transform3D(-0.46386203, 0.4638621, 2.0276056e-08, -6.3879826e-16, -2.8674673e-08, 0.6560001, 0.4638621, 0.46386203, 2.0276058e-08, 0.10683906, -0.31526765, -0.04332234)
+mesh = SubResource("CylinderMesh_y7hum")
+surface_material_override/0 = SubResource("StandardMaterial3D_pykxc")

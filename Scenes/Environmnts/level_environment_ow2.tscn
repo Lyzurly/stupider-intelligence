@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://d1jwibgil1eeh"]
+
+[ext_resource type="Script" uid="uid://l1ax3jmynje0" path="res://Scripts/level_environment_ow1.gd" id="1_mwq6s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4kqn6"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.57, 0.57, 0.57, 1)
+ground_bottom_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
+ground_horizon_color = Color(0.66, 0.66, 0.66, 1)
+
+[sub_resource type="Sky" id="Sky_jtdjp"]
+sky_material = SubResource("ProceduralSkyMaterial_4kqn6")
+
+[sub_resource type="Environment" id="Environment_k1c8l"]
+background_mode = 2
+background_energy_multiplier = 0.22
+sky = SubResource("Sky_jtdjp")
+adjustment_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3xgss"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4p5n1"]
+size = Vector3(138.66504, 0.001, 130.77637)
+
+[sub_resource type="Gradient" id="Gradient_vmg45"]
+offsets = PackedFloat32Array(0.38075313, 1)
+colors = PackedColorArray(0.38928676, 0.3892867, 0.38928592, 1, 0.53, 0.53, 0.53, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xbk0j"]
+noise_type = 2
+frequency = 0.1879
+fractal_octaves = 1
+cellular_distance_function = 2
+cellular_jitter = 0.0
+cellular_return_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_unt1n"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_xbk0j")
+color_ramp = SubResource("Gradient_vmg45")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf3u5"]
+albedo_texture = SubResource("NoiseTexture2D_unt1n")
+
+[node name="Level_Environment_2_Node3D" type="Node3D" unique_id=68497433]
+script = ExtResource("1_mwq6s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=583738365]
+environment = SubResource("Environment_k1c8l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1546860116]
+transform = Transform3D(-0.8660254, -0.4330128, 0.25000003, 0, 0.49999997, 0.86602545, -0.5000001, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.46314198, 0.46430194, 0.55964607, 1)
+light_energy = 1.126
+light_cull_mask = 4294966273
+shadow_enabled = true
+
+[node name="Ground_StaticBody3D" type="StaticBody3D" parent="." unique_id=1066297917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.482, 0)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground_StaticBody3D" unique_id=1185631467]
+shape = SubResource("WorldBoundaryShape3D_3xgss")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground_StaticBody3D" unique_id=682070093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+mesh = SubResource("BoxMesh_4p5n1")
+surface_material_override/0 = SubResource("StandardMaterial3D_pf3u5")
