@@ -35,7 +35,7 @@ func _ready_instance() -> void:
 	_ready_connections()
 
 func _ready_connections() -> void:
-	Manage_Input.ref.skip_pressed.connect(_on_skip_pressed)
+	Manage_Input.ref.skip_begun.connect(_on_skip_pressed)
 
 func _my_type() -> LEVEL_TYPES:
 	return LEVEL_TYPES.CINEMATIC

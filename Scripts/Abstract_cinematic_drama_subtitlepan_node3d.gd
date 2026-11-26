@@ -29,8 +29,6 @@ var _blackout_start_time: float
 @abstract func _on_cinematic_end() -> void
 @abstract func _ready_instance() -> void
 
-var _skip_in_progress: bool = false
-
 func _ready() -> void:
 	_ready_connections()
 	_ready_subtitles()
@@ -41,6 +39,11 @@ func _ready_connections() -> void:
 	_timer_overall_length.timeout.connect(_on_length_timeout)
 	_timer_beginning_of_end.timeout.connect(_on_beginning_of_end_timeout)
 	_timer_blackout_start.timeout.connect(_on_blackout_start_timeout)
+	
+	Manage_Input.ref.skip_begun.connect(_on_skip_begun)
+	Manage_Input.ref.skip_confirmed.connect(_on_skip_confirmed)
+	Manage_Input.ref.skip_cancelled.connect(_on_skip_cancelled)
+	
 
 func _ready_subtitles() -> void:
 	_subtitle_top.modulate.a = 0.
@@ -55,24 +58,27 @@ func _ready_timers() -> void:
 	var blackout_start_length = _my_length() * _BLACKOUT_START_DESCALAR
 	_blackout_start_time = _overall_length - blackout_start_length
 	
-func _physics_process(_delta: float) -> void:
-	_physicis_process_check_for_skip()
+func _on_skip_begun() -> void:
+	print("Skip begun during ", self)
+	Manage_Input.ref.show_skip_info(_label_skip)
+	_label_skip.visible = true
 
-func _physicis_process_check_for_skip() -> void:
-	if not Manage_Cinematics.ref.get_skip_desirability() \
-	and not _skip_in_progress:
-		return
-	_skip_in_progress = true
+func _on_skip_confirmed() -> void:
+	print("Skip confirmed during ", self)
 	var _blackout_skip_timer: Timer = Timer.new()
 	_blackout_skip_timer.timeout.connect(
 		_on_blackout_skip_timeout)
 	_blackout_skip_timer.one_shot = true
+	add_child(_blackout_skip_timer)
 	_blackout_visibility(true)
 	_blackout_skip_timer.start(_BLACKOUT_FADE_SPEED)
 	Manage_Cinematics.ref.reset_skip_desirability()
 
-func _on_blackout_skip_timeout() -> void:
+func _on_skip_cancelled() -> void:
+	print("Skip cancelled during ", self)
+	_label_skip.visible = false
 	
+func _on_blackout_skip_timeout() -> void:
 	_stop(true)
 	
 

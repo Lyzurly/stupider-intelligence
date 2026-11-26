@@ -25,6 +25,9 @@
 
 [node name="Manage_MenuBehavior" parent="." unique_id=1034232471 instance=ExtResource("4_2ishb")]
 
+[node name="Manage_Input" type="Node" parent="." unique_id=915318384]
+script = ExtResource("16_6vi18")
+
 [node name="Manage_Menus" type="Node" parent="." unique_id=1624568645]
 script = ExtResource("2_88c7l")
 
@@ -66,9 +69,6 @@ script = ExtResource("14_rsxx7")
 
 [node name="Manage_Environment" type="Node" parent="." unique_id=2077755892]
 script = ExtResource("16_xr8cv")
-
-[node name="Manage_Input" type="Node" parent="." unique_id=915318384]
-script = ExtResource("16_6vi18")
 
 [node name="Manage_Instantiation" type="Node" parent="." unique_id=1520666065]
 script = ExtResource("17_6vi18")

@@ -28,6 +28,17 @@ stacked_shadow_0/offset = Vector2(4.518, 3.448)
 stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
 stacked_shadow_0/outline_size = 18
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ot3o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [node name="Cinematic_1" type="Node3D" unique_id=1677114923]
 script = ExtResource("1_qmwsb")
 
@@ -91,9 +102,11 @@ theme_override_constants/margin_top = 47
 
 [node name="Label_Skip" type="Label" parent="Cinematic_CanvasLayer/MarginContainer2" unique_id=1107797142]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/outline_size = 44
 theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ot3o")
 text = "Hold to skip in ... "
 
 [node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]

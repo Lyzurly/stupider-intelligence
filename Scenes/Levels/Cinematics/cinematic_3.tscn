@@ -28,6 +28,17 @@ stacked_shadow_0/offset = Vector2(4.518, 3.448)
 stacked_shadow_0/color = Color(0.28235295, 0.101960786, 0.16470589, 1)
 stacked_shadow_0/outline_size = 18
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n2np"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [node name="Cinematic_4" type="Node3D" unique_id=1677114923]
 script = ExtResource("1_wpmav")
 
@@ -78,6 +89,25 @@ text = "stretched out concerningly..."
 label_settings = SubResource("LabelSettings_8ot3o")
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Cinematic_CanvasLayer" unique_id=93698149]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_right = 130.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 47
+
+[node name="Label_Skip" type="Label" parent="Cinematic_CanvasLayer/MarginContainer2" unique_id=83934588]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 44
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_4n2np")
+text = "Hold to skip in ... "
 
 [node name="Timer_OverallLength" type="Timer" parent="." unique_id=109061490]
 unique_name_in_owner = true

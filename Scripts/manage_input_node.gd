@@ -3,9 +3,12 @@ static var ref: Manage_Input
 func _init() -> void:
 	ref = self
 	
-signal skip_pressed
+signal skip_begun
+signal skip_confirmed
+signal skip_cancelled
 	
 var _input_dir: Vector2
+var _skip_label: Label
 
 #region "Camera" rotation ======================
 const _ROT_MIN: float = -45.
@@ -15,14 +18,25 @@ var _rot_amount: float = 0. # dir represented by lerp b/n -1 to 1
 
 var _holding_skip: bool = false
 var _hold_skip_progress: float = 0.
+const _SKIP_HOLD_LENGTH: float = 4.
 
 func _physics_process(delta: float) -> void:
 	if _holding_skip:
 		_hold_skip_progress += delta
-		if _hold_skip_progress >= 4.:
-			skip_pressed.emit()
+		var progress_countdown: float = \
+			_SKIP_HOLD_LENGTH - _hold_skip_progress
+		
+		var skip_countdown: String = "%1.1f" % progress_countdown
+		if _skip_label:
+			_skip_label.text = "Hold to skip in ... " + skip_countdown
+			
+		if _hold_skip_progress >= _SKIP_HOLD_LENGTH:
+			print("Skip confirmed! (Text was on label ",_skip_label,")")
+			skip_confirmed.emit()
+			_skip_label.text = "Skip in progress..."
 			_hold_skip_progress = 0.
 			_holding_skip = false
+			_skip_label = null
 			
 func _input(event: InputEvent) -> void:
 	_input_pressed_key(event)
@@ -45,7 +59,17 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Skip") \
 	and Manage_Game.ref.is_state(
 	Manage_Game.STATES.CINEMATIC):
+		print("Skip initiated!")
+		skip_begun.emit()
 		_holding_skip = true
+	
+	if Input.is_action_just_released("Skip") \
+	and _holding_skip:
+		print("Skip cancelled! (Text was on label ",_skip_label,")")
+		skip_cancelled.emit()
+		_hold_skip_progress = 0.
+		_holding_skip = false
+		_skip_label = null
 
 
 #region Handle debug keys ==========================
@@ -89,7 +113,12 @@ func _handle_pause() -> void:
 			Manage_Menus.STATES.PAUSE)
 #endregion -----------------------------------------
 
-#region Skip 
+#region Cinematics ========================
+func show_skip_info(on_what:Label) -> void:
+	print("Skip info will show on ",_skip_label)
+	_skip_label = on_what
+	
+#endregion --------------------------------
 
 #region Ability: Programming =======================
 func _can_place_arrow() -> bool:
