@@ -29,6 +29,10 @@ var _data: Dictionary[CINEMATICS,Dictionary] = {
 		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://bcswdbeeh35ij"),
 		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://d1jwibgil1eeh")
 	},
+	CINEMATICS.CINEMATIC_5:{
+		Manage_Level.LEVEL_CONTENT.SCENE: preload("uid://coojjhi58ramq"),
+		Manage_Level.LEVEL_CONTENT.ENVIRONMENT: preload("uid://c2ifkl0ktxr37")
+	},
 }
 
 func _ready_instance() -> void:

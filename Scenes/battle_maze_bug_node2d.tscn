@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cevx82gkebuhn"]
+
+[ext_resource type="Texture2D" uid="uid://hy8kafyialon" path="res://Images/bug-small.png" id="1_goqsw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjpo"]
+size = Vector2(48, 48)
+
+[node name="BattleMaze_Wall" type="Node2D" unique_id=1817510438]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=133553678]
+texture = ExtResource("1_goqsw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564805507]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039110548]
+shape = SubResource("RectangleShape2D_kqjpo")

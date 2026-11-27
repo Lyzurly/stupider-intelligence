@@ -1,13 +1,15 @@
 extends Cinematic_DramaSubtitlePan
 
+@onready var _bug_animations: AnimationPlayer = %Bug_AnimationPlayer
+
 func _ready_instance() -> void:
-	pass
+	_bug_animations.play("swarm")
 	
 func _my_length() -> float:
-	return 60000.
+	return 14.
 
 func _my_top_subtitle_text() -> String:
-	return "But now... They threaten everything"
+	return "But now, they threaten everything"
 func _my_bottom_subtitle_text() -> String:
 	return "that we have accomplished..."
 

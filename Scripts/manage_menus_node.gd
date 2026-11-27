@@ -92,6 +92,10 @@ func _on_main() -> void:
 func _check_create_party() -> bool:
 	return true
 func _on_create_party() -> void:
+	#NOTE This code is good for testing cinematics :)
+	#Manage_Game.ref.change_state(
+		#Manage_Game.STATES.CINEMATIC)
+	#return
 	Manage_MenuBehavior.ref.create_new_menu(
 		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_TITLE,
 		Manage_MenuBehavior.ROW_SCENES.CREATE_PARTY_ROW1,

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://oxmy4wk7so0f"]
+
+[ext_resource type="Texture2D" uid="uid://bj5l48bdes0q" path="res://Images/bug.png" id="1_af35q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjerq"]
+transparency = 1
+albedo_texture = ExtResource("1_af35q")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y7hum"]
+lightmap_size_hint = Vector2i(27, 27)
+material = SubResource("StandardMaterial3D_bjerq")
+size = Vector2(5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_af35q"]
+lightmap_size_hint = Vector2i(27, 27)
+material = SubResource("StandardMaterial3D_bjerq")
+flip_faces = true
+size = Vector2(5, 5)
+
+[node name="Bug-Big_Node3D" type="Node3D" unique_id=904060464]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1857350321]
+mesh = SubResource("PlaneMesh_y7hum")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=96174524]
+mesh = SubResource("PlaneMesh_af35q")
